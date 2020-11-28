@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require './flutter'
+require_relative './flutter'
 flutter_rb = FlutterRb::FlutterRb.new
 
-flutter_rb.start
+flutter_rb.start(Dir.pwd)
