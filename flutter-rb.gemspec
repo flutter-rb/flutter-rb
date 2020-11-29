@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '2.7.0'
 
   s.name = 'flutter-rb'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
 
   s.license = 'MIT'
   s.summary = 'A Ruby tool for checking a Flutter plugin structure'
