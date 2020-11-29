@@ -19,11 +19,13 @@ module FlutterRb
       project = ProjectParser.new(path).project
       if project.nil?
         puts 'No project'
+        puts -1
       else
         result = @@checks.map { |check| check.check(project) }.select { |report| 
           report.check_report_status != CheckReportStatus::NORMAL
         }
         result.each { |report| puts report.print }
+        result.empty? ? 0 : -1
       end
     end
   end
