@@ -1,3 +1,4 @@
+require_relative './flutter-rb/project/project_parser'
 require_relative './flutter-rb/checks/plugin_directories_check'
 require_relative './flutter-rb/checks/plugin_pubspec_check'
 require_relative './flutter-rb/report/check_report_status'
@@ -7,14 +8,23 @@ module FlutterRb
   class FlutterRb
     @@checks = [
       PluginDirectoriesCheck.new,
-      PluginPubspecCheck.new
+      PluginPubspecNameCheck.new,
+      PluginPubspecDescriptionCheck.new,
+      PluginPubspecVersionCheck.new,
+      PluginPubspecAuthorCheck.new,
+      PluginPubspecHomepageCheck.new
     ]
 
     def start(path)
-      result = @@checks.map { |check| check.check(path) }.select { |report| 
-        report.check_report_status != CheckReportStatus::NORMAL
-      }
-      result.each { |report| puts report.print }
+      project = ProjectParser.new(path).project
+      if project.nil?
+        puts 'No project'
+      else
+        result = @@checks.map { |check| check.check(project) }.select { |report| 
+          report.check_report_status != CheckReportStatus::NORMAL
+        }
+        result.each { |report| puts report.print }
+      end
     end
   end
 end

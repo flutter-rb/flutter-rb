@@ -9,20 +9,19 @@ module FlutterRb
       'PluginDirectoriesCheck'
     end
 
-    def info
+    def summary
       'Validate Flutter plugin structure'
     end
 
-    def check(plugin_root)
-      android_exists = File.exist?("#{plugin_root}/android")
-      ios_exists = File.exist?("#{plugin_root}/ios")
+    def check(project)
+      android_exists = project.android_folder.exists
+      ios_exists = project.ios_folder.exists
 
       check_result = android_exists && ios_exists || !android_exists && !ios_exists
-      check_report_status = check_result ? CheckReportStatus::NORMAL : CheckReportStatus::ERROR
       CheckReport.new(
         name,
-        check_report_status,
-        'No provided'
+        check_result ? CheckReportStatus::NORMAL : CheckReportStatus::ERROR,
+        description
       )
     end
   end

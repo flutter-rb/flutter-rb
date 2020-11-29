@@ -7,8 +7,12 @@ module FlutterRb
       raise UNIMPLEMENTATION_ERROR
     end
 
-    def info
+    def summary
       raise UNIMPLEMENTATION_ERROR
+    end
+
+    def description
+      'No provided'
     end
 
     def check

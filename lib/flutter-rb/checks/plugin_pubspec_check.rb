@@ -7,28 +7,66 @@ require 'yaml'
 module FlutterRb
   class PluginPubspecCheck < Check
     def name
-      'PluginPubspecCheck'
+      "PluginPubspec#{pubspec_parameter.capitalize}Check"
     end
 
-    def info
-      'Validate Flutter plugin pubspec.yaml config'
+    def pubspec_parameter
+      UNIMPLEMENTATION_ERROR
     end
 
-    def check(plugin_root)
-      pubspec = YAML.load_file("#{plugin_root}/pubspec.yaml").inspect
+    def summary
+      "Validate Flutter plugin's #{pubspec_parameter} in pubspec.yaml"
+    end
+
+    def check(project)
+      pubspec = project.pubspec
       CheckReport.new(
         name,
-        errors?(pubspec) ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
-        'No provided'
+        pubspec[pubspec_parameter].nil? ? not_normal_status : CheckReportStatus::NORMAL,
+        description
       )
     end
+  end
 
-    def errors?(pubspec)
-      pubspec['name'].nil? ||
-        pubspec['description'].nil? ||
-        pubspec['version'].nil? ||
-        pubspec['author'].nil? ||
-        pubspec['homepage'].nil?
+  class PluginPubspecWarningCheck < PluginPubspecCheck
+    def not_normal_status
+      CheckReportStatus::WARNING
+    end
+  end
+
+  class PluginPubspecErrorCheck < PluginPubspecCheck
+    def not_normal_status
+      CheckReportStatus::ERROR
+    end
+  end
+
+  class PluginPubspecNameCheck < PluginPubspecErrorCheck
+    def pubspec_parameter
+      'name'
+    end
+  end
+
+  class PluginPubspecDescriptionCheck < PluginPubspecWarningCheck
+    def pubspec_parameter
+      'description'
+    end
+  end
+
+  class PluginPubspecVersionCheck < PluginPubspecErrorCheck
+    def pubspec_parameter
+      'version'
+    end
+  end
+
+  class PluginPubspecAuthorCheck < PluginPubspecWarningCheck
+    def pubspec_parameter
+      'author'
+    end
+  end
+
+  class PluginPubspecHomepageCheck < PluginPubspecErrorCheck
+    def pubspec_parameter
+      'homepage'
     end
   end
 end
