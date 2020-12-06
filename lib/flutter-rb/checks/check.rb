@@ -1,7 +1,7 @@
 module FlutterRb
   # Base class for all checks
   class Check
-    UNIMPLEMENTATION_ERROR = 'Error: method missing'
+    UNIMPLEMENTATION_ERROR = 'Error: method missing'.freeze
 
     def name
       raise UNIMPLEMENTATION_ERROR

@@ -24,6 +24,8 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/NilLambda:
   Enabled: true
+Style/RedundantArgument:
+  Enabled: true
 
 Lint/DuplicateRegexpCharacterClassElement:
   Enabled: true

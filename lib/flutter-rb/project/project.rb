@@ -1,4 +1,5 @@
 module FlutterRb
+  # Project representation
   class Project
     def initialize(pubspec, android_folder, ios_folder)
       @pubspec = pubspec
