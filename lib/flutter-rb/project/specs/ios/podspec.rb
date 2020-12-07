@@ -1,20 +1,34 @@
+require 'cocoapods'
+
 module FlutterRb
   # Podspec representation
   class Podspec
     def initialize(
       name,
       version,
-      summary,
-      homepage,
-      author
+      source
     )
       @name = name
-      @version = version.version
-      @summary = summary
-      @homepage = homepage
-      @author = author.nil? ? nil : author.first.first
+      @version = version
+      @source = source
     end
 
-    attr_reader :name, :version, :summary, :homepage, :author
+    attr_reader :name, :version, :source
+  end
+
+  # Podspec parser
+  class PodspecParser
+    def initialize(path)
+      @path = path
+    end
+
+    def parse
+      podspec = Pod::Specification.from_file(@path)
+      @podspec = Podspec.new(
+        podspec.name,
+        podspec.version.version,
+        podspec.source
+      )
+    end
   end
 end

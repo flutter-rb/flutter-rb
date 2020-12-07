@@ -51,52 +51,16 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's version in podspec file
-  class PluginPodspecSummaryCheck < PluginPodspecCheck
+  # Check Flutter plugin's source in podspec file
+  class PluginPodspecSourceCheck < PluginPodspecCheck
     def podspec_parameter
-      'summary'
+      'source'
     end
 
     def check(project)
-      description_in_pubspec = project.pubspec.pubspec_info.description
-      summary_in_podspec = project.ios_folder.podspec.summary
       CheckReport.new(
         name,
-        description_in_pubspec == summary_in_podspec ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
-        description
-      )
-    end
-  end
-
-  # Check Flutter plugin's version in podspec file
-  class PluginPodspecHomepageCheck < PluginPodspecCheck
-    def podspec_parameter
-      'homepage'
-    end
-
-    def check(project)
-      homepage_in_pubspec = project.pubspec.pubspec_info.homepage
-      homepage_in_podspec = project.ios_folder.podspec.homepage
-      CheckReport.new(
-        name,
-        homepage_in_pubspec == homepage_in_podspec ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
-        description
-      )
-    end
-  end
-
-  # Check Flutter plugin's author in podspec file
-  class PluginPodspecAuthorCheck < PluginPodspecCheck
-    def podspec_parameter
-      'author'
-    end
-
-    def check(project)
-      author_in_pubspec = project.pubspec.pubspec_info.author
-      author_in_podspec = project.ios_folder.podspec.author
-      CheckReport.new(
-        name,
-        author_in_pubspec == author_in_podspec ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
+        project.ios_folder.podspec.source.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
         description
       )
     end

@@ -1,10 +1,12 @@
+require_relative './gradle'
+
 module FlutterRb
   # Android project representation
   class AndroidFolder
-    def initialize(gradle_config)
-      @gradle_config = gradle_config
+    def initialize(path)
+      @gradle = GradleParser.new("#{path}/build.gradle").parse
     end
 
-    attr_reader :gradle_config
+    attr_reader :gradle
   end
 end

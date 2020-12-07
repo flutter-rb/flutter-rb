@@ -1,6 +1,7 @@
 require_relative './flutter-rb/project/project_parser'
 require_relative './flutter-rb/checks/plugin_directories_check'
 require_relative './flutter-rb/checks/plugin_pubspec_check'
+require_relative './flutter-rb/checks/plugin_gradle_check'
 require_relative './flutter-rb/checks/plugin_podspec_check'
 
 module FlutterRb
@@ -17,12 +18,14 @@ module FlutterRb
       PluginPubspecEffectiveDartCheck.new
     ].freeze
 
+    ANDROID_CHECKS = [
+      PluginGradleVersionCheck.new
+    ].freeze
+
     IOS_CHECKS = [
       PluginPodspecNameCheck.new,
       PluginPodspecVersionCheck.new,
-      PluginPubspecDescriptionCheck.new,
-      PluginPodspecHomepageCheck.new,
-      PluginPodspecAuthorCheck.new
+      PluginPodspecSourceCheck.new
     ].freeze
 
     def start(path)
@@ -38,6 +41,7 @@ module FlutterRb
     def check_project(project)
       result = []
       result += flutter_checks(project)
+      result += android_checks(project)
       result += ios_checks(project)
       result.each { |report| puts report.print }
       exit(result.empty? ? 0 : -1)
@@ -46,6 +50,16 @@ module FlutterRb
     def flutter_checks(project)
       FlutterRb::FLUTTER_CHECKS.map { |check| check.check(project) }.reject do |report|
         report.check_report_status == CheckReportStatus::NORMAL
+      end
+    end
+
+    def android_checks(project)
+      if project.android_folder.nil?
+        []
+      else
+        FlutterRb::ANDROID_CHECKS.map { |check| check.check(project) }.reject do |report|
+          report.check_report_status == CheckReportStatus::NORMAL
+        end
       end
     end
 
