@@ -37,9 +37,9 @@ A Ruby tool for checking a Flutter plugin structure.
 
 | Check | Description | Level |
 | --- | --- | --- |
-| `PluginPodspecNameCheck` | Soon | `ERROR` |
-| `PluginPodspecVersionCheck` | Soon | `ERROR` |
-| `PluginPodspecSourceCheck` | Soon | `WARNING` |
+| `PluginPodspecNameCheck` | Soon | `WARNING` |
+| `PluginPodspecVersionCheck` | Soon | `WARNING` |
+| `PluginPodspecSourceCheck` | Soon | `ERROR` |
 
 ## How to use
 
