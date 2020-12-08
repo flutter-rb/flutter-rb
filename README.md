@@ -20,26 +20,27 @@ A Ruby tool for checking a Flutter plugin structure.
 
 | Check | Description | Level |
 | --- | --- | --- |
-| `PluginDirectoriesCheck` | Soon | `ERROR` |
-| `PluginPubspecNameCheck` | Soon | `ERROR` |
-| `PluginPubspecDescriptionCheck` | Soon | `WARNING` |
-| `PluginPubspecVersionCheck` | Soon | `ERROR` |
-| `PluginPubspecAuthorCheck` | Soon | `WARNING` |
-| `PluginPubspecHomepageCheck` | Soon | `ERROR` |
+| `PluginDirectoriesCheck` | Check plugin directories structure in pubspec file. Example: if a Flutter plugin has only Android specific code but not contains iOS folder with description, then iOS build fails | `ERROR` |
+| `PluginPubspecNameCheck` | Check plugin name in pubspec file. Exists or not | `ERROR` |
+| `PluginPubspecDescriptionCheck` | Check plugin description in pubspec file. Exists or not | `WARNING` |
+| `PluginPubspecVersionCheck` | Check plugin version in pubspec. Exists or not | `ERROR` |
+| `PluginPubspecAuthorCheck` | Check plugin author in pubspec. Exists or not | `WARNING` |
+| `PluginPubspecHomepageCheck` | Check plugin homepage in pubspec. Exists or not | `ERROR` |
+| `PluginPubspecEffectiveDartCheck` | Check Flutter plugin Effective Dart depencency in pubspec file. Exists or not | `ERROR` |
 
 #### Android
 
 | Check | Description | Level |
 | --- | --- | --- |
-| `PluginGradleVersionCheck` | Soon | `WARNING` |
+| `PluginGradleVersionCheck` | Check plugin version in Gradle project config (build.gradle file). Version must be the same as plugin version in pubspec.yaml | `WARNING` |
 
 #### iOS
 
 | Check | Description | Level |
 | --- | --- | --- |
-| `PluginPodspecNameCheck` | Soon | `WARNING` |
-| `PluginPodspecVersionCheck` | Soon | `WARNING` |
-| `PluginPodspecSourceCheck` | Soon | `ERROR` |
+| `PluginPodspecNameCheck` | Check plugin name in podspec file. Exists or not | `WARNING` |
+| `PluginPodspecVersionCheck` | Check plugin version in podspec file. Exists or not | `WARNING` |
+| `PluginPodspecSourceCheck` | Check plugin iOS source path in podspec file. If Flutter plugin cannot contains iOS specific code, source path must be `'.'` | `ERROR` |
 
 ## How to use
 

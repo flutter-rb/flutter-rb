@@ -2,7 +2,7 @@ require_relative 'check'
 require_relative '../report/check_report'
 
 module FlutterRb
-  # Base class for all info parameters in Flutter plugin's podspec file
+  # Base class for all info parameters in Flutter plugin podspec file
   class PluginPodspecCheck < Check
     def name
       "PluginPodspec#{podspec_parameter.capitalize}Check"
@@ -17,7 +17,7 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's name in podspec file
+  # Check Flutter plugin name in podspec file. Exists or not
   class PluginPodspecNameCheck < PluginPodspecCheck
     def podspec_parameter
       'name'
@@ -34,7 +34,7 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's version in podspec file
+  # Check Flutter plugin version in podspec file. Exists or not
   class PluginPodspecVersionCheck < PluginPodspecCheck
     def podspec_parameter
       'version'
@@ -51,7 +51,8 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's source in podspec file
+  # Check plugin iOS source path in podspec file.
+  # If Flutter plugin cannot contains iOS specific code, source path must be '.'
   class PluginPodspecSourceCheck < PluginPodspecCheck
     def podspec_parameter
       'source'

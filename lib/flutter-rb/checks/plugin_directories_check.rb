@@ -2,7 +2,9 @@ require_relative 'check'
 require_relative '../report/check_report'
 
 module FlutterRb
-  # Check Flutter plugin's structure validation
+  # Check plugin directories structure.
+  # Example: if a Flutter plugin has only Android specific code
+  # but not contains iOS folder with description, then iOS build fails
   class PluginDirectoriesCheck < Check
     def name
       'PluginDirectoriesCheck'

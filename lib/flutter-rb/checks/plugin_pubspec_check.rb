@@ -2,7 +2,7 @@ require_relative 'check'
 require_relative '../report/check_report'
 
 module FlutterRb
-  # Base class for all info parameters in Flutter plugin's pubspec.yaml file
+  # Base class for all info parameters in Flutter plugin pubspec.yaml file
   class PluginPubspecCheck < Check
     def name
       "PluginPubspec#{pubspec_parameter.capitalize}Check"
@@ -17,7 +17,7 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's name
+  # Check Flutter plugin name in podspec file. Exists or not
   class PluginPubspecNameCheck < PluginPubspecCheck
     def pubspec_parameter
       'name'
@@ -33,7 +33,7 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's description
+  # Check Flutter plugin description in pubspec file. Exists or not
   class PluginPubspecDescriptionCheck < PluginPubspecCheck
     def pubspec_parameter
       'description'
@@ -49,7 +49,7 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's version
+  # Check Flutter plugin version in pubspec file. Exists or not
   class PluginPubspecVersionCheck < PluginPubspecCheck
     def pubspec_parameter
       'version'
@@ -65,7 +65,7 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's author
+  # Check Flutter plugin author in pubspec file. Exists or not
   class PluginPubspecAuthorCheck < PluginPubspecCheck
     def pubspec_parameter
       'author'
@@ -81,7 +81,7 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's homepage
+  # Check Flutter plugin homepage in pubspec file. Exists or not
   class PluginPubspecHomepageCheck < PluginPubspecCheck
     def pubspec_parameter
       'homepage'
@@ -97,7 +97,7 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin's Effective Dart depencency
+  # Check Flutter plugin Effective Dart depencency in pubspec file. Exists or not
   class PluginPubspecEffectiveDartCheck < Check
     def name
       'PluginPubspecEffectiveDartCheck'

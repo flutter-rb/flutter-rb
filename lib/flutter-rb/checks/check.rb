@@ -1,5 +1,7 @@
 module FlutterRb
   # Base class for all checks
+  # Class provides default methods structure
+  # All methods using for create reports
   class Check
     UNIMPLEMENTATION_ERROR = 'Error: method missing'.freeze
 

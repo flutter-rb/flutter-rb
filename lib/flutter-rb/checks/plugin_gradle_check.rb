@@ -2,7 +2,7 @@ require_relative './check'
 require_relative '../report/check_report'
 
 module FlutterRb
-  # Check Flutter plugin's version in build.gradle file
+  # Check Flutter plugin version in Gradle project config (build.gradle file)
   class PluginGradleVersionCheck < Check
     def name
       'PluginGradleVersionCheck'
