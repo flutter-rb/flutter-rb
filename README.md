@@ -32,7 +32,7 @@ A Ruby tool for checking a Flutter plugin structure.
 
 | Check | Description | Level |
 | --- | --- | --- |
-| `PluginGradleVersionCheck` | Check plugin version in Gradle project config (build.gradle file). Version must be the same as plugin version in pubspec.yaml | `WARNING` |
+| `PluginGradleVersionCheck` | Check plugin version in Gradle project config (build.gradle file). Version must be the same as plugin version in pubspec file | `WARNING` |
 
 #### iOS
 
