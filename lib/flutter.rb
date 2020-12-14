@@ -47,28 +47,37 @@ module FlutterRb
       exit(result.empty? ? 0 : -1)
     end
 
-    def flutter_checks(project)
-      FlutterRb::FLUTTER_CHECKS.map { |check| check.check(project) }.reject do |report|
-        report.check_report_status == CheckReportStatus::NORMAL
+    def flutter_checks(project, exclude_normal: false)
+      reports = FlutterRb::FLUTTER_CHECKS.map { |check| check.check(project) }
+      if exclude_normal
+        reports.reject { |report| report.check_report_status == CheckReportStatus::NORMAL }
+      else
+        reports
       end
     end
 
-    def android_checks(project)
+    def android_checks(project, exclude_normal: false)
       if project.android_folder.nil?
         []
       else
-        FlutterRb::ANDROID_CHECKS.map { |check| check.check(project) }.reject do |report|
-          report.check_report_status == CheckReportStatus::NORMAL
+        reports = FlutterRb::ANDROID_CHECKS.map { |check| check.check(project) }
+        if exclude_normal
+          reports.reject { |report| report.check_report_status == CheckReportStatus::NORMAL }
+        else
+          reports
         end
       end
     end
 
-    def ios_checks(project)
+    def ios_checks(project, exclude_normal: false)
       if project.ios_folder.nil?
         []
       else
-        FlutterRb::IOS_CHECKS.map { |check| check.check(project) }.reject do |report|
-          report.check_report_status == CheckReportStatus::NORMAL
+        reports = FlutterRb::IOS_CHECKS.map { |check| check.check(project) }
+        if exclude_normal
+          reports.reject { |report| report.check_report_status == CheckReportStatus::NORMAL }
+        else
+          reports
         end
       end
     end
