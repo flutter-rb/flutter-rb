@@ -75,7 +75,7 @@ module FlutterRb
       pubspec = project.pubspec
       CheckReport.new(
         name,
-        pubspec.pubspec_info.author.nil? ? CheckReportStatus::WARNING : CheckReportStatus::NORMAL,
+        pubspec.pubspec_info.author.nil? ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
         description
       )
     end

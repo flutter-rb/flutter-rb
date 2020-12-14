@@ -24,7 +24,7 @@ A Ruby tool for checking a Flutter plugin structure.
 | `PluginPubspecNameCheck` | Check plugin name in pubspec file. Exists or not | `ERROR` |
 | `PluginPubspecDescriptionCheck` | Check plugin description in pubspec file. Exists or not | `WARNING` |
 | `PluginPubspecVersionCheck` | Check plugin version in pubspec. Exists or not | `ERROR` |
-| `PluginPubspecAuthorCheck` | Check plugin author in pubspec. Exists or not | `WARNING` |
+| `PluginPubspecAuthorCheck` | Check plugin author in pubspec. Exists or not. `author` section deprecated in `pubspec.yaml` | `WARNING` |
 | `PluginPubspecHomepageCheck` | Check plugin homepage in pubspec. Exists or not | `ERROR` |
 | `PluginPubspecEffectiveDartCheck` | Check Flutter plugin Effective Dart depencency in pubspec file. Exists or not | `ERROR` |
 
