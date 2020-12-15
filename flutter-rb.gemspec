@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['README.md']
   s.add_development_dependency 'cocoapods', '1.10.0'
   s.add_development_dependency 'colorize', '0.8.1'
+  s.add_development_dependency 'minitest', '5.14.0'
   s.add_development_dependency 'rake', '12.3.3'
   s.add_development_dependency 'rubocop', '1.4.2'
 end
