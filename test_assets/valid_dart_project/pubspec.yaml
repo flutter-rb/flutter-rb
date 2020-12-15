@@ -1,0 +1,7 @@
+name: test_project
+description: Test project
+version: 1.0.0
+homepage: https://github.com/fartem/flutter-rb/tree/master/test_assets/valid_dart_project
+
+dev_dependencies:
+  dart_enum_to_string_check: ^0.6.2
