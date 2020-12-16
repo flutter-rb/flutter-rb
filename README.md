@@ -1,6 +1,7 @@
 # Flutter-Rb
 
 [![GitHubActions](https://github.com/fartem/flutter-rb/workflows/Build/badge.svg)](https://github.com/fartem/flutter-rb/actions?query=workflow%3ARuby)
+[![Codecov](https://codecov.io/gh/fartem/flutter-rb/branch/master/graph/badge.svg)](https://codecov.io/gh/fartem/flutter-rb)
 
 ## About
 

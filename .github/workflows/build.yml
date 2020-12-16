@@ -19,3 +19,7 @@ jobs:
       run: bundle install
     - name: Run checks
       run: bundle exec rake
+    - name: Send coverage report to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage/.resultset.json

@@ -12,8 +12,10 @@ Gem::Specification.new do |s|
   s.test_files = s.files.grep(%r{^(test)/})
   s.extra_rdoc_files = ['README.md']
   s.add_development_dependency 'cocoapods', '1.10.0'
+  s.add_development_dependency 'codecov', '0.2.12'
   s.add_development_dependency 'colorize', '0.8.1'
   s.add_development_dependency 'minitest', '5.14.0'
   s.add_development_dependency 'rake', '12.3.3'
   s.add_development_dependency 'rubocop', '1.4.2'
+  s.add_development_dependency 'simplecov', '0.18.5'
 end
