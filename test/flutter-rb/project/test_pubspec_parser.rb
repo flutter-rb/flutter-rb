@@ -1,9 +1,8 @@
 require_relative '../../test__helper.rb'
+require_relative '../../../lib/flutter-rb/project/project.rb'
+require_relative '../../../lib/flutter-rb/project/specs/flutter/pubspec.rb'
 
 require 'minitest/autorun'
-
-require_relative '../../../lib/flutter-rb/project/project_parser.rb'
-require_relative '../../../lib/flutter-rb/project/specs/flutter/pubspec.rb'
 
 class PubspecParserTest < Minitest::Test
   def test_parser
@@ -15,8 +14,8 @@ class PubspecParserTest < Minitest::Test
     plugin_info = pubspec.pubspec_info
     assert !plugin_info.nil?
 
-    assert plugin_info.name == 'test_project'
-    assert plugin_info.description == 'Test project'
+    assert plugin_info.name == 'valid_dart_project'
+    assert plugin_info.description == 'Valid Dart project'
     assert plugin_info.version == '1.0.0'
     assert plugin_info.author.nil?
     assert plugin_info.homepage == 'https://github.com/fartem/flutter-rb/tree/master/test_assets/valid_dart_project'

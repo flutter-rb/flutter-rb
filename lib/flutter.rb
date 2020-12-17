@@ -1,4 +1,4 @@
-require_relative './flutter-rb/project/project_parser'
+require_relative './flutter-rb/project/project'
 require_relative './flutter-rb/checks/plugin_directories_check'
 require_relative './flutter-rb/checks/plugin_pubspec_check'
 require_relative './flutter-rb/checks/plugin_gradle_check'
