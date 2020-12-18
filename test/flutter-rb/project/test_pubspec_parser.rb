@@ -23,9 +23,13 @@ class PubspecParserTest < Minitest::Test
     dev_dependencies = pubspec.dev_dependencies
     assert !dev_dependencies.nil?
 
-    assert dev_dependencies.length == 1
+    assert dev_dependencies.length == 2
 
     dev_dependency = dev_dependencies.first
+    assert dev_dependency.name == 'effective_dart'
+    assert dev_dependency.version == '^1.3.0'
+
+    dev_dependency = dev_dependencies.last
     assert dev_dependency.name == 'dart_enum_to_string_check'
     assert dev_dependency.version == '^0.6.2'
 
