@@ -46,11 +46,7 @@ A Ruby tool for checking a Flutter plugin structure.
 
 ## How to use
 
-Add path to tool in `PATH` in shell. Then run from Flutter plugin project root:
-
-```shell
-flutterrb
-```
+Soon.
 
 ## How to contribute
 

@@ -3,8 +3,10 @@ require 'English'
 Gem::Specification.new do |s|
   s.required_ruby_version = '2.7.0'
   s.name = 'flutter-rb'
-  s.version = '0.4.3'
+  s.version = '0.4.4'
   s.license = 'MIT'
+  s.files = Dir['lib/**/*.rb'] + %w[bin/frb README.md LICENSE]
+  s.executable << 'frb'
   s.summary = 'A Ruby tool for checking a Flutter plugin structure'
   s.authors = ['Artem Fomchenkov']
   s.email = 'jaman.smlnsk@gmail.com'
