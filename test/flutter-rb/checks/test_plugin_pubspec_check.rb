@@ -1,7 +1,7 @@
 require_relative '../../test__helper.rb'
-require_relative '../../../lib/flutter-rb/project/specs/flutter/pubspec.rb'
-require_relative '../../../lib/flutter-rb/project/project.rb'
-require_relative '../../../lib/flutter-rb/checks/plugin_pubspec_check.rb'
+require_relative '../../../lib/flutter_rb/project/specs/flutter/pubspec.rb'
+require_relative '../../../lib/flutter_rb/project/project.rb'
+require_relative '../../../lib/flutter_rb/checks/plugin_pubspec_check.rb'
 
 require 'minitest/autorun'
 require 'yaml'

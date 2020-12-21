@@ -1,5 +1,5 @@
 require_relative '../../test__helper.rb'
-require_relative '../../../lib/flutter-rb/project/project.rb'
+require_relative '../../../lib/flutter_rb/project/project.rb'
 
 require 'minitest/autorun'
 

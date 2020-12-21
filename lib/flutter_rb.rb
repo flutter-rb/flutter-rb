@@ -1,8 +1,8 @@
-require_relative './flutter-rb/project/project'
-require_relative './flutter-rb/checks/plugin_directories_check'
-require_relative './flutter-rb/checks/plugin_pubspec_check'
-require_relative './flutter-rb/checks/plugin_gradle_check'
-require_relative './flutter-rb/checks/plugin_podspec_check'
+require_relative './flutter_rb/project/project'
+require_relative './flutter_rb/checks/plugin_directories_check'
+require_relative './flutter_rb/checks/plugin_pubspec_check'
+require_relative './flutter_rb/checks/plugin_gradle_check'
+require_relative './flutter_rb/checks/plugin_podspec_check'
 
 module FlutterRb
   # Start FlutterRb checks

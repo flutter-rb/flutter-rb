@@ -1,7 +1,7 @@
 name: valid_dart_project
 description: Valid Dart project
 version: 1.0.0
-homepage: https://github.com/fartem/flutter-rb/tree/master/test_assets/valid_dart_project
+homepage: https://github.com/fartem/flutter_rb/tree/master/test_assets/valid_dart_project
 
 dev_dependencies:
   effective_dart: ^1.3.0
