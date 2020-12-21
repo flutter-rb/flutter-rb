@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version = '0.4.5'
   s.license = 'MIT'
   s.files = Dir['lib/**/*.rb'] + %w[bin/frb README.md LICENSE]
-  s.executables << 'frb'
+  s.executable = 'frb'
   s.require_paths << 'lib'
   s.summary = 'A Ruby tool for checking a Flutter plugin structure'
   s.authors = ['Artem Fomchenkov']
