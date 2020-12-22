@@ -47,7 +47,7 @@ module FlutterRb
       exit(result.empty? ? 0 : -1)
     end
 
-    def flutter_checks(project, exclude_normal: false)
+    def flutter_checks(project, exclude_normal: true)
       reports = FlutterRb::FLUTTER_CHECKS.map { |check| check.check(project) }
       if exclude_normal
         reports.reject { |report| report.check_report_status == CheckReportStatus::NORMAL }
@@ -56,7 +56,7 @@ module FlutterRb
       end
     end
 
-    def android_checks(project, exclude_normal: false)
+    def android_checks(project, exclude_normal: true)
       if project.android_folder.nil?
         []
       else
@@ -69,7 +69,7 @@ module FlutterRb
       end
     end
 
-    def ios_checks(project, exclude_normal: false)
+    def ios_checks(project, exclude_normal: true)
       if project.ios_folder.nil?
         []
       else
