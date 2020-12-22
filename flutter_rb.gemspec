@@ -1,7 +1,7 @@
 require 'English'
 
 Gem::Specification.new do |s|
-  s.required_ruby_version = '2.7.0'
+  s.required_ruby_version = '~> 2.7.0'
   s.name = 'flutter_rb'
   s.version = '0.5.1'
   s.license = 'MIT'
