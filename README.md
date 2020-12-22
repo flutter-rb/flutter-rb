@@ -46,7 +46,33 @@ A Ruby tool for checking a Flutter plugin structure.
 
 ## How to use
 
-Soon.
+### As local installed gem
+
+Build gem from sources:
+
+```shell
+gem build flutter_rb.gemspec
+```
+
+Install gem:
+
+```shell
+gem i flutter_rb
+```
+
+Then run from Flutter project:
+
+```shell
+frb
+```
+
+### As local executable
+
+Add `project_folder/bin` (where `project_folder` is path to project on your machine) to PATH variable. Then updated environment and run from Flutter project:
+
+```shell
+local_frb
+```
 
 ## How to contribute
 

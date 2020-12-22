@@ -14,7 +14,6 @@ module FlutterRb
       PluginPubspecVersionCheck.new,
       PluginPubspecAuthorCheck.new,
       PluginPubspecHomepageCheck.new,
-      # PluginPubspecPlatformDeclarationCheck.new,
       PluginPubspecEffectiveDartCheck.new
     ].freeze
 
