@@ -35,10 +35,11 @@ module FlutterRb
       pubspec_path = "#{@path}/pubspec.yaml"
       android_path = "#{path}/android"
       ios_path = "#{path}/ios"
+      pubspec = PubspecParser.new(YAML.load_file(pubspec_path)).parse
       Project.new(
-        PubspecParser.new(YAML.load_file(pubspec_path)).parse,
+        pubspec,
         File.exist?(android_path) ? AndroidFolder.new(android_path) : nil,
-        File.exist?(ios_path) ? IOSFolder.new(ios_path) : nil
+        File.exist?(ios_path) ? IOSFolder.new(ios_path, pubspec) : nil
       )
     end
   end

@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/flutter_rb'
+
+flutter_rb = FlutterRb::FlutterRb.new
+flutter_rb.start(Dir.pwd)
