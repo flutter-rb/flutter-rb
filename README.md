@@ -1,3 +1,5 @@
+<img src="media/logo/ic_lib.png" height="100px">
+
 # flutter_rb
 
 [![GitHubActions](https://github.com/fartem/flutter_rb/workflows/Build/badge.svg)](https://github.com/fartem/flutter_rb/actions?query=workflow%3ARuby)
