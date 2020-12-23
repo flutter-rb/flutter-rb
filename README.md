@@ -44,6 +44,7 @@ A Ruby tool for checking a Flutter plugin structure.
 | --- | --- | --- |
 | `PluginPodspecNameCheck` | Check plugin name in podspec file. Exists or not | `WARNING` |
 | `PluginPodspecVersionCheck` | Check plugin version in podspec file. Exists or not | `WARNING` |
+| `PluginPodspecAuthorsCheck` | Check plugin's authors in podspec file. Exists or not | `ERROR` |
 | `PluginPodspecSourceCheck` | Check plugin iOS source path in podspec file. If Flutter plugin cannot contains iOS specific code, source path must be `'.'` | `ERROR` |
 
 ## How to use

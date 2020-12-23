@@ -6,14 +6,16 @@ module FlutterRb
     def initialize(
       name,
       version,
+      authors,
       source
     )
       @name = name
       @version = version
+      @authors = authors
       @source = source
     end
 
-    attr_reader :name, :version, :source
+    attr_reader :name, :version, :authors, :source
   end
 
   # Podspec parser
@@ -27,6 +29,7 @@ module FlutterRb
       @podspec = Podspec.new(
         podspec.name,
         podspec.version.version,
+        podspec.authors.nil? ? podspec.author : podspec.authors,
         podspec.source
       )
     end

@@ -24,6 +24,7 @@ module FlutterRb
     IOS_CHECKS = [
       PluginPodspecNameCheck.new,
       PluginPodspecVersionCheck.new,
+      PluginPodspecAuthorsCheck.new,
       PluginPodspecSourceCheck.new
     ].freeze
 

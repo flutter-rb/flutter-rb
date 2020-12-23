@@ -51,6 +51,22 @@ module FlutterRb
     end
   end
 
+  # Check Flutter plugin's authors. Exists or not
+  class PluginPodspecAuthorsCheck < PluginPodspecCheck
+    def podspec_parameter
+      'authors'
+    end
+
+    def check(project)
+      author_exists = !project.ios_folder.podspec.authors.nil?
+      CheckReport.new(
+        name,
+        author_exists ? CheckReportStatus::NORMAL : CheckReportStatus::ERROR,
+        description
+      )
+    end
+  end
+
   # Check plugin iOS source path in podspec file.
   # If Flutter plugin cannot contains iOS specific code, source path must be '.'
   class PluginPodspecSourceCheck < PluginPodspecCheck
