@@ -29,7 +29,7 @@ module FlutterRb
       end
     end
 
-    attr_reader :check_report_status
+    attr_reader :check_name, :check_report_status, :message
   end
 
   # Check report status

@@ -3,4 +3,4 @@
 require 'flutter_rb'
 
 flutter_rb = FlutterRb::FlutterRb.new
-flutter_rb.start(Dir.pwd)
+flutter_rb.start(Dir.pwd, !ARGV['--checkstyle-report'].nil?)
