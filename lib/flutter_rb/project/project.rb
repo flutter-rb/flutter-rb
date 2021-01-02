@@ -10,13 +10,19 @@ require 'yaml'
 module FlutterRb
   # Project representation
   class Project
-    def initialize(pubspec, android_folder, ios_folder)
+    def initialize(
+      path,
+      pubspec,
+      android_folder,
+      ios_folder
+    )
+      @path = path
       @pubspec = pubspec
       @android_folder = android_folder
       @ios_folder = ios_folder
     end
 
-    attr_accessor :pubspec, :android_folder, :ios_folder
+    attr_accessor :path, :pubspec, :android_folder, :ios_folder
   end
 
   # Flutter plugin project parser
@@ -26,17 +32,18 @@ module FlutterRb
     end
 
     def project
-      File.exist?("#{@path}/pubspec.yaml") ? parse_project(@path) : nil
+      File.exist?("#{@path}/pubspec.yaml") ? parse_project : nil
     end
 
     private
 
-    def parse_project(path)
+    def parse_project
       pubspec_path = "#{@path}/pubspec.yaml"
-      android_path = "#{path}/android"
-      ios_path = "#{path}/ios"
-      pubspec = PubspecParser.new(YAML.load_file(pubspec_path)).parse
+      android_path = "#{@path}/android"
+      ios_path = "#{@path}/ios"
+      pubspec = PubspecParser.new(pubspec_path, YAML.load_file(pubspec_path)).parse
       Project.new(
+        @path,
         pubspec,
         File.exist?(android_path) ? AndroidFolder.new(android_path) : nil,
         File.exist?(ios_path) ? IOSFolder.new(ios_path, pubspec) : nil

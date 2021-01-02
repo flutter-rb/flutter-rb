@@ -14,11 +14,13 @@ module FlutterRb
 
     def check(project)
       version_in_pubspec = project.pubspec.pubspec_info.version
-      version_in_gradle = project.android_folder.gradle.version
+      gradle = project.android_folder.gradle
+      version_in_gradle = gradle.version
       CheckReport.new(
         name,
         version_in_pubspec == version_in_gradle ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
-        description
+        description,
+        gradle.path
       )
     end
   end

@@ -64,7 +64,7 @@ gem i flutter_rb
 ```
 
 Then run from Flutter project:
-
+<!--  -->
 ```shell
 frb
 ```
@@ -76,6 +76,13 @@ Add `project_folder/bin` (where `project_folder` is path to project on your mach
 ```shell
 local_frb
 ```
+
+### Arguments
+
+| Argument | Description |
+| --- | --- |
+| `--help` | Print help info |
+| `--checkstyle-report` | Generate report in Checkstyle format |
 
 ## How to contribute
 

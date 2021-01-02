@@ -27,6 +27,9 @@ Style/NilLambda:
 Style/RedundantArgument:
   Enabled: true
 
+Style/HashExcept:
+  Enabled: true
+
 Lint/DuplicateRegexpCharacterClassElement:
   Enabled: true
 Lint/EmptyBlock:
@@ -40,4 +43,11 @@ Lint/UnmodifiedReduceAccumulator:
 Lint/DuplicateBranch:
   Enabled: true
 Lint/EmptyClass:
+  Enabled: true
+Lint/AmbiguousAssignment:
+  Enabled: true
+Lint/UnexpectedBlockArity:
+  Enabled: true
+
+Layout/SpaceBeforeBrackets:
   Enabled: true

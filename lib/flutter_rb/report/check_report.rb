@@ -3,10 +3,16 @@ require 'colorize'
 module FlutterRb
   # Check report
   class CheckReport
-    def initialize(check_name, check_report_status, message)
+    def initialize(
+      check_name,
+      check_report_status,
+      message,
+      path
+    )
       @check_name = check_name
       @check_report_status = check_report_status
       @message = message
+      @path = path
     end
 
     def print(colorize: true)
@@ -29,7 +35,7 @@ module FlutterRb
       end
     end
 
-    attr_reader :check_name, :check_report_status, :message
+    attr_reader :check_name, :check_report_status, :message, :path
   end
 
   # Check report status

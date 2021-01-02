@@ -28,7 +28,8 @@ module FlutterRb
       CheckReport.new(
         name,
         pubspec.pubspec_info.name.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
-        description
+        description,
+        pubspec.path
       )
     end
   end
@@ -44,7 +45,8 @@ module FlutterRb
       CheckReport.new(
         name,
         pubspec.pubspec_info.description.nil? ? CheckReportStatus::WARNING : CheckReportStatus::NORMAL,
-        description
+        description,
+        pubspec.path
       )
     end
   end
@@ -60,7 +62,8 @@ module FlutterRb
       CheckReport.new(
         name,
         pubspec.pubspec_info.version.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
-        description
+        description,
+        pubspec.path
       )
     end
   end
@@ -76,7 +79,8 @@ module FlutterRb
       CheckReport.new(
         name,
         pubspec.pubspec_info.author.nil? ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
-        description
+        description,
+        pubspec.path
       )
     end
   end
@@ -92,7 +96,8 @@ module FlutterRb
       CheckReport.new(
         name,
         pubspec.pubspec_info.homepage.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
-        description
+        description,
+        pubspec.path
       )
     end
   end
@@ -108,13 +113,15 @@ module FlutterRb
     end
 
     def check(project)
-      effective_dart = project.pubspec.dev_dependencies&.detect do |dev_dependency|
+      pubspec = project.pubspec
+      effective_dart = pubspec.dev_dependencies&.detect do |dev_dependency|
         dev_dependency.name == 'effective_dart'
       end
       CheckReport.new(
         name,
         effective_dart.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
-        description
+        description,
+        pubspec.path
       )
     end
   end

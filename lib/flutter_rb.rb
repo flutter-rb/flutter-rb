@@ -57,7 +57,7 @@ module FlutterRb
         CheckstyleReport::CheckstyleError.new(
           level_for_report(issue.check_report_status),
           issue.message,
-          '',
+          issue.path,
           0,
           0,
           issue.check_name
