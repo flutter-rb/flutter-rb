@@ -4,9 +4,10 @@ module FlutterRb
   # Android project representation
   class AndroidFolder
     def initialize(path)
-      @gradle = GradleParser.new("#{path}/build.gradle").parse
+      @path = path
+      @gradle = GradleParser.new("#{@path}/build.gradle").parse
     end
 
-    attr_reader :gradle
+    attr_reader :path, :gradle
   end
 end

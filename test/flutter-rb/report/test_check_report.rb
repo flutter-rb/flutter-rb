@@ -8,7 +8,8 @@ class CheckReportTest < Minitest::Test
     report = FlutterRb::CheckReport.new(
         'Name',
         FlutterRb::CheckReportStatus::NORMAL,
-        'Message'
+        'Message',
+        'path'
     )
 
     assert report.print(colorize: false) == " * [#{FlutterRb::CheckReportStatus::NORMAL}] Name: Message"

@@ -6,26 +6,30 @@ module FlutterRb
   # pubspec.yaml representation
   class Pubspec
     def initialize(
+      path,
       pubspec_info,
       dev_dependencies,
       platform_plugins
     )
+      @path = path
       @pubspec_info = pubspec_info
       @dev_dependencies = dev_dependencies
       @platform_plugins = platform_plugins
     end
 
-    attr_reader :pubspec_info, :dev_dependencies, :platform_plugins
+    attr_reader :path, :pubspec_info, :dev_dependencies, :platform_plugins
   end
 
   # pubspec.yaml parser
   class PubspecParser
-    def initialize(pubspec)
+    def initialize(path, pubspec)
+      @path = path
       @pubspec = pubspec
     end
 
     def parse
       Pubspec.new(
+        @path,
         pubspec_info(@pubspec),
         dev_dependencies(@pubspec),
         platform_plugins(@pubspec)

@@ -1,11 +1,12 @@
 module FlutterRb
   # Gradle representation
   class Gradle
-    def initialize(version)
+    def initialize(path, version)
+      @path = path
       @version = version
     end
 
-    attr_reader :version
+    attr_reader :path, :version
   end
 
   # Gradle parser
@@ -17,6 +18,7 @@ module FlutterRb
     def parse
       config = parse_gradle_config(@path)
       Gradle.new(
+        @path,
         config[:version]
       )
     end

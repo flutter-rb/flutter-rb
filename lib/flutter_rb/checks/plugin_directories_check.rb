@@ -22,7 +22,8 @@ module FlutterRb
       CheckReport.new(
         name,
         check_result ? CheckReportStatus::NORMAL : CheckReportStatus::ERROR,
-        description
+        description,
+        project.path
       )
     end
   end

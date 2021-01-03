@@ -4,6 +4,8 @@ require_relative './flutter_rb/checks/plugin_pubspec_check'
 require_relative './flutter_rb/checks/plugin_gradle_check'
 require_relative './flutter_rb/checks/plugin_podspec_check'
 
+require_relative './checkstyle_report/checkstyle_report'
+
 module FlutterRb
   # Start FlutterRb checks
   class FlutterRb
@@ -28,23 +30,54 @@ module FlutterRb
       PluginPodspecSourceCheck.new
     ].freeze
 
-    def start(path)
+    def start(path, with_report)
       project = ProjectParser.new(path).project
       if project.nil?
         puts 'No project'
         exit(-1)
       else
-        check_project(project)
+        issues = find_issues(project)
+        create_report(path, issues) if with_report
+        issues.each { |issue| puts issue.print }
+        exit(issues.empty? ? 0 : -1)
       end
     end
 
-    def check_project(project)
+    def find_issues(project)
       result = []
       result += flutter_checks(project)
       result += android_checks(project)
       result += ios_checks(project)
-      result.each { |report| puts report.print }
-      exit(result.empty? ? 0 : -1)
+      result
+    end
+
+    # rubocop:disable Metrics/MethodLength
+    def create_report(path, issues)
+      errors = issues.reject { |issue| issue.check_report_status == CheckReportStatus::NORMAL }.map do |issue|
+        CheckstyleReport::CheckstyleError.new(
+          level_for_report(issue.check_report_status),
+          issue.message,
+          issue.path,
+          0,
+          0,
+          issue.check_name
+        )
+      end
+      CheckstyleReport::CheckstyleReport.new(
+        path,
+        'frb-checkstyle-report',
+        errors
+      ).create_report
+    end
+    # rubocop:enable Metrics/MethodLength
+
+    def level_for_report(check_report_status)
+      case check_report_status
+      when CheckReportStatus::ERROR
+        'error'
+      when CheckReportStatus::WARNING
+        'warning'
+      end
     end
 
     def flutter_checks(project, exclude_normal: true)

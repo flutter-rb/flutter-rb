@@ -25,11 +25,13 @@ module FlutterRb
 
     def check(project)
       name_in_pubspec = project.pubspec.pubspec_info.name
-      name_in_podspec = project.ios_folder.podspec.name
+      podspec = project.ios_folder.podspec
+      name_in_podspec = podspec.name
       CheckReport.new(
         name,
         name_in_pubspec == name_in_podspec ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
-        description
+        description,
+        podspec.path
       )
     end
   end
@@ -42,11 +44,13 @@ module FlutterRb
 
     def check(project)
       version_in_pubspec = project.pubspec.pubspec_info.version
-      version_in_podspec = project.ios_folder.podspec.version
+      podspec = project.ios_folder.podspec
+      version_in_podspec = podspec.version
       CheckReport.new(
         name,
         version_in_pubspec == version_in_podspec ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
-        description
+        description,
+        podspec.path
       )
     end
   end
@@ -58,11 +62,13 @@ module FlutterRb
     end
 
     def check(project)
-      author_exists = !project.ios_folder.podspec.authors.nil?
+      podspec = project.ios_folder.podspec
+      author_exists = !podspec.authors.nil?
       CheckReport.new(
         name,
         author_exists ? CheckReportStatus::NORMAL : CheckReportStatus::ERROR,
-        description
+        description,
+        podspec.path
       )
     end
   end
@@ -75,10 +81,12 @@ module FlutterRb
     end
 
     def check(project)
+      podspec = project.ios_folder.podspec
       CheckReport.new(
         name,
-        project.ios_folder.podspec.source.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
-        description
+        podspec.source.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
+        description,
+        podspec.path
       )
     end
   end

@@ -9,8 +9,8 @@ require 'yaml'
 class BasePluginPubspecCheckTest < Minitest::Test
   def load_project(path)
     path = File.expand_path("#{Dir.pwd}/#{path}")
-    pubspec = FlutterRb::PubspecParser.new(YAML.load_file(path)).parse
-    project = FlutterRb::Project.new(pubspec, nil, nil)
+    pubspec = FlutterRb::PubspecParser.new(path, YAML.load_file(path)).parse
+    project = FlutterRb::Project.new(path, pubspec, nil, nil)
   end
 end
 
