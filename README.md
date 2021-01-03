@@ -84,6 +84,10 @@ local_frb
 | `--help` | Print help info |
 | `--checkstyle-report` | Generate report in Checkstyle format |
 
+### Output report
+
+Tool can make report in Checkstyle format. To enable this feature, pass `--checkstyle-report` as an cli argument. The report file name is `frb-checkstyle-report.xml`.
+
 ## How to contribute
 
 Read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:

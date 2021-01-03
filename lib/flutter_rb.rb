@@ -65,7 +65,7 @@ module FlutterRb
       end
       CheckstyleReport::CheckstyleReport.new(
         path,
-        'flutter_rb-report',
+        'frb-checkstyle-report',
         errors
       ).create_report
     end
