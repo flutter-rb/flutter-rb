@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'codecov', '0.2.12'
   s.add_development_dependency 'minitest', '5.14.0'
   s.add_development_dependency 'rake', '12.3.3'
-  s.add_development_dependency 'rubocop', '1.4.2'
+  s.add_development_dependency 'rubocop', '1.7'
   s.add_development_dependency 'simplecov', '0.18.5'
 end
