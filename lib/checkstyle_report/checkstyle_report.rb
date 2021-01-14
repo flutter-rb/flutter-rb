@@ -1,5 +1,6 @@
 require 'nokogiri'
 
+# Module with classes for creating reports in Checkstyle format
 module CheckstyleReport
   # Class for create report in Checkstyle format
   class CheckstyleReport
@@ -9,18 +10,11 @@ module CheckstyleReport
       @errors = errors
     end
 
-    # rubocop:disable Metrics/MethodLength
     def create_report
       report = Nokogiri::XML::Builder.new do |xml|
         xml.checkstyle(version: '8.38') do
           @errors.map do |error|
-            xml.error(
-              line: error.line,
-              column: error.column,
-              saverity: error.saverity,
-              message: error.message,
-              source: error.source
-            )
+            write_error(xml, error)
           end
         end
       end
@@ -28,7 +22,16 @@ module CheckstyleReport
         file.write(report.to_xml)
       end
     end
-    # rubocop:enable Metrics/MethodLength
+  end
+
+  def write_error(xml, error)
+    xml.error(
+      line: error.line,
+      column: error.column,
+      saverity: error.saverity,
+      message: error.message,
+      source: error.source
+    )
   end
 
   # Checkstyle error representation
