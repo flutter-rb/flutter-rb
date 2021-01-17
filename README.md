@@ -3,7 +3,7 @@
 # flutter_rb
 
 [![GitHubActions](https://github.com/fartem/flutter_rb/workflows/Build/badge.svg)](https://github.com/fartem/flutter_rb/actions?query=workflow%3ARuby)
-[![Codebeat](https://codebeat.co/badges/9bb32e28-ca86-4cdc-ba66-bda7f989979a)](https://codebeat.co/projects/github-com-fartem-flutter_rb-master)
+[![Codebeat](https://codebeat.co/badges/9bb32e28-ca86-4cdc-ba66-bda7f989979a)](https://codebeat.co/projects/github-com-fartem-flutter-rb-master)
 [![Codecov](https://codecov.io/gh/fartem/flutter_rb/branch/master/graph/badge.svg)](https://codecov.io/gh/fartem/flutter_rb)
 
 ## About
@@ -17,8 +17,8 @@ A Ruby tool for checking a Flutter plugin structure.
 | Level | Description |
 | --- | --- |
 | `NORMAL` | Issue not found |
-| `WARNING` | Not serious issue, cannot break build |
-| `ERROR` | Serious issue, may break build |
+| `WARNING` | Issue is not serious and cannot break build |
+| `ERROR` | Issue is serious and can break build |
 
 #### Flutter
 
