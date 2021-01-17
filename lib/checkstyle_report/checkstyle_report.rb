@@ -22,16 +22,16 @@ module CheckstyleReport
         file.write(report.to_xml)
       end
     end
-  end
 
-  def write_error(xml, error)
-    xml.error(
-      line: error.line,
-      column: error.column,
-      saverity: error.saverity,
-      message: error.message,
-      source: error.source
-    )
+    def write_error(xml, error)
+      xml.error(
+        line: error.line,
+        column: error.column,
+        saverity: error.saverity,
+        message: error.message,
+        source: error.source
+      )
+    end
   end
 
   # Checkstyle error representation
