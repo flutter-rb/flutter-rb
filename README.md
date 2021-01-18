@@ -4,7 +4,7 @@
 
 [![GitHubActions](https://github.com/fartem/flutter_rb/workflows/Build/badge.svg)](https://github.com/fartem/flutter_rb/actions?query=workflow%3ARuby)
 [![Codebeat](https://codebeat.co/badges/9bb32e28-ca86-4cdc-ba66-bda7f989979a)](https://codebeat.co/projects/github-com-fartem-flutter_rb-master)
-[![Coverage](https://coveralls.io/repos/github/fartem/flutter_rb/badge.svg?branch=master)](https://coveralls.io/github/fartem/flutter_rb?branch=master)
+[![Coveralls](https://coveralls.io/repos/github/fartem/flutter_rb/badge.svg?branch=master)](https://coveralls.io/github/fartem/flutter_rb?branch=master)
 
 ## About
 
