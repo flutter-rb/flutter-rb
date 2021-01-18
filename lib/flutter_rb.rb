@@ -33,14 +33,22 @@ module FlutterRb
     def start(path, with_report)
       project = ProjectParser.new(path).project
       if project.nil?
-        puts 'No project'
-        exit(-1)
+        exit_with_no_project
       else
-        issues = find_issues(project)
-        create_report(path, issues) if with_report
-        issues.each { |issue| puts issue.print }
-        exit(issues.empty? ? 0 : -1)
+        start_checks(path, with_report)
       end
+    end
+
+    def exit_with_no_project
+      puts 'No project'
+      exit(-1)
+    end
+
+    def start_checks(path, with_report)
+      issues = find_issues(project)
+      create_report(path, issues) if with_report
+      issues.each { |issue| puts issue.print }
+      exit(issues.empty? ? 0 : -1)
     end
 
     def find_issues(project)
@@ -82,11 +90,7 @@ module FlutterRb
 
     def flutter_checks(project, exclude_normal: true)
       reports = FlutterRb::FLUTTER_CHECKS.map { |check| check.check(project) }
-      if exclude_normal
-        reports.reject { |report| report.check_report_status == CheckReportStatus::NORMAL }
-      else
-        reports
-      end
+      prepare_reports(reports, exclude_normal)
     end
 
     def android_checks(project, exclude_normal: true)
@@ -94,11 +98,7 @@ module FlutterRb
         []
       else
         reports = FlutterRb::ANDROID_CHECKS.map { |check| check.check(project) }
-        if exclude_normal
-          reports.reject { |report| report.check_report_status == CheckReportStatus::NORMAL }
-        else
-          reports
-        end
+        prepare_reports(reports, exclude_normal)
       end
     end
 
@@ -107,11 +107,17 @@ module FlutterRb
         []
       else
         reports = FlutterRb::IOS_CHECKS.map { |check| check.check(project) }
-        if exclude_normal
-          reports.reject { |report| report.check_report_status == CheckReportStatus::NORMAL }
-        else
-          reports
-        end
+        prepare_reports(reports, exclude_normal)
+      end
+    end
+
+    private
+
+    def prepare_reports(reports, exclude_normal)
+      if exclude_normal
+        reports.reject { |report| report.check_report_status == CheckReportStatus::NORMAL }
+      else
+        reports
       end
     end
   end

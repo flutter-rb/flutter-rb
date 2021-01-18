@@ -17,8 +17,8 @@ A Ruby tool for checking a Flutter plugin structure.
 | Level | Description |
 | --- | --- |
 | `NORMAL` | Issue not found |
-| `WARNING` | Not serious issue, cannot break build |
-| `ERROR` | Serious issue, may break build |
+| `WARNING` | Issue is not serious and cannot break build |
+| `ERROR` | Issue is serious and can break build |
 
 #### Flutter
 
