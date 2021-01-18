@@ -19,9 +19,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'colorize', '0.8.1'
   s.add_runtime_dependency 'nokogiri', '1.11.0'
 
-  s.add_development_dependency 'codecov', '0.2.12'
+  s.add_development_dependency 'coveralls', '0.8.23'
   s.add_development_dependency 'minitest', '5.14.0'
   s.add_development_dependency 'rake', '12.3.3'
   s.add_development_dependency 'rubocop', '1.7'
-  s.add_development_dependency 'simplecov', '0.18.5'
+  s.add_development_dependency 'simplecov', '0.16.1'
 end
