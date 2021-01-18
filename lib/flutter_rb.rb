@@ -74,9 +74,9 @@ module FlutterRb
     def level_for_report(check_report_status)
       case check_report_status
       when CheckReportStatus::ERROR
-        'error'
+        CheckstyleReport::CheckstyleError::SAVERITY_ERROR
       when CheckReportStatus::WARNING
-        'warning'
+        CheckstyleReport::CheckstyleError::SAVERITY_WARNING
       end
     end
 
