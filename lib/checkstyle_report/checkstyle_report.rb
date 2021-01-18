@@ -36,6 +36,9 @@ module CheckstyleReport
 
   # Checkstyle error representation
   class CheckstyleError
+    SAVERITY_ERROR = 'error'.freeze
+    SAVERITY_WARNING = 'warning'.freeze
+
     # rubocop:disable Metrics/ParameterLists
     def initialize(
       saverity,
