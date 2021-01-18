@@ -1,4 +1,15 @@
+SimpleCov.formatter = d
+SimpleCov.start do
+  add_filter '/test/'
+end
+
+require 'simplecov'
+SimpleCov.start do
+  add_filter '/test/'
+end
+
+
 if ENV['CI']
   require 'coveralls'
-  Coveralls.wear!
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
