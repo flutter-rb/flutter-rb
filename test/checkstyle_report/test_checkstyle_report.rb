@@ -1,3 +1,4 @@
+require_relative '../test__helper.rb'
 require_relative '../../lib/checkstyle_report/checkstyle_report'
 
 require 'minitest/autorun'
