@@ -6,5 +6,5 @@ end
 
 if ENV['CI']
   require 'coveralls'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 end
