@@ -14,7 +14,7 @@ module CheckstyleReport
       report = Nokogiri::XML::Builder.new do |xml|
         xml.checkstyle(version: '8.38') do
           @errors.map do |error|
-            write_error(xml, error)
+            write(xml, error)
           end
         end
       end
@@ -23,21 +23,36 @@ module CheckstyleReport
       end
     end
 
+    def write(xml, error)
+      if error.saverity == CheckstyleError::SAVERITY_NORMAL
+        write_normal(xml, error)
+      else
+        write_error(xml, error)
+      end
+    end
+
+    def write_normal(xml, error)
+      xml.file(name: error.source)
+    end
+
     def write_error(xml, error)
-      xml.error(
-        line: error.line,
-        column: error.column,
-        saverity: error.saverity,
-        message: error.message,
-        source: error.source
-      )
+      xml.file(name: error.source) do
+        xml.error(
+          line: error.line,
+          column: error.column,
+          saverity: error.saverity,
+          message: error.message,
+          source: error.source
+        )
+      end
     end
   end
 
   # Checkstyle error representation
   class CheckstyleError
-    SAVERITY_ERROR = 'error'.freeze
+    SAVERITY_NORMAL = 'normal'.freeze
     SAVERITY_WARNING = 'warning'.freeze
+    SAVERITY_ERROR = 'error'.freeze
 
     # rubocop:disable Metrics/ParameterLists
     def initialize(
