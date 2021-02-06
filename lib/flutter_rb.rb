@@ -35,7 +35,7 @@ module FlutterRb
       if project.nil?
         exit_with_no_project
       else
-        start_checks(project, path, with_report)
+        check_project(project, path, with_report)
       end
     end
 
@@ -44,14 +44,15 @@ module FlutterRb
       exit(-1)
     end
 
-    def start_checks(project, path, with_report)
-      issues = find_issues(project)
-      create_report(path, issues) if with_report
-      issues.reject { |issue| issue.check_report_status == CheckReportStatus::NORMAL }.each { |issue| puts issue.print }
-      exit(issues.empty? ? 0 : -1)
+    def check_project(project, path, with_report)
+      checks = explore_project(project)
+      errors = checks.reject { |check| check.check_report_status == CheckReportStatus::NORMAL }
+      errors.each { |check| puts check.print }
+      create_report(path, checks) if with_report
+      exit(errors.empty? ? 0 : -1)
     end
 
-    def find_issues(project)
+    def explore_project(project)
       result = []
       result += flutter_checks(project)
       result += android_checks(project)
@@ -60,15 +61,15 @@ module FlutterRb
     end
 
     # rubocop:disable Metrics/MethodLength
-    def create_report(path, issues)
-      errors = issues.map do |issue|
+    def create_report(path, checks)
+      errors = checks.map do |check|
         CheckstyleReport::CheckstyleError.new(
-          level_for_report(issue.check_report_status),
-          issue.message,
-          issue.path,
+          level_for_report(check.check_report_status),
+          check.message,
+          check.path,
           0,
           0,
-          issue.check_name
+          check.check_name
         )
       end
       CheckstyleReport::CheckstyleReport.new(

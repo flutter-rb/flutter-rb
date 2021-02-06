@@ -4,48 +4,54 @@ require 'nokogiri'
 module CheckstyleReport
   # Class for create report in Checkstyle format
   class CheckstyleReport
-    def initialize(path, report_filename, errors)
+    def initialize(path, report_filename, checks)
       @path = path
       @report_filename = report_filename
-      @errors = errors
+      @checks = checks
     end
 
     def create_report
+      checkstyle_files = {}
+      @checks.each do |check|
+        checkstyle_file = checkstyle_files[check.source]
+        checkstyle_files[check.source] = [] if checkstyle_file.nil?
+        checkstyle_files[check.source] += [check] if check.saverity != CheckstyleError::SAVERITY_NORMAL
+      end
       report = Nokogiri::XML::Builder.new do |xml|
         xml.checkstyle(version: '8.38') do
-          @errors.map do |error|
-            write(xml, error)
-          end
+          checkstyle_files.map { |key, value| CheckstyleFile.new(key, value) }.each { |file| write_file(xml, file) }
         end
       end
-      File.open("#{@path}/#{@report_filename}.xml", 'w') do |file|
-        file.write(report.to_xml)
-      end
+      File.open("#{@path}/#{@report_filename}.xml", 'w') { |file| file.write(report.to_xml) }
     end
 
-    def write(xml, error)
-      if error.saverity == CheckstyleError::SAVERITY_NORMAL
-        write_normal(xml, error)
-      else
-        write_error(xml, error)
+    def write_file(xml, checkstyle_file)
+      xml.file(name: checkstyle_file.file) do
+        checkstyle_file.errors.each do |error|
+          write_error(xml, error)
+        end
       end
-    end
-
-    def write_normal(xml, error)
-      xml.file(name: error.source)
     end
 
     def write_error(xml, error)
-      xml.file(name: error.source) do
-        xml.error(
-          line: error.line,
-          column: error.column,
-          saverity: error.saverity,
-          message: error.message,
-          source: error.source
-        )
-      end
+      xml.error(
+        line: error.line,
+        column: error.column,
+        saverity: error.saverity,
+        message: error.message,
+        source: error.source
+      )
     end
+  end
+
+  # File representation for Checkstyle format
+  class CheckstyleFile
+    def initialize(file, errors)
+      @file = file
+      @errors = errors
+    end
+
+    attr_reader :file, :errors
   end
 
   # Checkstyle error representation
