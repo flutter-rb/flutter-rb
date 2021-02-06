@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <checkstyle version="8.38">
-  <error line="1" column="1" saverity="error" message="Test message" source="pubspec.yaml"/>
-  <error line="1" column="1" saverity="warning" message="Test message" source="pubspec.yaml"/>
+  <file name="pubspec.yaml">
+    <error line="1" column="1" saverity="error" message="Test message" source="pubspec.yaml"/>
+    <error line="1" column="1" saverity="warning" message="Test message" source="pubspec.yaml"/>
+  </file>
 </checkstyle>

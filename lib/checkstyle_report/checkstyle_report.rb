@@ -11,18 +11,23 @@ module CheckstyleReport
     end
 
     def create_report
+      checkstyle_files = sort_checks(@checks)
+      report = Nokogiri::XML::Builder.new do |xml|
+        xml.checkstyle(version: '8.38') do
+          checkstyle_files.map { |file, errors| CheckstyleFile.new(file, errors) }.each { |file| write_file(xml, file) }
+        end
+      end
+      File.open("#{@path}/#{@report_filename}.xml", 'w') { |file| file.write(report.to_xml) }
+    end
+
+    def sort_checks(checks)
       checkstyle_files = {}
-      @checks.each do |check|
+      checks.each do |check|
         checkstyle_file = checkstyle_files[check.source]
         checkstyle_files[check.source] = [] if checkstyle_file.nil?
         checkstyle_files[check.source] += [check] if check.saverity != CheckstyleError::SAVERITY_NORMAL
       end
-      report = Nokogiri::XML::Builder.new do |xml|
-        xml.checkstyle(version: '8.38') do
-          checkstyle_files.map { |key, value| CheckstyleFile.new(key, value) }.each { |file| write_file(xml, file) }
-        end
-      end
-      File.open("#{@path}/#{@report_filename}.xml", 'w') { |file| file.write(report.to_xml) }
+      checkstyle_files
     end
 
     def write_file(xml, checkstyle_file)
