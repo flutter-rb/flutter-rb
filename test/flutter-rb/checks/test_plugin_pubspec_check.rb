@@ -1,10 +1,24 @@
 require_relative '../../test__helper.rb'
 require_relative '../../../lib/flutter_rb/project/specs/flutter/pubspec.rb'
 require_relative '../../../lib/flutter_rb/project/project.rb'
+require_relative '../../../lib/flutter_rb/checks/check.rb'
 require_relative '../../../lib/flutter_rb/checks/plugin_pubspec_check.rb'
 
 require 'minitest/autorun'
 require 'yaml'
+
+class PluginPubspecCheckStructureTest < Minitest::Test
+  def test_pubspec_check_structure
+    pubspec_check = FlutterRb::PluginPubspecCheck.new
+
+    assert_raises FlutterRb::Check::UNIMPLEMENTATION_ERROR do
+      pubspec_check.pubspec_parameter
+    end
+    assert_raises FlutterRb::Check::UNIMPLEMENTATION_ERROR do
+      pubspec_check.summary
+    end
+  end
+end
 
 class BasePluginPubspecCheckTest < Minitest::Test
   def load_project(path)
