@@ -8,11 +8,13 @@
 
 ## About
 
-A Ruby tool for checking a Flutter plugin structure.
+A tool for checking a Flutter plugin structure.
 
 ### Checks
 
 #### Levels
+
+Each issue has a `level` parameter that describes its significate level.
 
 | Level | Description |
 | --- | --- |
@@ -64,7 +66,7 @@ gem i flutter_rb
 ```
 
 Then run from Flutter project:
-<!--  -->
+
 ```shell
 frb
 ```
