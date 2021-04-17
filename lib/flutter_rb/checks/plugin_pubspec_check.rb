@@ -32,6 +32,10 @@ module FlutterRb
         pubspec.path
       )
     end
+
+    def description
+      'Check plugin name in pubspec file'
+    end
   end
 
   # Check Flutter plugin description in pubspec file. Exists or not
@@ -48,6 +52,10 @@ module FlutterRb
         description,
         pubspec.path
       )
+    end
+
+    def description
+      'Check plugin description in pubspec file'
     end
   end
 
@@ -66,6 +74,10 @@ module FlutterRb
         pubspec.path
       )
     end
+
+    def description
+      'Check plugin version in pubspec'
+    end
   end
 
   # Check Flutter plugin author in pubspec file. Exists or not
@@ -83,6 +95,10 @@ module FlutterRb
         pubspec.path
       )
     end
+
+    def description
+      'Check plugin author in pubspec'
+    end
   end
 
   # Check Flutter plugin homepage in pubspec file. Exists or not
@@ -99,6 +115,10 @@ module FlutterRb
         description,
         pubspec.path
       )
+    end
+
+    def description
+      'Check plugin homepage in pubspec'
     end
   end
 
@@ -123,6 +143,10 @@ module FlutterRb
         description,
         pubspec.path
       )
+    end
+
+    def description
+      'Check Flutter plugin Effective Dart depencency in pubspec file'
     end
   end
 end

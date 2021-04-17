@@ -12,6 +12,10 @@ module FlutterRb
       'Validate Flutter plugin\s version in build.gradle file'
     end
 
+    def description
+      'Check plugin version in Gradle project config (build.gradle file)'
+    end
+
     def check(project)
       version_in_pubspec = project.pubspec.pubspec_info.version
       gradle = project.android_folder.gradle

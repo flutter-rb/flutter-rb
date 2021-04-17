@@ -34,6 +34,10 @@ module FlutterRb
         podspec.path
       )
     end
+
+    def description
+      'Check plugin name in podspec file'
+    end
   end
 
   # Check Flutter plugin version in podspec file. Exists or not
@@ -53,6 +57,10 @@ module FlutterRb
         podspec.path
       )
     end
+
+    def description
+      'Check plugin version in podspec file'
+    end
   end
 
   # Check Flutter plugin's authors. Exists or not
@@ -71,6 +79,10 @@ module FlutterRb
         podspec.path
       )
     end
+
+    def description
+      "Check plugin's authors in podspec file"
+    end
   end
 
   # Check plugin iOS source path in podspec file.
@@ -88,6 +100,10 @@ module FlutterRb
         description,
         podspec.path
       )
+    end
+
+    def description
+      'Check plugin iOS source path in podspec file'
     end
   end
 end
