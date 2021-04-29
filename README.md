@@ -38,6 +38,7 @@ Each issue has a `level` parameter that describes its significate level.
 
 | Check | Description | Level |
 | --- | --- | --- |
+| `PluginGradleAndroidPackageCheck` | Validate that \android\ package not exists in Gradle project config (build.gradle file) | `ERROR` |
 | `PluginGradleVersionCheck` | Check plugin version in Gradle project config (build.gradle file). Version must be the same as plugin version in pubspec file | `WARNING` |
 
 #### iOS
