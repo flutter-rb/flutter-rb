@@ -20,6 +20,7 @@ module FlutterRb
     ].freeze
 
     ANDROID_CHECKS = [
+      PluginGradleAndroidPackageCheck.new,
       PluginGradleVersionCheck.new
     ].freeze
 
