@@ -1,1 +1,22 @@
 version "1.0.0"
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+
+    dependencies {
+        classpath 'com.github.fartem:flutter-rb-gradle-plugin:1.0.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.smlnskgmail.jaman.flutterrb'
