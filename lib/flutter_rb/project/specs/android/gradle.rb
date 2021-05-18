@@ -1,3 +1,5 @@
+require 'json'
+
 module FlutterRb
   # Gradle representation
   class Gradle
@@ -16,23 +18,13 @@ module FlutterRb
     end
 
     def parse
-      config = parse_gradle_config(@path)
-      Gradle.new(
-        @path,
-        config[:version]
-      )
-    end
-
-    private
-
-    def parse_gradle_config(file)
-      parameters = {}
-      File.open file do |opened_file|
-        opened_file.find do |line|
-          parameters[:version] = line[8, line.length].gsub(/\s|"|'/, '') if line.start_with?('version')
-        end
-      end
-      parameters
+      current_path = Dir.pwd
+      Dir.chdir @path
+      `gradle -q prepareInfo`
+      Dir.chdir current_path
+      info_file = File.read "#{@path}/flutter_rb_gradle_plugin_output.json"
+      info = JSON.parse info_file
+      Gradle.new(@path, info['version'])
     end
   end
 end
