@@ -17,6 +17,9 @@ class CheckDescriptionTest < Minitest::Test
     plugin_gradle_version_check = FlutterRb::PluginGradleVersionCheck.new
     assert plugin_gradle_version_check.description != default_description
 
+    plugin_gradle_android_package_check = FlutterRb::PluginGradleAndroidPackageCheck.new
+    assert plugin_gradle_android_package_check.description != default_description
+
     plugin_podspec_name_check = FlutterRb::PluginPodspecNameCheck.new
     assert plugin_podspec_name_check.description != default_description
 
