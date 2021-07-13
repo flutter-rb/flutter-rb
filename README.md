@@ -14,13 +14,13 @@ A tool for checking a Flutter plugin structure.
 
 #### Levels
 
-Each issue has a `level` parameter that describes its significate level.
+Each issue has a `level` parameter that describes his significate level.
 
 | Level | Description |
 | --- | --- |
 | `NORMAL` | Issue not found |
 | `WARNING` | Issue is not serious and cannot break build |
-| `ERROR` | Issue is serious and can break build |
+| `ERROR` | Issue is critical and can break build |
 
 #### Flutter
 
@@ -52,6 +52,10 @@ Each issue has a `level` parameter that describes its significate level.
 
 ## How to use
 
+### Android
+
+You should add [flutter-rb-gradle-plugin](https://github.com/fartem/flutter-rb-gradle-plugin) to Android side of your plugin.
+
 ### As local installed gem
 
 Build gem from sources:
@@ -66,7 +70,7 @@ Install gem:
 gem i flutter_rb
 ```
 
-Then run from Flutter project:
+Then run from a Flutter plugin's project folder:
 
 ```shell
 frb
@@ -74,7 +78,7 @@ frb
 
 ### As local executable
 
-Add `project_folder/bin` (where `project_folder` is path to project on your machine) to PATH variable. Then updated environment and run from Flutter project:
+Add `project_folder/bin` (where `project_folder` is path to project on your machine) to `PATH` variable in your environment. Then updated environment and run from a Flutter plugin's project folder:
 
 ```shell
 local_frb
