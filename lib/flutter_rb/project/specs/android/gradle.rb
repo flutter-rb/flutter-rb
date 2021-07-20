@@ -18,10 +18,7 @@ module FlutterRb
     end
 
     def parse
-      current_path = Dir.pwd
-      Dir.chdir @path
-      `gradle -q prepareInfo`
-      Dir.chdir current_path
+      `gradle -p #{@path} -q prepareInfo`
       info_file = File.read "#{@path}/flutter_rb_gradle_plugin_output.json"
       info = JSON.parse info_file
       Gradle.new(@path, info['version'])

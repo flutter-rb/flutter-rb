@@ -14,7 +14,9 @@ module CheckstyleReport
       checkstyle_files = sort_checks(@checks)
       report = Nokogiri::XML::Builder.new do |xml|
         xml.checkstyle(version: '8.38') do
-          checkstyle_files.map { |file, errors| CheckstyleFile.new(file, errors) }.each { |file| write_file(xml, file) }
+          checkstyle_files
+            .map { |file, errors| CheckstyleFile.new(file, errors) }
+            .each { |file| write_file(xml, file) }
         end
       end
       File.open("#{@path}/#{@report_filename}.xml", 'w') { |file| file.write(report.to_xml) }
