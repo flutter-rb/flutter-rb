@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'flutter_rb'
-
 require 'colorize'
 
 def light_blue_text(text)

@@ -11,7 +11,7 @@ class ProjectParserTest < Minitest::Test
   end
 
   def test_project_exists
-    path = File.expand_path("#{Dir.pwd}/test_assets/valid_dart_project")
+    path = File.expand_path("./test_assets/valid_dart_project")
     project = FlutterRb::ProjectParser.new(path).project
 
     assert !project.nil?

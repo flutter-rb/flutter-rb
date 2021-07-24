@@ -6,7 +6,7 @@ require 'minitest/autorun'
 
 class PubspecParserTest < Minitest::Test
   def test_parser
-    path = File.expand_path("#{Dir.pwd}/test_assets/valid_dart_project/pubspec.yaml")
+    path = File.expand_path("./test_assets/valid_dart_project/pubspec.yaml")
     pubspec = FlutterRb::PubspecParser.new(path, YAML.load_file(path)).parse
 
     assert !pubspec.nil?
