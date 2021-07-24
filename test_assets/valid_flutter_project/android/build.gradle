@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.github.fartem:flutter-rb-gradle-plugin:1.0.0'
+        classpath 'com.github.fartem:flutter-rb-gradle-plugin:1.0.1'
     }
 }
 
