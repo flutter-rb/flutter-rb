@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'cocoapods', '1.10.0'
   s.add_runtime_dependency 'colorize', '0.8.1'
-  s.add_runtime_dependency 'nokogiri', '1.13.4'
+  s.add_runtime_dependency 'nokogiri', '1.13.5'
 
   s.add_development_dependency 'minitest', '5.14.0'
   s.add_development_dependency 'rake', '12.3.3'
