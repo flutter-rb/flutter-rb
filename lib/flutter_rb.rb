@@ -3,40 +3,23 @@ require_relative './flutter_rb/checks/plugin_directories_check'
 require_relative './flutter_rb/checks/plugin_pubspec_check'
 require_relative './flutter_rb/checks/plugin_gradle_check'
 require_relative './flutter_rb/checks/plugin_podspec_check'
+require_relative './flutter_rb/config/flutter_rb_config_initializer'
 
 require_relative './checkstyle_report/checkstyle_report'
 
 module FlutterRb
   # Start FlutterRb checks
   class FlutterRb
-    FLUTTER_CHECKS = [
-      PluginDirectoriesCheck.new,
-      PluginPubspecNameCheck.new,
-      PluginPubspecDescriptionCheck.new,
-      PluginPubspecVersionCheck.new,
-      PluginPubspecAuthorCheck.new,
-      PluginPubspecHomepageCheck.new,
-      PluginPubspecEffectiveDartCheck.new
-    ].freeze
-
-    ANDROID_CHECKS = [
-      PluginGradleAndroidPackageCheck.new,
-      PluginGradleVersionCheck.new
-    ].freeze
-
-    IOS_CHECKS = [
-      PluginPodspecNameCheck.new,
-      PluginPodspecVersionCheck.new,
-      PluginPodspecAuthorsCheck.new,
-      PluginPodspecSourceCheck.new
-    ].freeze
-
     def start(path, with_report)
       project = ProjectParser.new(path).project
       if project.nil?
         exit_with_no_project
       else
-        check_project(project, path, with_report)
+        check_project(
+          project,
+          path,
+          with_report
+        )
       end
     end
 
@@ -45,19 +28,34 @@ module FlutterRb
       exit(-1)
     end
 
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def check_project(project, path, with_report)
-      checks = explore_project(project)
+      config_initializer = FlutterRbConfigInitializer.new
+      config_path = "#{path}/.flutter_rb.yaml"
+      config = File.exist?(config_path) ? config_initializer.parse(config_path) : config_initializer.default
+      checks = explore_project(
+        project,
+        config.flutter_checks,
+        config.android_checks,
+        config.ios_checks
+      )
+      checks.each { |check| puts check.print }
       errors = checks.reject { |check| check.check_report_status == CheckReportStatus::NORMAL }
-      errors.each { |check| puts check.print }
       create_report(path, checks) if with_report
       exit(errors.empty? ? 0 : -1)
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
-    def explore_project(project)
+    def explore_project(
+      project,
+      flutter_checks,
+      android_checks,
+      ios_checks
+    )
       result = []
-      result += flutter_checks(project)
-      result += android_checks(project)
-      result += ios_checks(project)
+      result += flutter_checks.map { |check| check.check(project) }
+      result += android_checks.map { |check| check.check(project) } unless project.android_folder.nil?
+      result += ios_checks.map { |check| check.check(project) } unless project.ios_folder.nil?
       result
     end
 
@@ -89,26 +87,6 @@ module FlutterRb
         CheckstyleReport::CheckstyleError::SAVERITY_WARNING
       when CheckReportStatus::ERROR
         CheckstyleReport::CheckstyleError::SAVERITY_ERROR
-      end
-    end
-
-    def flutter_checks(project)
-      FlutterRb::FLUTTER_CHECKS.map { |check| check.check(project) }
-    end
-
-    def android_checks(project)
-      if project.android_folder.nil?
-        []
-      else
-        FlutterRb::ANDROID_CHECKS.map { |check| check.check(project) }
-      end
-    end
-
-    def ios_checks(project)
-      if project.ios_folder.nil?
-        []
-      else
-        FlutterRb::IOS_CHECKS.map { |check| check.check(project) }
       end
     end
   end

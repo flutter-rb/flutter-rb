@@ -1,0 +1,17 @@
+include:
+  flutter:
+    - PluginDirectoriesCheck
+    - PluginPubspecNameCheck
+    - PluginPubspecDescriptionCheck
+    - PluginPubspecVersionCheck
+    - PluginPubspecAuthorCheck
+    - PluginPubspecHomepageCheck
+    - PluginPubspecEffectiveDartCheck
+  android:
+    - PluginGradleAndroidPackageCheck
+    - PluginGradleVersionCheck
+  ios:
+    - PluginPodspecNameCheck
+    - PluginPodspecVersionCheck
+    - PluginPodspecAuthorsCheck
+    - PluginPodspecSourceCheck
