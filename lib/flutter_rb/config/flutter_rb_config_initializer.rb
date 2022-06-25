@@ -1,4 +1,5 @@
 require_relative './flutter_rb_config'
+require_relative '../checks/plugin_directories_check'
 
 require 'yaml'
 
@@ -27,23 +28,22 @@ module FlutterRb
       PluginPodspecSourceCheck.new
     ].freeze
 
-    def initialize(path)
-      @path = path
-    end
-
-    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Layout/LineLength
     def parse(path)
       config = YAML.load_file(path)['include']
-      flutter_checks = config['flutter'].include? config['flutter'].map(&:new)
-      android_checks = config['android'].include? config['android'].map(&:new)
-      ios_checks = config['ios'].include? config['ios'].map(&:new)
+      flutter_checks = []
+      flutter_checks += config['flutter'].map { |check| Object.const_get("FlutterRb::#{check}").new } unless config['flutter'].nil?
+      android_checks = []
+      android_checks += config['android'].map { |check| Object.const_get("FlutterRb::#{check}").new } unless config['android'].nil?
+      ios_checks = []
+      ios_checks += config['ios'].map { |check| Object.const_get("FlutterRb::#{check}").new } unless config['ios'].nil?
       FlutterRbConfig.new(
         flutter_checks.empty? ? FLUTTER_CHECKS : flutter_checks,
         android_checks.empty? ? ANDROID_CHECKS : android_checks,
         ios_checks.empty? ? IOS_CHECKS : ios_checks
       )
     end
-    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Layout/LineLength
 
     def default
       FlutterRbConfig.new(

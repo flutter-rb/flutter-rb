@@ -32,15 +32,15 @@ module FlutterRb
     def check_project(project, path, with_report)
       config_initializer = FlutterRbConfigInitializer.new
       config_path = "#{path}/.flutter_rb.yaml"
-      config = File.exist? config_path ? config_initializer.parse(config_path) : config_initializer.default
+      config = File.exist?(config_path) ? config_initializer.parse(config_path) : config_initializer.default
       checks = explore_project(
         project,
         config.flutter_checks,
         config.android_checks,
         config.ios_checks
       )
+      checks.each { |check| puts check.print }
       errors = checks.reject { |check| check.check_report_status == CheckReportStatus::NORMAL }
-      errors.each { |check| puts check.print }
       create_report(path, checks) if with_report
       exit(errors.empty? ? 0 : -1)
     end

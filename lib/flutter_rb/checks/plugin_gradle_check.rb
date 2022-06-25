@@ -18,7 +18,7 @@ module FlutterRb
 
     def check(project)
       gradle = project.android_folder.gradle
-      import_exist = File.readlines(gradle.path).grep(/package android/).size.positive?
+      import_exist = File.readlines("#{gradle.path}/build.gradle").grep(/package android/).size.positive?
       CheckReport.new(
         name,
         import_exist ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
