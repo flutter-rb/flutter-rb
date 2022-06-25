@@ -31,7 +31,7 @@ module FlutterRb
     # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def check_project(project, path, with_report)
       config_initializer = FlutterRbConfigInitializer.new
-      config_path = "#{path}/.flutter_rm.yaml"
+      config_path = "#{path}/.flutter_rb.yaml"
       config = File.exist? config_path ? config_initializer.parse(config_path) : config_initializer.default
       checks = explore_project(
         project,
