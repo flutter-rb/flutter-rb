@@ -91,6 +91,26 @@ local_frb
 | `--help` | Print help info |
 | `--checkstyle-report` | Generate report in Checkstyle format |
 
+
+### Configuration
+
+Add `.flutter_rb.yaml` to root of a project for select checks that you are want to execute:
+
+```yaml
+include:
+  flutter:
+    - check1
+    - check2
+    - check3
+  android:
+    - check1
+    - check2
+  ios:
+    - check1
+    - check2
+
+```
+
 ### Output report
 
 Tool can make report in Checkstyle format. To enable this feature, pass `--checkstyle-report` as an cli argument. The report file name is `frb-checkstyle-report.xml`.
