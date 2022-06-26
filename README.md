@@ -18,7 +18,7 @@ Each issue has a `level` parameter that describes his significate level.
 
 | Level | Description |
 | --- | --- |
-| `NORMAL` | Issue not found |
+| `NORMAL` | Issue was not found |
 | `WARNING` | Issue is not serious and cannot break build |
 | `ERROR` | Issue is critical and can break build |
 
@@ -113,7 +113,7 @@ include:
 
 ### Output report
 
-Tool can make report in Checkstyle format. To enable this feature, pass `--checkstyle-report` as an cli argument. The report file name is `frb-checkstyle-report.xml`.
+Tool can make report in Checkstyle format. To enable this feature, pass `--checkstyle-report` as an CLI argument. The report file name is `frb-checkstyle-report.xml`.
 
 ## How to contribute
 
