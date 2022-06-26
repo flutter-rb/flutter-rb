@@ -56,6 +56,20 @@ Each issue has a `level` parameter that describes his significate level.
 
 You should add [flutter-rb-gradle-plugin](https://github.com/fartem/flutter-rb-gradle-plugin) to Android side of your plugin.
 
+### Download gem from RubyGems
+
+Install gem:
+
+```shell
+gem install flutter_rb
+```
+
+Then run from a Flutter plugin's project folder:
+
+```shell
+frb
+```
+
 ### As local installed gem
 
 Build gem from sources:
