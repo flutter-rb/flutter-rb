@@ -55,7 +55,7 @@ Each issue has a `level` parameter that describes his significate level.
 
 ### Android
 
-You should add [flutter-rb-gradle-plugin](https://github.com/fartem/flutter-rb-gradle-plugin) to Android side of your plugin.
+You should add [flutter-rb-gradle-plugin](https://github.com/flutter-rb/flutter-rb-gradle-plugin) to Android side of your plugin.
 
 ### Download gem from RubyGems
 
