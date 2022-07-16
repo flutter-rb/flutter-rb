@@ -4,7 +4,6 @@
 
 [![GitHubActions](https://github.com/flutter-rb/flutter-rb/workflows/Build/badge.svg)](https://github.com/flutter-rb/flutter-rb/actions?branch=master)
 [![Codebeat](https://codebeat.co/badges/9bb32e28-ca86-4cdc-ba66-bda7f989979a)](https://codebeat.co/projects/github-com-fartem-flutter-rb-master)
-[![Coveralls](https://coveralls.io/repos/github/flutter-rb/flutter-rb/badge.svg?branch=master)](https://coveralls.io/github/flutter-rb/flutter-rb?branch=master)
 [![Gem Version](https://badge.fury.io/rb/flutter_rb.svg)](https://badge.fury.io/rb/flutter_rb)
 
 ## About
