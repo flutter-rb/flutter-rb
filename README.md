@@ -4,6 +4,7 @@
 
 [![GitHubActions](https://github.com/flutter-rb/flutter-rb/workflows/Build/badge.svg)](https://github.com/flutter-rb/flutter-rb/actions?branch=master)
 [![Codebeat](https://codebeat.co/badges/9bb32e28-ca86-4cdc-ba66-bda7f989979a)](https://codebeat.co/projects/github-com-fartem-flutter-rb-master)
+[![Gem Version](https://badge.fury.io/rb/flutter_rb.svg)](https://badge.fury.io/rb/flutter_rb)
 
 ## About
 
@@ -53,7 +54,7 @@ Each issue has a `level` parameter that describes his significate level.
 
 ### Android
 
-You should add [flutter-rb-gradle-plugin](https://github.com/fartem/flutter-rb-gradle-plugin) to Android side of your plugin.
+You should add [flutter-rb-gradle-plugin](https://github.com/flutter-rb/flutter-rb-gradle-plugin) to Android side of your plugin.
 
 ### Download gem from RubyGems
 
