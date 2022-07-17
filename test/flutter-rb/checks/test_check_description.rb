@@ -1,4 +1,3 @@
-require_relative '../../test__helper.rb'
 require_relative '../../../lib/flutter_rb/checks/plugin_directories_check.rb'
 require_relative '../../../lib/flutter_rb/checks/plugin_gradle_check.rb'
 require_relative '../../../lib/flutter_rb/checks/plugin_podspec_check.rb'

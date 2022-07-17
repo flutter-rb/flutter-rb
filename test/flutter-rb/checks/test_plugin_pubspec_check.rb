@@ -1,4 +1,3 @@
-require_relative '../../test__helper.rb'
 require_relative '../../../lib/flutter_rb/project/specs/flutter/pubspec.rb'
 require_relative '../../../lib/flutter_rb/project/project.rb'
 require_relative '../../../lib/flutter_rb/checks/check.rb'
