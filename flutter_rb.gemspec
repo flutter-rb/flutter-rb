@@ -3,7 +3,7 @@ require 'English'
 Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7.0'
   s.name = 'flutter_rb'
-  s.version = '0.8.2'
+  s.version = '0.8.3'
   s.license = 'MIT'
   s.files = Dir['lib/**/*.rb'] + %w[bin/frb README.md LICENSE]
   s.executable = 'frb'
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'cocoapods', '1.10.0'
   s.add_runtime_dependency 'colorize', '0.8.1'
-  s.add_runtime_dependency 'nokogiri', '1.13.6'
+  s.add_runtime_dependency 'nokogiri', '1.13.9'
 
   s.add_development_dependency 'minitest', '5.14.0'
   s.add_development_dependency 'rake', '12.3.3'
