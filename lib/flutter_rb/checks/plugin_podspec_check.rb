@@ -9,7 +9,7 @@ module FlutterRb
     end
 
     def podspec_parameter
-      UNIMPLEMENTATION_ERROR
+      UNIMPLEMENTED_ERROR
     end
 
     def summary

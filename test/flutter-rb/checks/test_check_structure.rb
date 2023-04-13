@@ -6,13 +6,13 @@ class CheckStructureTest < Minitest::Test
   def test_check_structure
     check = FlutterRb::Check.new
 
-    assert_raises FlutterRb::Check::UNIMPLEMENTATION_ERROR do
+    assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       check.name
     end
-    assert_raises FlutterRb::Check::UNIMPLEMENTATION_ERROR do
+    assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       check.summary
     end
-    assert_raises FlutterRb::Check::UNIMPLEMENTATION_ERROR do
+    assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       check.check
     end
 

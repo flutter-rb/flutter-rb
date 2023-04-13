@@ -44,7 +44,7 @@ class CheckstyleReportTest < Minitest::Test
     assert errors_block.length == 2
 
     first_error = errors_block.first
-    assert first_error.attr('saverity') == 'error'
+    assert first_error.attr('severity') == 'error'
     assert first_error.attr('line') == '1'
     assert first_error.attr('message') == 'Test message'
     assert first_error.attr('source') == 'pubspec.yaml'
@@ -53,7 +53,7 @@ class CheckstyleReportTest < Minitest::Test
     assert first_error.attr('name').nil?
 
     second_error = errors_block.last
-    assert second_error.attr('saverity') == 'warning'
+    assert second_error.attr('severity') == 'warning'
     assert second_error.attr('line') == '1'
     assert second_error.attr('message') == 'Test message'
     assert second_error.attr('source') == 'pubspec.yaml'

@@ -27,7 +27,7 @@ module CheckstyleReport
       checks.each do |check|
         checkstyle_file = checkstyle_files[check.source]
         checkstyle_files[check.source] = [] if checkstyle_file.nil?
-        checkstyle_files[check.source] += [check] if check.saverity != CheckstyleError::SAVERITY_NORMAL
+        checkstyle_files[check.source] += [check] if check.severity != CheckstyleError::SEVERITY_NORMAL
       end
       checkstyle_files
     end
@@ -44,7 +44,7 @@ module CheckstyleReport
       xml.error(
         line: error.line,
         column: error.column,
-        saverity: error.saverity,
+        severity: error.severity,
         message: error.message,
         source: error.source
       )
@@ -63,20 +63,20 @@ module CheckstyleReport
 
   # Checkstyle error representation
   class CheckstyleError
-    SAVERITY_NORMAL = 'normal'.freeze
-    SAVERITY_WARNING = 'warning'.freeze
-    SAVERITY_ERROR = 'error'.freeze
+    SEVERITY_NORMAL = 'normal'.freeze
+    SEVERITY_WARNING = 'warning'.freeze
+    SEVERITY_ERROR = 'error'.freeze
 
     # rubocop:disable Metrics/ParameterLists
     def initialize(
-      saverity,
+      severity,
       message,
       source,
       line,
       column,
       name
     )
-      @saverity = saverity
+      @severity = severity
       @message = message
       @source = source
       @line = line
@@ -85,6 +85,6 @@ module CheckstyleReport
     end
     # rubocop:enable Metrics/ParameterLists
 
-    attr_reader :saverity, :message, :source, :line, :column, :name
+    attr_reader :severity, :message, :source, :line, :column, :name
   end
 end

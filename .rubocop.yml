@@ -1,6 +1,6 @@
 AllCops:
   DisplayCopNames: true
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
   Exclude:
     - 'test/**/test_*.rb'
 
@@ -51,3 +51,5 @@ Lint/UnexpectedBlockArity:
 
 Layout/SpaceBeforeBrackets:
   Enabled: true
+Layout/BlockAlignment:
+  Enabled: false

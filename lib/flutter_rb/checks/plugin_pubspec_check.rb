@@ -9,7 +9,7 @@ module FlutterRb
     end
 
     def pubspec_parameter
-      raise UNIMPLEMENTATION_ERROR
+      raise UNIMPLEMENTED_ERROR
     end
 
     def summary

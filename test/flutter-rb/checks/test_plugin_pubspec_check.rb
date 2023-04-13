@@ -10,10 +10,10 @@ class PluginPubspecCheckStructureTest < Minitest::Test
   def test_pubspec_check_structure
     pubspec_check = FlutterRb::PluginPubspecCheck.new
 
-    assert_raises FlutterRb::Check::UNIMPLEMENTATION_ERROR do
+    assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       pubspec_check.pubspec_parameter
     end
-    assert_raises FlutterRb::Check::UNIMPLEMENTATION_ERROR do
+    assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       pubspec_check.summary
     end
   end
