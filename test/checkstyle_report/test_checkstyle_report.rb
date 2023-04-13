@@ -31,7 +31,7 @@ class CheckstyleReportTest < Minitest::Test
       filename,
       errors
     )
-    checkstyle_report.create_report()
+    checkstyle_report.create_report
 
     report_in_xml = File.open('./test_assets/checkstyle_report/checkstyle-report.xml') do |file|
       Nokogiri::XML(file)
