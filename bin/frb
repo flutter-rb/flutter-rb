@@ -9,7 +9,7 @@ end
 
 if ARGV.include?('--help')
   puts "
-    Available aruments:
+    Available arguments:
     * #{light_blue_text('--help')}: print help info
     * #{light_blue_text('--checkstyle-report')}: generate report in Checkstyle format
     "

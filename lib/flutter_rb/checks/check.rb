@@ -3,14 +3,14 @@ module FlutterRb
   # Class provides default methods structure
   # All methods using for create reports
   class Check
-    UNIMPLEMENTATION_ERROR = 'Error: missing method'.freeze
+    UNIMPLEMENTED_ERROR = 'Error: missing method'.freeze
 
     def name
-      raise UNIMPLEMENTATION_ERROR
+      raise UNIMPLEMENTED_ERROR
     end
 
     def summary
-      raise UNIMPLEMENTATION_ERROR
+      raise UNIMPLEMENTED_ERROR
     end
 
     def description
@@ -18,7 +18,7 @@ module FlutterRb
     end
 
     def check
-      raise UNIMPLEMENTATION_ERROR
+      raise UNIMPLEMENTED_ERROR
     end
   end
 end

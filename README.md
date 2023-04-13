@@ -1,4 +1,4 @@
-<img src="media/logo/ic_lib.png" height="100px">
+<img src="media/logo/ic_lib.png" height="100px" alt="Project's logo">
 
 # flutter_rb
 
@@ -16,39 +16,39 @@ A tool for checking a Flutter plugin structure.
 
 Each issue has a `level` parameter that describes his significate level.
 
-| Level | Description |
-| --- | --- |
-| `NORMAL` | Issue was not found |
+| Level     | Description                                 |
+|-----------|---------------------------------------------|
+| `NORMAL`  | Issue was not found                         |
 | `WARNING` | Issue is not serious and cannot break build |
-| `ERROR` | Issue is critical and can break build |
+| `ERROR`   | Issue is critical and can break build       |
 
 #### Flutter
 
-| Check | Description | Level |
-| --- | --- | --- |
-| `PluginDirectoriesCheck` | Check plugin directories structure in pubspec file. Example: if a Flutter plugin has only Android specific code but not contains iOS folder with description, then iOS build fails | `ERROR` |
-| `PluginPubspecNameCheck` | Check plugin name in pubspec file. Exists or not | `ERROR` |
-| `PluginPubspecDescriptionCheck` | Check plugin description in pubspec file. Exists or not | `WARNING` |
-| `PluginPubspecVersionCheck` | Check plugin version in pubspec. Exists or not | `ERROR` |
-| `PluginPubspecAuthorCheck` | Check plugin author in pubspec. Exists or not. `author` section deprecated in `pubspec.yaml` | `WARNING` |
-| `PluginPubspecHomepageCheck` | Check plugin homepage in pubspec. Exists or not | `ERROR` |
-| `PluginPubspecEffectiveDartCheck` | Check Flutter plugin Effective Dart depencency in pubspec file. Exists or not | `ERROR` |
+| Check                             | Description                                                                                                                                                                        | Level     |
+|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| `PluginDirectoriesCheck`          | Check plugin directories structure in pubspec file. Example: if a Flutter plugin has only Android specific code but not contains iOS folder with description, then iOS build fails | `ERROR`   |
+| `PluginPubspecNameCheck`          | Check plugin name in pubspec file. Exists or not                                                                                                                                   | `ERROR`   |
+| `PluginPubspecDescriptionCheck`   | Check plugin description in pubspec file. Exists or not                                                                                                                            | `WARNING` |
+| `PluginPubspecVersionCheck`       | Check plugin version in pubspec. Exists or not                                                                                                                                     | `ERROR`   |
+| `PluginPubspecAuthorCheck`        | Check plugin author in pubspec. Exists or not. `author` section deprecated in `pubspec.yaml`                                                                                       | `WARNING` |
+| `PluginPubspecHomepageCheck`      | Check plugin homepage in pubspec. Exists or not                                                                                                                                    | `ERROR`   |
+| `PluginPubspecEffectiveDartCheck` | Check Flutter plugin Effective Dart depencency in pubspec file. Exists or not                                                                                                      | `ERROR`   |
 
 #### Android
 
-| Check | Description | Level |
-| --- | --- | --- |
-| `PluginGradleAndroidPackageCheck` | Validate that \android\ package not exists in Gradle project config (build.gradle file) | `ERROR` |
-| `PluginGradleVersionCheck` | Check plugin version in Gradle project config (build.gradle file). Version must be the same as plugin version in pubspec file | `WARNING` |
+| Check                             | Description                                                                                                                   | Level     |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------|
+| `PluginGradleAndroidPackageCheck` | Validate that \android\ package not exists in Gradle project config (build.gradle file)                                       | `ERROR`   |
+| `PluginGradleVersionCheck`        | Check plugin version in Gradle project config (build.gradle file). Version must be the same as plugin version in pubspec file | `WARNING` |
 
 #### iOS
 
-| Check | Description | Level |
-| --- | --- | --- |
-| `PluginPodspecNameCheck` | Check plugin name in podspec file. Exists or not | `WARNING` |
-| `PluginPodspecVersionCheck` | Check plugin version in podspec file. Exists or not | `WARNING` |
-| `PluginPodspecAuthorsCheck` | Check plugin's authors in podspec file. Exists or not | `ERROR` |
-| `PluginPodspecSourceCheck` | Check plugin iOS source path in podspec file. If Flutter plugin cannot contains iOS specific code, source path must be `'.'` | `ERROR` |
+| Check                       | Description                                                                                                                  | Level     |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------|-----------|
+| `PluginPodspecNameCheck`    | Check plugin name in podspec file. Exists or not                                                                             | `WARNING` |
+| `PluginPodspecVersionCheck` | Check plugin version in podspec file. Exists or not                                                                          | `WARNING` |
+| `PluginPodspecAuthorsCheck` | Check plugin's authors in podspec file. Exists or not                                                                        | `ERROR`   |
+| `PluginPodspecSourceCheck`  | Check plugin iOS source path in podspec file. If Flutter plugin cannot contains iOS specific code, source path must be `'.'` | `ERROR`   |
 
 ## How to use
 
@@ -100,9 +100,9 @@ local_frb
 
 ### Arguments
 
-| Argument | Description |
-| --- | --- |
-| `--help` | Print help info |
+| Argument              | Description                          |
+|-----------------------|--------------------------------------|
+| `--help`              | Print help info                      |
 | `--checkstyle-report` | Generate report in Checkstyle format |
 
 
