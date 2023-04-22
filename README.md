@@ -3,7 +3,7 @@
 # flutter_rb
 
 [![GitHubActions](https://github.com/flutter-rb/flutter-rb/workflows/Build/badge.svg)](https://github.com/flutter-rb/flutter-rb/actions?branch=master)
-[![Codebeat](https://codebeat.co/badges/9bb32e28-ca86-4cdc-ba66-bda7f989979a)](https://codebeat.co/projects/github-com-fartem-flutter-rb-master)
+[![Codebeat](https://codebeat.co/badges/9bb32e28-ca86-4cdc-ba66-bda7f989979a)](https://codebeat.co/projects/github-com-flutter-rb-flutter-rb-master)
 [![Gem Version](https://badge.fury.io/rb/flutter_rb.svg)](https://badge.fury.io/rb/flutter_rb)
 
 ## About
@@ -14,13 +14,13 @@ A tool for checking a Flutter plugin structure.
 
 #### Levels
 
-Each issue has a `level` parameter that describes his significate level.
+Each issue has a `level` parameter that describes its significant importance.
 
-| Level     | Description                                 |
-|-----------|---------------------------------------------|
-| `NORMAL`  | Issue was not found                         |
-| `WARNING` | Issue is not serious and cannot break build |
-| `ERROR`   | Issue is critical and can break build       |
+| Level     | Description                                  |
+|-----------|----------------------------------------------|
+| `NORMAL`  | Issue not found                              |
+| `WARNING` | Issue is not serious and can't break a build |
+| `ERROR`   | Issue is critical and can break a build      |
 
 #### Flutter
 
@@ -58,36 +58,29 @@ You should add [flutter-rb-gradle-plugin](https://github.com/flutter-rb/flutter-
 
 ### Download gem from RubyGems
 
-Install gem:
-
 ```shell
-gem install flutter_rb
+$ gem i flutter_rb
 ```
 
 Then run from a Flutter plugin's project folder:
 
 ```shell
-frb
+$ frb
 ```
 
 ### As local installed gem
 
-Build gem from sources:
+Build and install gem from sources:
 
 ```shell
-gem build flutter_rb.gemspec
-```
-
-Install gem:
-
-```shell
-gem i flutter_rb
+$ gem build flutter_rb.gemspec
+$ gem i flutter_rb
 ```
 
 Then run from a Flutter plugin's project folder:
 
 ```shell
-frb
+$ frb
 ```
 
 ### As local executable
@@ -95,7 +88,7 @@ frb
 Add `project_folder/bin` (where `project_folder` is path to project on your machine) to `PATH` variable in your environment. Then updated environment and run from a Flutter plugin's project folder:
 
 ```shell
-local_frb
+$ local_frb
 ```
 
 ### Arguments
@@ -131,10 +124,10 @@ Tool can make report in Checkstyle format. To enable this feature, pass `--check
 
 ## How to contribute
 
-Read [Commit Convention](https://github.com/fartem/repository-rules/blob/master/commit-convention/COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
+Read [Commit Convention](./COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
 
 ```shell
-bundle exec rake
+$ bundle exec rake
 ```
 
 If you don't see any error messages, submit your pull request.
