@@ -17,7 +17,7 @@ class PubspecParserTest < Minitest::Test
     assert plugin_info.description == 'Valid Dart project'
     assert plugin_info.version == '1.0.0'
     assert plugin_info.author.nil?
-    assert plugin_info.homepage == 'https://github.com/fartem/flutter_rb/tree/master/test_assets/valid_dart_project'
+    assert plugin_info.homepage == 'https://github.com/flutter-rb/flutter_rb/tree/master/test_assets/valid_dart_project'
 
     dev_dependencies = pubspec.dev_dependencies
     assert !dev_dependencies.nil?

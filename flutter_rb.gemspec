@@ -3,9 +3,9 @@ require 'English'
 Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.0'
   s.name = 'flutter_rb'
-  s.version = '1.0.0'
+  s.version = '1.0.1'
   s.license = 'MIT'
-  s.files = Dir['lib/**/*.rb'] + %w[bin/frb README.md LICENSE]
+  s.files = Dir['lib/**/*.rb'] + %w[bin/frb README.md LICENSE CODE_OF_CONDUCT.md COMMIT_CONVENTION.md]
   s.executable = 'frb'
   s.require_paths << 'lib'
   s.summary = 'A Ruby tool for checking a Flutter plugin structure'
