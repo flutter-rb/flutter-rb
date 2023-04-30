@@ -6,7 +6,7 @@ class ProjectParserTest < Minitest::Test
   def test_project_not_exists
     project = FlutterRb::ProjectParser.new('.').project
 
-    assert project.nil?
+    assert_nil(project)
   end
 
   def test_project_exists
@@ -17,9 +17,12 @@ class ProjectParserTest < Minitest::Test
 
     assert !project.pubspec.nil?
     assert !project.pubspec.pubspec_info.nil?
-    assert project.pubspec.pubspec_info.name == 'valid_dart_project'
+    assert_equal(
+      'valid_dart_project',
+      project.pubspec.pubspec_info.name
+    )
 
-    assert project.android_folder.nil?
-    assert project.ios_folder.nil?
+    assert_nil(project.android_folder)
+    assert_nil(project.ios_folder)
   end
 end

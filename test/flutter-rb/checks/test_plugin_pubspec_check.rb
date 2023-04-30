@@ -33,7 +33,10 @@ class PluginPubspecNameCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecNameCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::NORMAL
+    assert_equal(
+      FlutterRb::CheckReportStatus::NORMAL,
+      report.check_report_status
+    )
   end
 
   def test_on_invalid_project
@@ -41,7 +44,10 @@ class PluginPubspecNameCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecNameCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::ERROR
+    assert_equal(
+      FlutterRb::CheckReportStatus::ERROR,
+      report.check_report_status
+    )
   end
 end
 
@@ -51,7 +57,10 @@ class PluginPubspecAuthorCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecAuthorCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::NORMAL
+    assert_equal(
+      FlutterRb::CheckReportStatus::NORMAL,
+      report.check_report_status
+    )
   end
 
   def test_on_invalid_project
@@ -59,7 +68,10 @@ class PluginPubspecAuthorCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecAuthorCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::WARNING
+    assert_equal(
+      FlutterRb::CheckReportStatus::WARNING,
+      report.check_report_status
+    )
   end
 end
 
@@ -69,7 +81,10 @@ class PluginPubspecDescriptionCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecDescriptionCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::NORMAL
+    assert_equal(
+      FlutterRb::CheckReportStatus::NORMAL,
+      report.check_report_status
+    )
   end
 
   def test_on_invalid_project
@@ -77,7 +92,10 @@ class PluginPubspecDescriptionCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecDescriptionCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::WARNING
+    assert_equal(
+      FlutterRb::CheckReportStatus::WARNING,
+      report.check_report_status
+    )
   end
 end
 
@@ -87,7 +105,10 @@ class PluginPubspecVersionCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecVersionCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::NORMAL
+    assert_equal(
+      FlutterRb::CheckReportStatus::NORMAL,
+      report.check_report_status
+    )
   end
 
   def test_on_invalid_project
@@ -95,7 +116,10 @@ class PluginPubspecVersionCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecVersionCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::ERROR
+    assert_equal(
+      FlutterRb::CheckReportStatus::ERROR,
+      report.check_report_status
+    )
   end
 end
 
@@ -105,7 +129,10 @@ class PluginPubspecHomepageCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecHomepageCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::NORMAL
+    assert_equal(
+      FlutterRb::CheckReportStatus::NORMAL,
+      report.check_report_status
+    )
   end
 
   def test_on_invalid_project
@@ -113,7 +140,10 @@ class PluginPubspecHomepageCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecHomepageCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::ERROR
+    assert_equal(
+      FlutterRb::CheckReportStatus::ERROR,
+      report.check_report_status
+    )
   end
 end
 
@@ -123,7 +153,10 @@ class PluginPubspecEffectiveDartCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecEffectiveDartCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::NORMAL
+    assert_equal(
+      FlutterRb::CheckReportStatus::NORMAL,
+      report.check_report_status
+    )
   end
 
   def test_on_invalid_project
@@ -131,6 +164,9 @@ class PluginPubspecEffectiveDartCheckTest < BasePluginPubspecCheckTest
     project = load_project(path)
 
     report = FlutterRb::PluginPubspecEffectiveDartCheck.new.check(project)
-    assert report.check_report_status == FlutterRb::CheckReportStatus::ERROR
+    assert_equal(
+      FlutterRb::CheckReportStatus::ERROR,
+      report.check_report_status
+    )
   end
 end

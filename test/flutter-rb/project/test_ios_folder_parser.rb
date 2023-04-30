@@ -14,9 +14,9 @@ class IOSFolderParserTest < Minitest::Test
 
     podspec = ios_folder.podspec
     assert !podspec.nil?
-    assert podspec.name == 'valid_flutter_project'
-    assert podspec.version == '1.0.0'
+    assert_equal('valid_flutter_project', podspec.name)
+    assert_equal('1.0.0', podspec.version)
     assert !podspec.authors.nil?
-    assert podspec.source == '.'
+    assert_equal('.', podspec.source)
   end
 end

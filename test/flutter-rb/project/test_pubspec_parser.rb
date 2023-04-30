@@ -13,25 +13,28 @@ class PubspecParserTest < Minitest::Test
     plugin_info = pubspec.pubspec_info
     assert !plugin_info.nil?
 
-    assert plugin_info.name == 'valid_dart_project'
-    assert plugin_info.description == 'Valid Dart project'
-    assert plugin_info.version == '1.0.0'
-    assert plugin_info.author.nil?
-    assert plugin_info.homepage == 'https://github.com/flutter-rb/flutter_rb/tree/master/test_assets/valid_dart_project'
+    assert_equal('valid_dart_project', plugin_info.name)
+    assert_equal('Valid Dart project', plugin_info.description)
+    assert_equal('1.0.0', plugin_info.version)
+    assert_nil(plugin_info.author)
+    assert(
+      'https://github.com/flutter-rb/flutter_rb/tree/master/test_assets/valid_dart_project',
+      plugin_info.homepage
+    )
 
     dev_dependencies = pubspec.dev_dependencies
     assert !dev_dependencies.nil?
 
-    assert dev_dependencies.length == 2
+    assert_equal(2, dev_dependencies.length)
 
     dev_dependency = dev_dependencies.first
-    assert dev_dependency.name == 'effective_dart'
-    assert dev_dependency.version == '^1.3.0'
+    assert_equal('effective_dart', dev_dependency.name)
+    assert_equal('^1.3.0', dev_dependency.version)
 
     dev_dependency = dev_dependencies.last
-    assert dev_dependency.name == 'dart_enum_to_string_check'
-    assert dev_dependency.version == '^0.6.2'
+    assert_equal('dart_enum_to_string_check', dev_dependency.name)
+    assert_equal('^0.6.2', dev_dependency.version)
 
-    assert pubspec.platform_plugins.nil?
+    assert_nil(pubspec.platform_plugins)
   end
 end

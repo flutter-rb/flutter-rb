@@ -5,12 +5,15 @@ require 'minitest/autorun'
 class CheckReportTest < Minitest::Test
   def test_print
     report = FlutterRb::CheckReport.new(
-        'Name',
-        FlutterRb::CheckReportStatus::NORMAL,
-        'Message',
-        'path'
+      'Name',
+      FlutterRb::CheckReportStatus::NORMAL,
+      'Message',
+      'path'
     )
 
-    assert report.print(colorize: false) == " * [#{FlutterRb::CheckReportStatus::NORMAL}] Name: Message"
+    assert_equal(
+      " * [#{FlutterRb::CheckReportStatus::NORMAL}] Name: Message",
+      report.print(colorize: false)
+    )
   end
 end
