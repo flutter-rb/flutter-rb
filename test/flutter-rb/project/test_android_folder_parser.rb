@@ -11,7 +11,7 @@ class AndroidFolderParserTest < Minitest::Test
 
     gradle_config = android_folder.gradle
     assert !gradle_config.nil?
-    assert gradle_config.version == '1.0.0'
+    assert_equal('1.0.0', gradle_config.version)
   end
 end
 

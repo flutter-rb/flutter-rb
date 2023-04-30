@@ -16,6 +16,6 @@ class CheckStructureTest < Minitest::Test
       check.check
     end
 
-    assert check.description == 'No provided'
+    assert_equal('No provided', check.description)
   end
 end
