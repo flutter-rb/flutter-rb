@@ -1,4 +1,4 @@
-name: Build
+name: Checks
 
 on:
   push:
@@ -24,5 +24,7 @@ jobs:
       run: wget https://services.gradle.org/distributions/gradle-7.0-bin.zip -O /opt/gradle.zip && unzip /opt/gradle.zip && export PATH=$PATH:/opt/gradle/gradle-7.0/bin
     - name: Install dependencies
       run: bundle install
-    - name: Run checks 
-      run: bundle exec rake
+    - name: Run RuboCop checks
+      run: bundle exec rake rubocop
+    - name: Run tests
+      run: bundle exec rake test
