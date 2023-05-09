@@ -1,3 +1,4 @@
+require_relative '../../test_helper'
 require_relative '../../../lib/flutter_rb/report/check_report.rb'
 
 require 'minitest/autorun'

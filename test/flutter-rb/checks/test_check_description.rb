@@ -1,3 +1,4 @@
+require_relative '../../test_helper'
 require_relative '../../../lib/flutter_rb/checks/plugin_directories_check.rb'
 require_relative '../../../lib/flutter_rb/checks/plugin_gradle_check.rb'
 require_relative '../../../lib/flutter_rb/checks/plugin_podspec_check.rb'
@@ -24,7 +25,7 @@ class CheckDescriptionTest < Minitest::Test
 
     plugin_podspec_version_check = FlutterRb::PluginPodspecVersionCheck.new
     assert plugin_podspec_version_check.description != default_description
-    
+
     plugin_podspec_author_check = FlutterRb::PluginPubspecAuthorCheck.new
     assert plugin_podspec_author_check.description != default_description
 
