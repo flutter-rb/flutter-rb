@@ -1,3 +1,4 @@
+require_relative '../../test_helper'
 require_relative '../../../lib/flutter_rb/project/specs/android/android_folder.rb'
 
 require 'minitest/autorun'
