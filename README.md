@@ -55,7 +55,8 @@ Each issue has a `level` parameter that describes its significant importance.
 
 ### Android
 
-You should add [flutter-rb-gradle-plugin](https://github.com/flutter-rb/flutter-rb-gradle-plugin) to Android side of your plugin.
+You should add [flutter-rb-gradle-plugin](https://github.com/flutter-rb/flutter-rb-gradle-plugin) to Android side of
+your plugin.
 
 ### Download gem from RubyGems
 
@@ -86,7 +87,8 @@ $ frb
 
 ### As local executable
 
-Add `project_folder/bin` (where `project_folder` is path to project on your machine) to `PATH` variable in your environment. Then updated environment and run from a Flutter plugin's project folder:
+Add `project_folder/bin` (where `project_folder` is path to project on your machine) to `PATH` variable in your
+environment. Then updated environment and run from a Flutter plugin's project folder:
 
 ```shell
 $ local_frb
@@ -98,7 +100,6 @@ $ local_frb
 |-----------------------|--------------------------------------|
 | `--help`              | Print help info                      |
 | `--checkstyle-report` | Generate report in Checkstyle format |
-
 
 ### Configuration
 
@@ -121,11 +122,13 @@ include:
 
 ### Output report
 
-Tool can make report in Checkstyle format. To enable this feature, pass `--checkstyle-report` as an CLI argument. The report file name is `frb-checkstyle-report.xml`.
+Tool can make report in Checkstyle format. To enable this feature, pass `--checkstyle-report` as an CLI argument. The
+report file name is `frb-checkstyle-report.xml`.
 
 ## How to contribute
 
-Read [Commit Convention](./COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request. Then:
+Read [Commit Convention](./COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request.
+Then:
 
 ```shell
 $ bundle exec rake
