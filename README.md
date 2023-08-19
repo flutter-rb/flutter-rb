@@ -103,10 +103,10 @@ $ local_frb
 
 ### Configuration
 
-Add `.flutter_rb.yaml` to root of a project for select checks that you are want to execute:
+Add `.flutter_rb.yaml` to root of a project for select checks that you are want to exclude:
 
 ```yaml
-include:
+exclude:
   flutter:
     - check1
     - check2
