@@ -11,13 +11,13 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.0
-    - name: Run RuboCop checks
-      run: bundle exec rake rubocop
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Run RuboCop checks
+        run: bundle exec rake rubocop
 
   checks:
     permissions: write-all
