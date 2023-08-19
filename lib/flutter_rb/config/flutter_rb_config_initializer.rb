@@ -28,23 +28,38 @@ module FlutterRb
       PluginPodspecSourceCheck.new
     ].freeze
 
-    # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Layout/LineLength
+    # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+    # @param {String} path
     def parse(path)
       config = YAML.load_file(path)['include']
       flutter_checks = []
-      flutter_checks += config['flutter'].map { |check| Object.const_get("FlutterRb::#{check}").new } unless config['flutter'].nil?
+      unless config['flutter'].nil?
+        flutter_checks += config['flutter'].map do |check|
+          Object.const_get("FlutterRb::#{check}").new
+        end
+      end
       android_checks = []
-      android_checks += config['android'].map { |check| Object.const_get("FlutterRb::#{check}").new } unless config['android'].nil?
+      unless config['android'].nil?
+        android_checks += config['android'].map do |check|
+          Object.const_get("FlutterRb::#{check}").new
+        end
+      end
       ios_checks = []
-      ios_checks += config['ios'].map { |check| Object.const_get("FlutterRb::#{check}").new } unless config['ios'].nil?
+      unless config['ios'].nil?
+        ios_checks += config['ios'].map do |check|
+          Object.const_get("FlutterRb::#{check}").new
+        end
+      end
       FlutterRbConfig.new(
         flutter_checks.empty? ? FLUTTER_CHECKS : flutter_checks,
         android_checks.empty? ? ANDROID_CHECKS : android_checks,
         ios_checks.empty? ? IOS_CHECKS : ios_checks
       )
     end
-    # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity, Layout/LineLength
 
+    # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
+
+    # @return {FlutterRbConfig}
     def default
       FlutterRbConfig.new(
         FLUTTER_CHECKS,

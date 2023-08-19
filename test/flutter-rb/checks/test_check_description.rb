@@ -7,6 +7,7 @@ require_relative '../../../lib/flutter_rb/checks/plugin_pubspec_check.rb'
 require 'minitest/autorun'
 require 'yaml'
 
+# noinspection RubyLocalVariableNamingConvention
 class CheckDescriptionTest < Minitest::Test
   def test_check_description
     default_description = 'No provided'

@@ -4,6 +4,7 @@ require_relative '../../lib/checkstyle_report/checkstyle_report'
 require 'minitest/autorun'
 require 'nokogiri'
 
+# noinspection RubyInstanceMethodNamingConvention
 class CheckstyleReportTest < Minitest::Test
   def test_checkstyle_report_creation
     path = './test_assets/checkstyle_report'

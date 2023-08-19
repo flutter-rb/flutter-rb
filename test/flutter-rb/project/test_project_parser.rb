@@ -16,6 +16,7 @@ class ProjectParserTest < Minitest::Test
 
     assert !project.nil?
 
+    # noinspection RubyNilAnalysis
     assert !project.pubspec.nil?
     assert !project.pubspec.pubspec_info.nil?
     assert_equal(

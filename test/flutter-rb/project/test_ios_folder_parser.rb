@@ -7,6 +7,7 @@ require 'minitest/autorun'
 class IOSFolderParserTest < Minitest::Test
   def test_ios_folder_parser
     project_path = "#{Dir.pwd}/test_assets/valid_flutter_project"
+    # noinspection RubyNilAnalysis
     project = FlutterRb::ProjectParser.new(project_path).project.pubspec
 
     ios_folder = FlutterRb::IOSFolder.new("#{project_path}/ios", project)

@@ -7,6 +7,7 @@ require_relative '../../../lib/flutter_rb/checks/plugin_pubspec_check.rb'
 require 'minitest/autorun'
 require 'yaml'
 
+# noinspection RubyClassModuleNamingConvention
 class PluginPubspecCheckStructureTest < Minitest::Test
   def test_pubspec_check_structure
     pubspec_check = FlutterRb::PluginPubspecCheck.new
@@ -24,6 +25,7 @@ class BasePluginPubspecCheckTest < Minitest::Test
   def load_project(path)
     path = File.expand_path("#{Dir.pwd}/#{path}")
     pubspec = FlutterRb::PubspecParser.new(path, YAML.load_file(path)).parse
+    # noinspection RubyUnusedLocalVariable
     project = FlutterRb::Project.new(path, pubspec, nil, nil)
   end
 end
@@ -76,6 +78,7 @@ class PluginPubspecAuthorCheckTest < BasePluginPubspecCheckTest
   end
 end
 
+# noinspection RubyClassModuleNamingConvention
 class PluginPubspecDescriptionCheckTest < BasePluginPubspecCheckTest
   def test_on_valid_project
     path = 'test_assets/valid_dart_project/pubspec.yaml'
@@ -148,6 +151,7 @@ class PluginPubspecHomepageCheckTest < BasePluginPubspecCheckTest
   end
 end
 
+# noinspection RubyClassModuleNamingConvention
 class PluginPubspecEffectiveDartCheckTest < BasePluginPubspecCheckTest
   def test_on_valid_project
     path = 'test_assets/valid_dart_project/pubspec.yaml'

@@ -3,6 +3,10 @@ require 'colorize'
 module FlutterRb
   # Check report
   class CheckReport
+    # @param {String} check_name
+    # @param {CheckReportStatus} check_report_status
+    # @param {String} message
+    # @param {String} path
     def initialize(
       check_name,
       check_report_status,
@@ -15,6 +19,8 @@ module FlutterRb
       @path = path
     end
 
+    # @param {Bool} colorize
+    # @return {String}
     def print(colorize: true)
       if colorize
         status_color = color_for_report_status(@check_report_status)
@@ -24,6 +30,8 @@ module FlutterRb
       end
     end
 
+    # @param {CheckReportStatus} check_report_status
+    # @return {Presenter}
     def color_for_report_status(check_report_status)
       case check_report_status
       when CheckReportStatus::NORMAL
@@ -32,6 +40,8 @@ module FlutterRb
         :yellow
       when CheckReportStatus::ERROR
         :red
+      else
+        :blue
       end
     end
 
