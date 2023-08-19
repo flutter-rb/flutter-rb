@@ -10,6 +10,10 @@ require 'yaml'
 module FlutterRb
   # Project representation
   class Project
+    # @param {String} path
+    # @param {Pubspec} pubspec
+    # @param {AndroidFolder} android_folder
+    # @param {IOSFolder} ios_folder
     def initialize(
       path,
       pubspec,
@@ -27,16 +31,19 @@ module FlutterRb
 
   # Flutter plugin project parser
   class ProjectParser
+    # @param {String} path
     def initialize(path)
       @path = path
     end
 
+    # @return {Project}
     def project
       File.exist?("#{@path}/pubspec.yaml") ? parse_project : nil
     end
 
     private
 
+    # @return {Project}
     def parse_project
       pubspec_path = "#{@path}/pubspec.yaml"
       android_path = "#{@path}/android"

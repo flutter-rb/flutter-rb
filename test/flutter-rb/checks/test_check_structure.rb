@@ -14,7 +14,7 @@ class CheckStructureTest < Minitest::Test
       check.summary
     end
     assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
-      check.check
+      check.check(nil)
     end
 
     assert_equal('No provided', check.description)

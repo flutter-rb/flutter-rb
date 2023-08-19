@@ -9,6 +9,8 @@ require_relative './checkstyle_report/checkstyle_report'
 
 module FlutterRb
   # Start FlutterRb checks
+  # @param {String} path
+  # @param {Bool} with_report
   class FlutterRb
     def start(path, with_report)
       project = ProjectParser.new(path).project
@@ -29,6 +31,9 @@ module FlutterRb
     end
 
     # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+    # @param {Project} project
+    # @param {String} path
+    # @param {Bool} with_report
     def check_project(project, path, with_report)
       config_initializer = FlutterRbConfigInitializer.new
       config_path = "#{path}/.flutter_rb.yaml"
@@ -40,26 +45,44 @@ module FlutterRb
         config.ios_checks
       )
       checks.each { |check| puts check.print }
-      errors = checks.reject { |check| check.check_report_status == CheckReportStatus::NORMAL }
+      errors = checks.reject do |check|
+        check.check_report_status == CheckReportStatus::NORMAL
+      end
       create_report(path, checks) if with_report
       exit(errors.empty? ? 0 : -1)
     end
+
     # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
-    def explore_project(
-      project,
-      flutter_checks,
-      android_checks,
-      ios_checks
-    )
+    # rubocop:disable Metrics/MethodLength
+    # @param {Project} project
+    # @param {Check[]} flutter_checks
+    # @param {Check[]} android_checks
+    # @param {Check[]} ios_checks
+    def explore_project(project, flutter_checks, android_checks, ios_checks)
       result = []
-      result += flutter_checks.map { |check| check.check(project) }
-      result += android_checks.map { |check| check.check(project) } unless project.android_folder.nil?
-      result += ios_checks.map { |check| check.check(project) } unless project.ios_folder.nil?
+      result += flutter_checks.map do |check|
+        check.check(project)
+      end
+      unless project.android_folder.nil?
+        result += android_checks.map do |check|
+          check.check(project)
+        end
+      end
+      unless project.ios_folder.nil?
+        result += ios_checks.map do |check|
+          check.check(project)
+        end
+      end
       result
     end
 
+    # rubocop:enable Metrics/MethodLength
+
     # rubocop:disable Metrics/MethodLength
+    # @param {String} path
+    # @param {Check[]} checks
+    # @return {CheckstyleReport}
     def create_report(path, checks)
       errors = checks.map do |check|
         CheckstyleReport::CheckstyleError.new(
@@ -77,8 +100,11 @@ module FlutterRb
         errors
       ).create_report
     end
+
     # rubocop:enable Metrics/MethodLength
 
+    # @param {CheckReportStatus} check_report_status
+    # @return {CheckstyleReport}
     def level_for_report(check_report_status)
       case check_report_status
       when CheckReportStatus::NORMAL

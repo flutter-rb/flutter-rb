@@ -3,6 +3,8 @@ require_relative './podspec'
 module FlutterRb
   # iOS representation
   class IOSFolder
+    # @param {String} path
+    # @param {Pubspec} pubspec
     def initialize(path, pubspec)
       @path = path
       podspec_path = "#{path}/#{pubspec.pubspec_info.name}.podspec"

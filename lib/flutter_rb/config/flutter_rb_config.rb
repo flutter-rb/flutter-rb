@@ -1,11 +1,10 @@
 module FlutterRb
   # FlutterRb configuration representation from config in Flutter plugin
   class FlutterRbConfig
-    def initialize(
-      flutter_checks,
-      android_checks,
-      ios_checks
-    )
+    # @param {Check[]} flutter_checks
+    # @param {Check[]} android_checks
+    # @param {Check[]} ios_checks
+    def initialize(flutter_checks, android_checks, ios_checks)
       @flutter_checks = flutter_checks
       @android_checks = android_checks
       @ios_checks = ios_checks

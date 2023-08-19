@@ -1,6 +1,9 @@
 module FlutterRb
   # Flutter plugin, contains platform, package and plugin class
   class PlatformPlugin
+    # @param {String} platform
+    # @param {String} package
+    # @param {String} plugin_class
     def initialize(platform, package, plugin_class)
       @platform = platform
       @package = package
