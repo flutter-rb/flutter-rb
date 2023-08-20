@@ -157,7 +157,7 @@ class PluginPubspecEffectiveDartCheckTest < BasePluginPubspecCheckTest
     path = 'test_assets/valid_dart_project/pubspec.yaml'
     project = load_project(path)
 
-    report = FlutterRb::PluginPubspecEffectiveDartCheck.new.check(project)
+    report = FlutterRb::PluginPubspecLintsCheck.new.check(project)
     assert_equal(
       FlutterRb::CheckReportStatus::NORMAL,
       report.check_report_status
@@ -168,7 +168,7 @@ class PluginPubspecEffectiveDartCheckTest < BasePluginPubspecCheckTest
     path = 'test_assets/invalid_dart_project/pubspec.yaml'
     project = load_project(path)
 
-    report = FlutterRb::PluginPubspecEffectiveDartCheck.new.check(project)
+    report = FlutterRb::PluginPubspecLintsCheck.new.check(project)
     assert_equal(
       FlutterRb::CheckReportStatus::ERROR,
       report.check_report_status

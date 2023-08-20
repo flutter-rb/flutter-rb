@@ -6,13 +6,7 @@ module FlutterRb
     # @param {String} version
     # @param {String} author
     # @param {String} homepage
-    def initialize(
-      name,
-      description,
-      version,
-      author,
-      homepage
-    )
+    def initialize(name, description, version, author, homepage)
       @name = name
       @description = description
       @version = version

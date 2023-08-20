@@ -9,12 +9,7 @@ module FlutterRb
     # @param {PubspecInfo} pubspec_info
     # @param {DevDependency[]} dev_dependencies
     # @param {PlatformPlugin[]} platform_plugins
-    def initialize(
-      path,
-      pubspec_info,
-      dev_dependencies,
-      platform_plugins
-    )
+    def initialize(path, pubspec_info, dev_dependencies, platform_plugins)
       @path = path
       @pubspec_info = pubspec_info
       @dev_dependencies = dev_dependencies
