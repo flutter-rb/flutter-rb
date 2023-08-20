@@ -1,3 +1,4 @@
+<!--suppress CheckImageSize -->
 <img src="media/logo/ic_lib.png" height="100px" alt="Project's logo">
 
 # flutter_rb
@@ -25,15 +26,16 @@ Each issue has a `level` parameter that describes its significant importance.
 
 #### Flutter
 
-| Check                             | Description                                                                                                                                                                        | Level     |
-|-----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| `PluginDirectoriesCheck`          | Check plugin directories structure in pubspec file. Example: if a Flutter plugin has only Android specific code but not contains iOS folder with description, then iOS build fails | `ERROR`   |
-| `PluginPubspecNameCheck`          | Check plugin name in pubspec file. Exists or not                                                                                                                                   | `ERROR`   |
-| `PluginPubspecDescriptionCheck`   | Check plugin description in pubspec file. Exists or not                                                                                                                            | `WARNING` |
-| `PluginPubspecVersionCheck`       | Check plugin version in pubspec. Exists or not                                                                                                                                     | `ERROR`   |
-| `PluginPubspecAuthorCheck`        | Check plugin author in pubspec. Exists or not. `author` section deprecated in `pubspec.yaml`                                                                                       | `WARNING` |
-| `PluginPubspecHomepageCheck`      | Check plugin homepage in pubspec. Exists or not                                                                                                                                    | `ERROR`   |
-| `PluginPubspecEffectiveDartCheck` | Check Flutter plugin Effective Dart depencency in pubspec file. Exists or not                                                                                                      | `ERROR`   |
+| Check                            | Description                                                                                                                                                                        | Level     |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| `PluginDirectoriesCheck`         | Check plugin directories structure in pubspec file. Example: if a Flutter plugin has only Android specific code but not contains iOS folder with description, then iOS build fails | `ERROR`   |
+| `PluginPubspecNameCheck`         | Check plugin name in pubspec file. Exists or not                                                                                                                                   | `ERROR`   |
+| `PluginPubspecDescriptionCheck`  | Check plugin description in pubspec file. Exists or not                                                                                                                            | `WARNING` |
+| `PluginPubspecVersionCheck`      | Check plugin version in pubspec. Exists or not                                                                                                                                     | `ERROR`   |
+| `PluginPubspecAuthorCheck`       | Check plugin author in pubspec. Exists or not. `author` section deprecated in `pubspec.yaml`                                                                                       | `WARNING` |
+| `PluginPubspecHomepageCheck`     | Check plugin homepage in pubspec. Exists or not                                                                                                                                    | `ERROR`   |
+| `PluginPubspecLintsCheck`        | Check Flutter plugin `lints` dependency in pubspec file. Exists or not                                                                                                             | `ERROR`   |
+| `PluginPubspecFlutterLintsCheck` | Check Flutter plugin `flutter_lints` dependency in pubspec file. Exists or not                                                                                                     | `ERROR`   |
 
 #### Android
 
