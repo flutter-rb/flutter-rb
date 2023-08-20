@@ -1,10 +1,10 @@
 name: valid_flutter_project
-description: Valid Dart project
+description: Valid Flutter project
 version: 1.0.0
 homepage: https://github.com/flutter-rb/flutter_rb/tree/master/test_assets/valid_dart_project
 
 dev_dependencies:
-  effective_dart: ^1.3.0
+  flutter_lints: ^2.0.2
   dart_enum_to_string_check: ^0.6.2
 
 flutter:

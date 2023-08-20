@@ -7,12 +7,7 @@ module FlutterRb
     # @param {CheckReportStatus} check_report_status
     # @param {String} message
     # @param {String} path
-    def initialize(
-      check_name,
-      check_report_status,
-      message,
-      path
-    )
+    def initialize(check_name, check_report_status, message, path)
       @check_name = check_name
       @check_report_status = check_report_status
       @message = message

@@ -1,0 +1,16 @@
+name: invalid_flutter_project
+description: Invalid Flutter project
+version: 1.0.0
+homepage: https://github.com/flutter-rb/flutter_rb/tree/master/test_assets/invalid_dart_project
+
+dev_dependencies:
+  dart_enum_to_string_check: ^0.6.2
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.invalidflutterproject.plugin
+        pluginClass: InvalidFlutterProjectPlugin
+      ios:
+        pluginClass: InvalidFlutterProjectPlugin

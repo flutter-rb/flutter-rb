@@ -145,34 +145,66 @@ module FlutterRb
     end
   end
 
-  # Check Flutter plugin Effective Dart dependency in pubspec file. Exists or not
-  # noinspection RubyClassModuleNamingConvention
-  class PluginPubspecEffectiveDartCheck < Check
+  # Check Flutter plugin lints dependency in pubspec file. Exists or not
+  class PluginPubspecLintsCheck < Check
     # @return {String}
     def name
-      'PluginPubspecEffectiveDartCheck'
+      'PluginPubspecLintsCheck'
     end
 
     # @return {String}
     def summary
-      'Validate Flutter plugin\'s Effective Dart rules implementation in pubspec.yaml'
+      'Validate Flutter plugin\'s lints rules implementation in pubspec.yaml'
     end
 
     # @return {String}
     def description
-      'Check Flutter plugin Effective Dart depencency in pubspec file'
+      'Check Flutter plugin lints dependency in pubspec file'
     end
 
     # @param {Project} project
     # @return {CheckReport}
     def check(project)
       pubspec = project.pubspec
-      effective_dart = pubspec.dev_dependencies&.detect do |dev_dependency|
-        dev_dependency.name == 'effective_dart'
+      lints = pubspec.dev_dependencies&.detect do |dev_dependency|
+        dev_dependency.name == 'lints'
       end
       CheckReport.new(
         name,
-        effective_dart.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
+        lints.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
+        description,
+        pubspec.path
+      )
+    end
+  end
+
+  # Check Flutter plugin flutter_lints dependency in pubspec file. Exists or not
+  class PluginPubspecFlutterLintsCheck < Check
+    # @return {String}
+    def name
+      'PluginPubspecFlutterLintsCheck'
+    end
+
+    # @return {String}
+    def summary
+      'Validate Flutter plugin\'s flutter_lints rules implementation in pubspec.yaml'
+    end
+
+    # @return {String}
+    def description
+      'Check Flutter plugin flutter_lints dependency in pubspec file'
+    end
+
+    # @param {Project} project
+    # @return {CheckReport}
+    def check(project)
+      pubspec = project.pubspec
+      flutter_lints = pubspec.dev_dependencies&.detect do |dev_dependency|
+        dev_dependency.name == 'flutter_lints'
+      end
+      CheckReport.new(
+        name,
+        flutter_lints.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
         description,
         pubspec.path
       )

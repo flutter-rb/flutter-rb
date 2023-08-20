@@ -14,12 +14,7 @@ module FlutterRb
     # @param {Pubspec} pubspec
     # @param {AndroidFolder} android_folder
     # @param {IOSFolder} ios_folder
-    def initialize(
-      path,
-      pubspec,
-      android_folder,
-      ios_folder
-    )
+    def initialize(path, pubspec, android_folder, ios_folder)
       @path = path
       @pubspec = pubspec
       @android_folder = android_folder

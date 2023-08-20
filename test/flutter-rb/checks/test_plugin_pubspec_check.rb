@@ -152,12 +152,12 @@ class PluginPubspecHomepageCheckTest < BasePluginPubspecCheckTest
 end
 
 # noinspection RubyClassModuleNamingConvention
-class PluginPubspecEffectiveDartCheckTest < BasePluginPubspecCheckTest
+class PluginPubspecLintsCheckTest < BasePluginPubspecCheckTest
   def test_on_valid_project
     path = 'test_assets/valid_dart_project/pubspec.yaml'
     project = load_project(path)
 
-    report = FlutterRb::PluginPubspecEffectiveDartCheck.new.check(project)
+    report = FlutterRb::PluginPubspecLintsCheck.new.check(project)
     assert_equal(
       FlutterRb::CheckReportStatus::NORMAL,
       report.check_report_status
@@ -168,7 +168,32 @@ class PluginPubspecEffectiveDartCheckTest < BasePluginPubspecCheckTest
     path = 'test_assets/invalid_dart_project/pubspec.yaml'
     project = load_project(path)
 
-    report = FlutterRb::PluginPubspecEffectiveDartCheck.new.check(project)
+    report = FlutterRb::PluginPubspecLintsCheck.new.check(project)
+    assert_equal(
+      FlutterRb::CheckReportStatus::ERROR,
+      report.check_report_status
+    )
+  end
+end
+
+# noinspection RubyClassModuleNamingConvention
+class PluginPubspecFlutterLintsCheckTest < BasePluginPubspecCheckTest
+  def test_on_valid_project
+    path = 'test_assets/valid_flutter_project/pubspec.yaml'
+    project = load_project(path)
+
+    report = FlutterRb::PluginPubspecFlutterLintsCheck.new.check(project)
+    assert_equal(
+      FlutterRb::CheckReportStatus::NORMAL,
+      report.check_report_status
+    )
+  end
+
+  def test_on_invalid_project
+    path = 'test_assets/invalid_flutter_project/pubspec.yaml'
+    project = load_project(path)
+
+    report = FlutterRb::PluginPubspecLintsCheck.new.check(project)
     assert_equal(
       FlutterRb::CheckReportStatus::ERROR,
       report.check_report_status

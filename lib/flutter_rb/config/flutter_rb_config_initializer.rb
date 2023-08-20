@@ -13,7 +13,8 @@ module FlutterRb
       PluginPubspecVersionCheck.new,
       PluginPubspecAuthorCheck.new,
       PluginPubspecHomepageCheck.new,
-      PluginPubspecEffectiveDartCheck.new
+      PluginPubspecLintsCheck.new,
+      PluginPubspecFlutterLintsCheck.new
     ].freeze
 
     ANDROID_CHECKS = [
@@ -31,29 +32,32 @@ module FlutterRb
     # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
     # @param {String} path
     def parse(path)
-      config = YAML.load_file(path)['include']
-      flutter_checks = []
-      unless config['flutter'].nil?
-        flutter_checks += config['flutter'].map do |check|
-          Object.const_get("FlutterRb::#{check}").new
+      config = YAML.load_file(path)
+
+      exclude_flutter_checks = []
+      exclude_android_checks = []
+      exclude_ios_checks = []
+
+      unless config.nil?
+        exclude_checks = YAML.load_file(path)['exclude']
+
+        unless exclude_checks['flutter'].nil?
+          exclude_flutter_checks += exclude_checks['flutter'].map { |check| "FlutterRb::#{check}" }.to_set
+        end
+
+        unless exclude_checks['android'].nil?
+          exclude_android_checks += exclude_checks['android'].map { |check| "FlutterRb::#{check}" }.to_set
+        end
+
+        unless exclude_checks['ios'].nil?
+          exclude_ios_checks += exclude_checks['ios'].map { |check| "FlutterRb::#{check}" }.to_set
         end
       end
-      android_checks = []
-      unless config['android'].nil?
-        android_checks += config['android'].map do |check|
-          Object.const_get("FlutterRb::#{check}").new
-        end
-      end
-      ios_checks = []
-      unless config['ios'].nil?
-        ios_checks += config['ios'].map do |check|
-          Object.const_get("FlutterRb::#{check}").new
-        end
-      end
+
       FlutterRbConfig.new(
-        flutter_checks.empty? ? FLUTTER_CHECKS : flutter_checks,
-        android_checks.empty? ? ANDROID_CHECKS : android_checks,
-        ios_checks.empty? ? IOS_CHECKS : ios_checks
+        FLUTTER_CHECKS.reject { |check| exclude_flutter_checks&.include?(check.class.name) },
+        ANDROID_CHECKS.reject { |check| exclude_android_checks&.include?(check.class.name) },
+        IOS_CHECKS.reject { |check| exclude_ios_checks&.include?(check.class.name) }
       )
     end
 
