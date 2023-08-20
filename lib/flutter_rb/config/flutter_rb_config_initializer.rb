@@ -13,7 +13,8 @@ module FlutterRb
       PluginPubspecVersionCheck.new,
       PluginPubspecAuthorCheck.new,
       PluginPubspecHomepageCheck.new,
-      PluginPubspecLintsCheck.new
+      PluginPubspecLintsCheck.new,
+      PluginPubspecFlutterLintsCheck.new
     ].freeze
 
     ANDROID_CHECKS = [
