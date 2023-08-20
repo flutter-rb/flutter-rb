@@ -21,7 +21,7 @@ jobs:
       - name: Run RuboCop checks
         run: bundle exec rake rubocop
 
-  checks:
+  tests:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
