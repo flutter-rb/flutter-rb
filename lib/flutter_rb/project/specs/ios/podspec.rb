@@ -8,13 +8,7 @@ module FlutterRb
     # @param {String} version
     # @param {String[]} authors
     # @param {String} source
-    def initialize(
-      path,
-      name,
-      version,
-      authors,
-      source
-    )
+    def initialize(path, name, version, authors, source)
       @path = path
       @name = name
       @version = version

@@ -29,8 +29,8 @@ class PubspecParserTest < Minitest::Test
     assert_equal(2, dev_dependencies.length)
 
     dev_dependency = dev_dependencies.first
-    assert_equal('effective_dart', dev_dependency.name)
-    assert_equal('^1.3.0', dev_dependency.version)
+    assert_equal('lints', dev_dependency.name)
+    assert_equal('^2.1.1', dev_dependency.version)
 
     dev_dependency = dev_dependencies.last
     assert_equal('dart_enum_to_string_check', dev_dependency.name)

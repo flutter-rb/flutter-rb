@@ -48,7 +48,7 @@ class CheckDescriptionTest < Minitest::Test
     plugin_pubspec_homepage_check = FlutterRb::PluginPubspecHomepageCheck.new
     assert plugin_pubspec_homepage_check.description != default_description
 
-    plugin_pubspec_effective_dart_check = FlutterRb::PluginPubspecEffectiveDartCheck.new
+    plugin_pubspec_effective_dart_check = FlutterRb::PluginPubspecLintsCheck.new
     assert plugin_pubspec_effective_dart_check.description != default_description
   end
 end
