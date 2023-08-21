@@ -31,6 +31,7 @@ module FlutterRb
 
     # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
     # @param {String} path
+    # @return {FlutterRbConfig}
     def parse(path)
       config = YAML.load_file(path)
 

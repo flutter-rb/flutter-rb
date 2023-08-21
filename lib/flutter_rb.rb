@@ -8,10 +8,11 @@ require_relative './flutter_rb/config/flutter_rb_config_initializer'
 require_relative './checkstyle_report/checkstyle_report'
 
 module FlutterRb
-  # Start FlutterRb checks
-  # @param {String} path
-  # @param {Bool} with_report
+  # FlutterRb entry
   class FlutterRb
+    # Start FlutterRb checks
+    # @param {String} path
+    # @param {Boolean} with_report
     def start(path, with_report)
       project = ProjectParser.new(path).project
       if project.nil?
@@ -25,6 +26,7 @@ module FlutterRb
       end
     end
 
+    # @return {Void}
     def exit_with_no_project
       puts 'No project'
       exit(-1)
