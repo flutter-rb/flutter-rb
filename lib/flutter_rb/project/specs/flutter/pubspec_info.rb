@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FlutterRb
   # Flutter plugin info from pubspec.yaml
   class PubspecInfo

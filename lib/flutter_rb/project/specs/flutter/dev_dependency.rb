@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FlutterRb
   # Dev dependency, contains name and version
   class DevDependency

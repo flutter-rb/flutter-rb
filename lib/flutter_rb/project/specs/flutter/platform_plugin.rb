@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FlutterRb
   # Flutter plugin, contains platform, package and plugin class
   class PlatformPlugin
@@ -15,7 +17,7 @@ module FlutterRb
 
   # Supported platforms for this tool
   class Platform
-    ANDROID = 'android'.freeze
-    IOS = 'ios'.freeze
+    ANDROID = 'android'
+    IOS = 'ios'
   end
 end

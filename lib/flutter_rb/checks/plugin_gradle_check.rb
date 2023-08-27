@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './check'
 require_relative '../report/check_report'
 

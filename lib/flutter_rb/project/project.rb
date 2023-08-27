@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './specs/flutter/pubspec'
 require_relative './specs/flutter/dev_dependency'
 require_relative './specs/flutter/platform_plugin'

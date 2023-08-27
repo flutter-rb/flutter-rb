@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Pod::Spec.new do |spec|
   spec.name = 'valid_flutter_project'
   spec.version = '1.0.0'

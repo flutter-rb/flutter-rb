@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module FlutterRb
   # Base class for all checks
   # Class provides default methods structure
   # All methods using for create reports
   class Check
-    UNIMPLEMENTED_ERROR = 'Error: missing method'.freeze
+    UNIMPLEMENTED_ERROR = 'Error: missing method'
 
     # @return {String}
     def name
