@@ -21,8 +21,6 @@ Style/NegatedIfElseCondition:
   Enabled: true
 Style/SwapValues:
   Enabled: true
-Style/FrozenStringLiteralComment:
-  Enabled: false
 Style/NilLambda:
   Enabled: true
 Style/RedundantArgument:

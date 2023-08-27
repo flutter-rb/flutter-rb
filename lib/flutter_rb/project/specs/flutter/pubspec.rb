@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './pubspec_info'
 require_relative './dev_dependency'
 require_relative './platform_plugin'

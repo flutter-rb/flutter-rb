@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './flutter_rb_config'
 require_relative '../checks/plugin_directories_check'
 

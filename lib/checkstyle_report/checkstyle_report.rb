@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 
 # Module with classes for creating reports in Checkstyle format
@@ -80,9 +82,9 @@ module CheckstyleReport
 
   # Checkstyle error representation
   class CheckstyleError
-    SEVERITY_NORMAL = 'normal'.freeze
-    SEVERITY_WARNING = 'warning'.freeze
-    SEVERITY_ERROR = 'error'.freeze
+    SEVERITY_NORMAL = 'normal'
+    SEVERITY_WARNING = 'warning'
+    SEVERITY_ERROR = 'error'
 
     # rubocop:disable Metrics/ParameterLists
     # @param {String} severity

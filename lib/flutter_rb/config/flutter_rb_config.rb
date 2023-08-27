@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FlutterRb
   # FlutterRb configuration representation from config in Flutter plugin
   class FlutterRbConfig

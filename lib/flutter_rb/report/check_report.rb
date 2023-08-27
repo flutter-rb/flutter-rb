@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'colorize'
 
 module FlutterRb
@@ -45,8 +47,8 @@ module FlutterRb
 
   # Check report status
   class CheckReportStatus
-    NORMAL = 'normal'.freeze
-    WARNING = 'warning'.freeze
-    ERROR = 'error'.freeze
+    NORMAL = 'normal'
+    WARNING = 'warning'
+    ERROR = 'error'
   end
 end
