@@ -37,23 +37,23 @@ module FlutterRb
     def parse(path)
       config = YAML.load_file(path)
 
-      exclude_flutter_checks = []
-      exclude_android_checks = []
-      exclude_ios_checks = []
+      exclude_flutter_checks = ::Set.new
+      exclude_android_checks = ::Set.new
+      exclude_ios_checks = ::Set.new
 
       unless config.nil?
         exclude_checks = YAML.load_file(path)['exclude']
 
         unless exclude_checks['flutter'].nil?
-          exclude_flutter_checks += exclude_checks['flutter'].map { |check| "FlutterRb::#{check}" }.to_set
+          exclude_flutter_checks += exclude_checks['flutter'].map { |check| "FlutterRb::#{check}" }
         end
 
         unless exclude_checks['android'].nil?
-          exclude_android_checks += exclude_checks['android'].map { |check| "FlutterRb::#{check}" }.to_set
+          exclude_android_checks += exclude_checks['android'].map { |check| "FlutterRb::#{check}" }
         end
 
         unless exclude_checks['ios'].nil?
-          exclude_ios_checks += exclude_checks['ios'].map { |check| "FlutterRb::#{check}" }.to_set
+          exclude_ios_checks += exclude_checks['ios'].map { |check| "FlutterRb::#{check}" }
         end
       end
 
