@@ -5,7 +5,7 @@ require 'English'
 Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.0'
   s.name = 'flutter_rb'
-  s.version = '1.1.1'
+  s.version = '1.2.0'
   s.license = 'MIT'
   s.files = Dir['lib/**/*.rb'] + %w[bin/frb README.md LICENSE]
   s.executable = 'frb'

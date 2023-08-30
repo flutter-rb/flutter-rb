@@ -2,20 +2,5 @@
 
 # frozen_string_literal: true
 
+require_relative 'cli'
 require 'flutter_rb'
-require 'colorize'
-
-def light_blue_text(text)
-  text.colorize(:light_blue)
-end
-
-if ARGV.include?('--help')
-  puts "
-    Available arguments:
-    * #{light_blue_text('--help')}: print help info
-    * #{light_blue_text('--checkstyle-report')}: generate report in Checkstyle format
-    "
-else
-  flutter_rb = FlutterRb::FlutterRb.new
-  flutter_rb.start(Dir.pwd, ARGV.include?('--checkstyle-report'))
-end
