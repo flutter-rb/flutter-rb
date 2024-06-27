@@ -34,7 +34,6 @@ module FlutterRb
       exit(-1)
     end
 
-    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     # @param {Project} project
     # @param {String} path
     # @param {Bool} with_report
@@ -56,9 +55,6 @@ module FlutterRb
       exit(errors.empty? ? 0 : -1)
     end
 
-    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
-
-    # rubocop:disable Metrics/MethodLength
     # @param {Project} project
     # @param {Check[]} flutter_checks
     # @param {Check[]} android_checks
@@ -81,9 +77,6 @@ module FlutterRb
       result
     end
 
-    # rubocop:enable Metrics/MethodLength
-
-    # rubocop:disable Metrics/MethodLength
     # @param {String} path
     # @param {Check[]} checks
     # @return {CheckstyleReport}
@@ -105,9 +98,6 @@ module FlutterRb
       ).create_report
     end
 
-    # rubocop:enable Metrics/MethodLength
-
-    # @param {CheckReportStatus} check_report_status
     # @return {CheckstyleReport}
     def level_for_report(check_report_status)
       case check_report_status

@@ -31,7 +31,6 @@ module FlutterRb
       PluginPodspecSourceCheck.new
     ].freeze
 
-    # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
     # @param {String} path
     # @return {FlutterRbConfig}
     def parse(path)
@@ -63,8 +62,6 @@ module FlutterRb
         IOS_CHECKS.reject { |check| exclude_ios_checks&.include?(check.class.name) }
       )
     end
-
-    # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
 
     # @return {FlutterRbConfig}
     def default
