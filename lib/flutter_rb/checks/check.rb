@@ -22,13 +22,10 @@ module FlutterRb
       'No provided'
     end
 
-    # rubocop:disable Lint/UnusedMethodArgument
     # @param {Project} project
     # @return {CheckReport}
     def check(project)
       raise UNIMPLEMENTED_ERROR
     end
-
-    # rubocop:enable Lint/UnusedMethodArgument
   end
 end
