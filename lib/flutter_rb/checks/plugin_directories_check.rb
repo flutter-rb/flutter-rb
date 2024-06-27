@@ -14,11 +14,6 @@ module FlutterRb
     end
 
     # @return {String}
-    def summary
-      'Validate Flutter plugin structure'
-    end
-
-    # @return {String}
     def description
       'Check plugin directories structure in pubspec file'
     end

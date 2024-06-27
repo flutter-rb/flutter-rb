@@ -12,11 +12,6 @@ module FlutterRb
     end
 
     # @return {String}
-    def summary
-      'Validate that \android\ package not exists in build.gradle config'
-    end
-
-    # @return {String}
     def description
       'Validate that \android\ package not exists in Gradle project config (build.gradle file)'
     end
@@ -40,11 +35,6 @@ module FlutterRb
     # @return {String}
     def name
       'PluginGradleVersionCheck'
-    end
-
-    # @return {String}
-    def summary
-      'Validate Flutter plugin\s version in build.gradle file'
     end
 
     # @return {String}

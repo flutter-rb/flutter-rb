@@ -13,13 +13,8 @@ module FlutterRb
     end
 
     # @return {String}
-    def summary
-      raise UNIMPLEMENTED_ERROR
-    end
-
-    # @return {String}
     def description
-      'No provided'
+      raise UNIMPLEMENTED_ERROR
     end
 
     # @param {Project} project

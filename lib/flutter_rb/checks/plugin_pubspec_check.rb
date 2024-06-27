@@ -17,7 +17,7 @@ module FlutterRb
     end
 
     # @return {String}
-    def summary
+    def description
       "Validate Flutter plugin's #{pubspec_parameter} in pubspec.yaml"
     end
   end
@@ -155,11 +155,6 @@ module FlutterRb
     end
 
     # @return {String}
-    def summary
-      'Validate Flutter plugin\'s lints rules implementation in pubspec.yaml'
-    end
-
-    # @return {String}
     def description
       'Check Flutter plugin lints dependency in pubspec file'
     end
@@ -185,11 +180,6 @@ module FlutterRb
     # @return {String}
     def name
       'PluginPubspecFlutterLintsCheck'
-    end
-
-    # @return {String}
-    def summary
-      'Validate Flutter plugin\'s flutter_lints rules implementation in pubspec.yaml'
     end
 
     # @return {String}

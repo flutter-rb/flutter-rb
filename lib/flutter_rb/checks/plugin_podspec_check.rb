@@ -13,11 +13,11 @@ module FlutterRb
 
     # @return {String}
     def podspec_parameter
-      UNIMPLEMENTED_ERROR
+      raise UNIMPLEMENTED_ERROR
     end
 
     # @return {String}
-    def summary
+    def description
       "Validate Flutter plugin's #{podspec_parameter} in podspec file"
     end
   end
