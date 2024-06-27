@@ -22,6 +22,7 @@ module CLI
 
         path = options.fetch(:path)
         report = options.fetch(:report)
+
         flutter_rb.start(
           path.empty? ? ::Dir.pwd : path,
           report == options.fetch(:report)
