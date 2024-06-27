@@ -26,7 +26,7 @@ module FlutterRb
       check_result = android_exists && ios_exists || !android_exists && !ios_exists
       CheckReport.new(
         name,
-        check_result ? CheckReportStatus::NORMAL : CheckReportStatus::ERROR,
+        check_result ? ::CheckReportStatus::NORMAL : ::CheckReportStatus::ERROR,
         description,
         project.path
       )

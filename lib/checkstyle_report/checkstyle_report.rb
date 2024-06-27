@@ -6,16 +6,21 @@ require 'nokogiri'
 module CheckstyleReport
   # Class for create report in Checkstyle format
   class CheckstyleReport
-    # @param {String} path
-    # @param {String} report_filename
-    # @param {CheckstyleError[]}
+    # Initializes a new instance of CheckstyleReport
+    #
+    # @param path [String] The path where the report file will be saved
+    # @param report_filename [String] The name of the report file
+    # @param checks [Array<CheckstyleError>] An array of CheckstyleError objects
     def initialize(path, report_filename, checks)
       @path = path
       @report_filename = report_filename
       @checks = checks
     end
 
-    # noinspection RubyResolve
+    # Creates a Checkstyle report XML file
+    #
+    # This method groups the errors by file, creates a new CheckstyleFile object for each file,
+    # and writes the report to an XML file.
     def create_report
       checkstyle_files = sort_checks(@checks)
       report = Nokogiri::XML::Builder.new do |xml|
@@ -30,8 +35,10 @@ module CheckstyleReport
       end
     end
 
-    # @param {CheckstyleError} checks
-    # @return {CheckstyleFile[]}
+    # Sorts the checks by file
+    #
+    # @param checks [Array<CheckstyleError>] An array of CheckstyleError objects
+    # @return [Hash<String, Array<CheckstyleError>>] A hash where the keys are file names and the values are arrays of CheckstyleError objects
     def sort_checks(checks)
       checkstyle_files = {}
       checks.each do |check|
@@ -42,8 +49,10 @@ module CheckstyleReport
       checkstyle_files
     end
 
-    # @param {XML} xml
-    # @param {CheckstyleFile} checkstyle_file
+    # Writes a file element to the XML report
+    #
+    # @param xml [Nokogiri::XML::Builder] The XML builder object
+    # @param checkstyle_file [CheckstyleFile] The CheckstyleFile object to be written
     def write_file(xml, checkstyle_file)
       xml.file(name: checkstyle_file.file) do
         checkstyle_file.errors.each do |error|
@@ -52,8 +61,10 @@ module CheckstyleReport
       end
     end
 
-    # @param {XML} xml
-    # @param {CheckstyleError} error
+    # Writes an error element to the XML report
+    #
+    # @param xml [Nokogiri::XML::Builder] The XML builder object
+    # @param error [CheckstyleError] The CheckstyleError object to be written
     def write_error(xml, error)
       xml.error(
         line: error.line,
