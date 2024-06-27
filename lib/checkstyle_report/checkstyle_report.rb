@@ -15,7 +15,6 @@ module CheckstyleReport
       @checks = checks
     end
 
-    # rubocop:disable Metrics/MethodLength
     # noinspection RubyResolve
     def create_report
       checkstyle_files = sort_checks(@checks)
@@ -30,8 +29,6 @@ module CheckstyleReport
         file.write(report.to_xml)
       end
     end
-
-    # rubocop:enable Metrics/MethodLength
 
     # @param {CheckstyleError} checks
     # @return {CheckstyleFile[]}
@@ -86,7 +83,6 @@ module CheckstyleReport
     SEVERITY_WARNING = 'warning'
     SEVERITY_ERROR = 'error'
 
-    # rubocop:disable Metrics/ParameterLists
     # @param {String} severity
     # @param {String} message
     # @param {String} source
@@ -108,8 +104,6 @@ module CheckstyleReport
       @column = column
       @name = name
     end
-
-    # rubocop:enable Metrics/ParameterLists
 
     attr_reader :severity, :message, :source, :line, :column, :name
   end
