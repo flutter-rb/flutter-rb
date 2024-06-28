@@ -129,6 +129,16 @@ report file name is `frb-checkstyle-report.xml`.
 
 ## How to contribute
 
+### Documentation
+
+Just run:
+
+```shell
+$ rdoc
+```
+
+### Contribution
+
 Read [Commit Convention](./COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request.
 Then:
 
