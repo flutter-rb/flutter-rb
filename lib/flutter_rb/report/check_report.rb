@@ -62,10 +62,15 @@ module FlutterRb
     attr_reader :path
   end
 
-  # Check report status
+  # Represents the status of a check report.
   class CheckReportStatus
+    # Constant representing a normal status.
     NORMAL = 'normal'
+
+    # Constant representing a warning status.
     WARNING = 'warning'
+
+    # Constant representing an error status.
     ERROR = 'error'
   end
 end

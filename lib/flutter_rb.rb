@@ -22,6 +22,7 @@ module FlutterRb
     # @param with_report [Boolean] Whether to generate a report or not
     def start(path, with_report)
       project = ProjectParser.new(path).project
+
       if project.nil?
         exit_with_no_project
       else
@@ -38,6 +39,7 @@ module FlutterRb
     # @return [Void]
     def exit_with_no_project
       puts 'No project'
+
       exit(-1)
     end
 
@@ -57,11 +59,12 @@ module FlutterRb
         config.android_checks,
         config.ios_checks
       )
+
       checks.each { |check| puts check.print }
-      errors = checks.reject do |check|
-        check.check_report_status == CheckReportStatus::NORMAL
-      end
+      errors = checks.reject { |check| check.check_report_status == CheckReportStatus::NORMAL }
+
       create_report(path, checks) if with_report
+
       exit(errors.empty? ? 0 : -1)
     end
 
@@ -74,19 +77,10 @@ module FlutterRb
     # @return [Check[]] The results of the performed checks
     def explore_project(project, flutter_checks, android_checks, ios_checks)
       result = []
-      result += flutter_checks.map do |check|
-        check.check(project)
-      end
-      unless project.android_folder.nil?
-        result += android_checks.map do |check|
-          check.check(project)
-        end
-      end
-      unless project.ios_folder.nil?
-        result += ios_checks.map do |check|
-          check.check(project)
-        end
-      end
+      result += flutter_checks.map { |check| check.check(project) }
+      result += android_checks.map { |check| check.check(project) } unless project.android_folder.nil?
+      result += ios_checks.map { |check| check.check(project) } unless project.ios_folder.nil?
+
       result
     end
 
