@@ -74,12 +74,24 @@ module CLI
       end
     end
 
+    # This class represents the author command for the CLI.
+    # It inherits from Dry::CLI::Command and provides functionality to print the author of flutter-rb.
     class Author < ::Dry::CLI::Command
+      # Description of the command.
+      # This will be displayed when the user runs `flutter-rb help author`.
       desc 'Prints the author of flutter-rb'
 
+      # The main method of the command.
+      # This method is called when the user runs `flutter-rb author`.
+      #
+      # Returns:
+      #   nil: This method does not return any value. It only prints the author's information to the console.
       def call
+        # Load the flutter-rb gemspec file to get the author's information.
+        # The gemspec file contains metadata about the gem.
         spec = Gem::Specification.load('flutter_rb.gemspec')
 
+        # Print the author's information to the console.
         puts "Authors: #{spec.authors.join(', ').strip}"
         puts "Email: #{spec.email}"
         puts "Homepage: #{spec.homepage}"
