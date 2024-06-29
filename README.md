@@ -96,12 +96,36 @@ environment. Then updated environment and run from a Flutter plugin's project fo
 $ local_frb inspect --path=./project_folder
 ```
 
-### Arguments
+### Commands
+
+#### Inspect
+
+Starts the flutter-rb.
+
+```shell
+$ frb inspect --path=./project_folder --report
+```
 
 | Argument   | Description                                                                                        |
 |------------|----------------------------------------------------------------------------------------------------|
 | `--path`   | Path to Dart/Flutter project. flutter-rb will be use current directory if this parameter are empty |
 | `--report` | Generate report in Checkstyle format                                                               |
+
+#### Version
+
+Puts using version of flutter-rb.
+
+```shell
+$ frb version
+```
+
+#### Author
+
+Puts author and our contacts.
+
+```shell
+$ frb author
+```
 
 ### Configuration
 
