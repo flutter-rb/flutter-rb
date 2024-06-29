@@ -9,7 +9,7 @@ module FlutterRb
     # Initializes a new instance of CheckReport.
     #
     # @param check_name [String] The name of the check.
-    # @param check_report_status [CheckReportStatus] The status of the check report.
+    # @param check_report_status [String] The status of the check report.
     # @param message [String] The message associated with the check report.
     # @param path [String] The path associated with the check report.
     def initialize(check_name, check_report_status, message, path)

@@ -110,7 +110,7 @@ module FlutterRb
     # Determine the severity level for a check report status
     #
     # @param check_report_status [CheckReportStatus] The status of the check report
-    # @return [CheckstyleReport] The severity level for the report
+    # @return [String] The severity level for the report
     def level_for_report(check_report_status)
       case check_report_status
       when CheckReportStatus::NORMAL
