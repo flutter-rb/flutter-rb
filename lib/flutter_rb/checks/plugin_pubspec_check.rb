@@ -44,14 +44,6 @@ module FlutterRb
       'name'
     end
 
-    # Returns the description of the check.
-    # The description explains what the check is validating.
-    #
-    # @return [String] the description of the check
-    def description
-      'Check plugin name in pubspec file'
-    end
-
     # Performs the check for the 'name' parameter in the pubspec.yaml file.
     # It creates a CheckReport object with the result of the check.
     #
@@ -78,14 +70,6 @@ module FlutterRb
     # @return [String] the parameter to be checked
     def pubspec_parameter
       'description'
-    end
-
-    # Returns the description of the check.
-    # The description explains what the check is validating.
-    #
-    # @return [String] the description of the check
-    def description
-      'Check plugin description in pubspec file'
     end
 
     # Performs the check for the 'description' parameter in the pubspec.yaml file.
@@ -116,14 +100,6 @@ module FlutterRb
       'version'
     end
 
-    # Returns the description of the check.
-    # The description explains what the check is validating.
-    #
-    # @return [String] the description of the check
-    def description
-      'Check plugin version in pubspec'
-    end
-
     # Performs the check for the 'version' parameter in the pubspec.yaml file.
     # It creates a CheckReport object with the result of the check.
     #
@@ -152,14 +128,6 @@ module FlutterRb
       'author'
     end
 
-    # Returns the description of the check.
-    # The description explains what the check is validating.
-    #
-    # @return [String] the description of the check
-    def description
-      'Check plugin author in pubspec'
-    end
-
     # Performs the check for the 'author' parameter in the pubspec.yaml file.
     # It creates a CheckReport object with the result of the check.
     #
@@ -186,14 +154,6 @@ module FlutterRb
     # @return [String] the parameter to be checked
     def pubspec_parameter
       'homepage'
-    end
-
-    # Returns the description of the check.
-    # The description explains what the check is validating.
-    #
-    # @return [String] the description of the check
-    def description
-      'Check plugin homepage in pubspec'
     end
 
     # Performs the check for the 'homepage' parameter in the pubspec.yaml file.

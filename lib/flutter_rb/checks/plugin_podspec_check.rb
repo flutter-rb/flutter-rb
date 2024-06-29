@@ -45,15 +45,6 @@ module FlutterRb
       'name'
     end
 
-    # Returns the description of the check.
-    # The description explains the purpose of the check,
-    # which is to validate the 'name' parameter in the Flutter plugin's podspec file.
-    #
-    # @return [String] the description of the check
-    def description
-      'Check plugin name in podspec file'
-    end
-
     # Performs the check for the plugin's name in the podspec file.
     # It compares the name in the pubspec file with the name in the podspec file.
     # If they match, it returns a CheckReport with a normal status.
@@ -84,15 +75,6 @@ module FlutterRb
     # @return [String] the parameter for which the check is performed
     def podspec_parameter
       'version'
-    end
-
-    # Returns the description of the check.
-    # The description explains the purpose of the check,
-    # which is to validate the 'version' parameter in the Flutter plugin's podspec file.
-    #
-    # @return [String] the description of the check
-    def description
-      'Check plugin version in podspec file'
     end
 
     # Performs the check for the plugin's version in the podspec file.
@@ -127,15 +109,6 @@ module FlutterRb
       'authors'
     end
 
-    # Returns the description of the check.
-    # The description explains the purpose of the check,
-    # which is to validate the 'authors' parameter in the Flutter plugin's podspec file.
-    #
-    # @return [String] the description of the check
-    def description
-      "Check plugin's authors in podspec file"
-    end
-
     # Performs the check for the plugin's authors in the podspec file.
     # It checks if the 'authors' parameter is present in the podspec file.
     # If it is present, it returns a CheckReport with a normal status.
@@ -165,15 +138,6 @@ module FlutterRb
     # @return [String] the parameter for which the check is performed
     def podspec_parameter
       'source'
-    end
-
-    # Returns the description of the check.
-    # The description explains the purpose of the check,
-    # which is to validate the 'source' parameter in the Flutter plugin's podspec file.
-    #
-    # @return [String] the description of the check
-    def description
-      'Check plugin iOS source path in podspec file'
     end
 
     # Performs the check for the plugin's source in the podspec file.

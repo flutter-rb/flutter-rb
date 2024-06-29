@@ -24,7 +24,7 @@ module FlutterRb
 
     # Performs the check on the given project and returns a report.
     #
-    # @param project [Project] the project to be checked
+    # @param project [Project, nil] the project to be checked
     # @return [CheckReport] the report of the check
     # @raise [RuntimeError] if the method is not implemented
     def check(project)

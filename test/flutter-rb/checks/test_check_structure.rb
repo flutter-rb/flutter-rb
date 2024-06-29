@@ -10,9 +10,11 @@ class CheckStructureTest < Minitest::Test
     assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       check.name
     end
+
     assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       check.description
     end
+
     assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       check.check(nil)
     end

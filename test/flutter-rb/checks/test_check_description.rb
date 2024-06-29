@@ -10,48 +10,47 @@ require 'yaml'
 # noinspection RubyLocalVariableNamingConvention
 class CheckDescriptionTest < Minitest::Test
   def test_check_description
-    default_description = 'No provided'
+    [
+      FlutterRb::PluginDirectoriesCheck.new,
+      FlutterRb::PluginGradleVersionCheck.new,
+      FlutterRb::PluginGradleAndroidPackageCheck.new,
+      FlutterRb::PluginPubspecLintsCheck.new,
+      FlutterRb::PluginPubspecFlutterLintsCheck.new,
+    ].each { |check| assert !check.description.nil? }
 
-    plugin_directories_check = FlutterRb::PluginDirectoriesCheck.new
-    assert plugin_directories_check.description != default_description
+    [
+      FlutterRb::PluginPodspecNameCheck.new,
+      FlutterRb::PluginPodspecVersionCheck.new,
+      FlutterRb::PluginPodspecAuthorsCheck.new,
+      FlutterRb::PluginPodspecSourceCheck.new,
+    ].each do |check|
+      assert_equal(
+        check.description,
+        "Validate Flutter plugin's #{check.podspec_parameter} in podspec file"
+      )
+    end
 
-    plugin_gradle_version_check = FlutterRb::PluginGradleVersionCheck.new
-    assert plugin_gradle_version_check.description != default_description
+    [
+      FlutterRb::PluginPubspecNameCheck.new,
+      FlutterRb::PluginPubspecDescriptionCheck.new,
+      FlutterRb::PluginPubspecVersionCheck.new,
+      FlutterRb::PluginPubspecAuthorCheck.new,
+      FlutterRb::PluginPubspecHomepageCheck.new,
+    ].each do |check|
+      assert_equal(
+        check.description,
+        "Validate Flutter plugin's #{check.pubspec_parameter} in pubspec.yaml"
+      )
+    end
 
-    plugin_gradle_android_package_check = FlutterRb::PluginGradleAndroidPackageCheck.new
-    assert plugin_gradle_android_package_check.description != default_description
+    plugin_podspec_check = FlutterRb::PluginPodspecCheck.new
+    assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
+      plugin_podspec_check.description
+    end
 
-    plugin_podspec_name_check = FlutterRb::PluginPodspecNameCheck.new
-    assert plugin_podspec_name_check.description != default_description
-
-    plugin_podspec_version_check = FlutterRb::PluginPodspecVersionCheck.new
-    assert plugin_podspec_version_check.description != default_description
-
-    plugin_podspec_author_check = FlutterRb::PluginPubspecAuthorCheck.new
-    assert plugin_podspec_author_check.description != default_description
-
-    plugin_podspec_source_check = FlutterRb::PluginPodspecSourceCheck.new
-    assert plugin_podspec_source_check.description != default_description
-
-    plugin_pubspec_name_check = FlutterRb::PluginPubspecNameCheck.new
-    assert plugin_pubspec_name_check.description != default_description
-
-    plugin_pubspec_description_check = FlutterRb::PluginPubspecDescriptionCheck.new
-    assert plugin_pubspec_description_check.description != default_description
-
-    plugin_pubspec_version_check = FlutterRb::PluginPubspecVersionCheck.new
-    assert plugin_pubspec_version_check.description != default_description
-
-    plugin_pubspec_author_check = FlutterRb::PluginPubspecAuthorCheck.new
-    assert plugin_pubspec_author_check.description != default_description
-
-    plugin_pubspec_homepage_check = FlutterRb::PluginPubspecHomepageCheck.new
-    assert plugin_pubspec_homepage_check.description != default_description
-
-    plugin_pubspec_lints_check = FlutterRb::PluginPubspecLintsCheck.new
-    assert plugin_pubspec_lints_check.description != default_description
-
-    plugin_pubspec_flutter_lints_check = FlutterRb::PluginPubspecFlutterLintsCheck.new
-    assert plugin_pubspec_flutter_lints_check.description != default_description
+    plugin_pubspec_check = FlutterRb::PluginPubspecCheck.new
+    assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
+      plugin_pubspec_check.description
+    end
   end
 end
