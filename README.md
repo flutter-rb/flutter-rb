@@ -84,7 +84,7 @@ $ gem i flutter_rb
 Then run from a Flutter plugin's project folder:
 
 ```shell
-$ frb
+$ frb inspect --path=./project_folder
 ```
 
 ### As local executable
@@ -93,7 +93,7 @@ Add `project_folder/bin` (where `project_folder` is path to project on your mach
 environment. Then updated environment and run from a Flutter plugin's project folder:
 
 ```shell
-$ local_frb
+$ local_frb inspect --path=./project_folder
 ```
 
 ### Arguments
