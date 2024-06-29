@@ -86,9 +86,9 @@ module CLI
       end
     end
 
-    register 'inspect', Inspect
-    register 'version', Version
-    register 'author', Author
+    register 'inspect', Inspect, aliases: ['i']
+    register 'version', Version, aliases: ['v']
+    register 'author', Author, aliases: ['a']
   end
 end
 
