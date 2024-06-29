@@ -49,3 +49,5 @@ if ::ARGV.empty?
 else
   ::Dry::CLI.new(::CLI::Commands).call
 end
+
+# rubocop:enable Layout/LineLength
