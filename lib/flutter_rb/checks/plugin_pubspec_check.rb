@@ -62,7 +62,7 @@ module FlutterRb
 
       CheckReport.new(
         name,
-        pubspec.pubspec_info.name.nil? ? ::CheckReportStatus::ERROR : ::CheckReportStatus::NORMAL,
+        pubspec.pubspec_info.name.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
         description,
         pubspec.path
       )
@@ -98,7 +98,7 @@ module FlutterRb
 
       CheckReport.new(
         name,
-        pubspec.pubspec_info.description.nil? ? ::CheckReportStatus::WARNING : ::CheckReportStatus::NORMAL,
+        pubspec.pubspec_info.description.nil? ? CheckReportStatus::WARNING : CheckReportStatus::NORMAL,
         description,
         pubspec.path
       )
@@ -134,7 +134,7 @@ module FlutterRb
 
       CheckReport.new(
         name,
-        pubspec.pubspec_info.version.nil? ? ::CheckReportStatus::ERROR : ::CheckReportStatus::NORMAL,
+        pubspec.pubspec_info.version.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
         description,
         pubspec.path
       )
@@ -170,7 +170,7 @@ module FlutterRb
 
       CheckReport.new(
         name,
-        pubspec.pubspec_info.author.nil? ? ::CheckReportStatus::NORMAL : ::CheckReportStatus::WARNING,
+        pubspec.pubspec_info.author.nil? ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
         description,
         pubspec.path
       )
@@ -206,7 +206,7 @@ module FlutterRb
 
       CheckReport.new(
         name,
-        pubspec.pubspec_info.homepage.nil? ? ::CheckReportStatus::ERROR : ::CheckReportStatus::NORMAL,
+        pubspec.pubspec_info.homepage.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
         description,
         pubspec.path
       )
@@ -246,7 +246,7 @@ module FlutterRb
       # Creates a CheckReport object with the result of the check
       CheckReport.new(
         name,
-        lints.nil? ? ::CheckReportStatus::ERROR : ::CheckReportStatus::NORMAL,
+        lints.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
         description,
         pubspec.path
       )
@@ -286,7 +286,7 @@ module FlutterRb
       # Creates a CheckReport object with the result of the check
       CheckReport.new(
         name,
-        flutter_lints.nil? ? ::CheckReportStatus::ERROR : ::CheckReportStatus::NORMAL,
+        flutter_lints.nil? ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
         description,
         pubspec.path
       )

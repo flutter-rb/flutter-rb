@@ -114,11 +114,11 @@ module FlutterRb
     def level_for_report(check_report_status)
       case check_report_status
       when CheckReportStatus::NORMAL
-        ::CheckstyleError::SEVERITY_NORMAL
+        CheckstyleReport::CheckstyleError::SEVERITY_NORMAL
       when CheckReportStatus::WARNING
-        ::CheckstyleError::SEVERITY_WARNING
+        CheckstyleReport::CheckstyleError::SEVERITY_WARNING
       when CheckReportStatus::ERROR
-        ::CheckstyleError::SEVERITY_ERROR
+        CheckstyleReport::CheckstyleError::SEVERITY_ERROR
       else
         throw 'Unknown CheckReportStatus'
       end

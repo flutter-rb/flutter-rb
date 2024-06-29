@@ -35,7 +35,7 @@ module FlutterRb
       # Create a new CheckReport with the result.
       CheckReport.new(
         name,
-        check_result ? ::CheckReportStatus::NORMAL : ::CheckReportStatus::ERROR,
+        check_result ? CheckReportStatus::NORMAL : CheckReportStatus::ERROR,
         description,
         project.path
       )
