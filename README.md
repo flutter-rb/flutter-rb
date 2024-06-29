@@ -98,10 +98,10 @@ $ local_frb
 
 ### Arguments
 
-| Argument              | Description                          |
-|-----------------------|--------------------------------------|
-| `--help`              | Print help info                      |
-| `--checkstyle-report` | Generate report in Checkstyle format |
+| Argument   | Description                                                                                        |
+|------------|----------------------------------------------------------------------------------------------------|
+| `--path`   | Path to Dart/Flutter project. flutter-rb will be use current directory if this parameter are empty |
+| `--report` | Generate report in Checkstyle format                                                               |
 
 ### Configuration
 

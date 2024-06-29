@@ -34,4 +34,18 @@ module CLI
   end
 end
 
-::Dry::CLI.new(::CLI::Commands).call
+# rubocop:disable Layout/LineLength
+#
+if ::ARGV.empty?
+  puts '⚠️ WARNING ⚠️'.colorize(:yellow)
+  puts '👉 You are using legacy CLI for flutter-rb. Please, visit https://github.com/flutter-rb/flutter-rb for more information.'
+  puts '👉 This message showing only for versions that allows news CLI interface.'
+  puts '👉 You will need to upgrade your build setup for new CLI because this script will be removed in future versions of flutter-rb.'
+  puts "\n"
+
+  flutter_rb = FlutterRb::FlutterRb.new
+
+  flutter_rb.start(::Dir.pwd, true)
+else
+  ::Dry::CLI.new(::CLI::Commands).call
+end
