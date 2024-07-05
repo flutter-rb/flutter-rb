@@ -98,9 +98,9 @@ module CLI
       end
     end
 
-    register 'inspect', Inspect, aliases: ['i']
-    register 'version', Version, aliases: ['v']
-    register 'author', Author, aliases: ['a']
+    register 'inspect', Inspect.new, aliases: ['i']
+    register 'version', Version.new, aliases: ['v']
+    register 'author', Author.new, aliases: ['a']
   end
 end
 
@@ -118,7 +118,7 @@ if ::ARGV.empty?
 
   flutter_rb.start(::Dir.pwd, true)
 else
-  ::Dry::CLI.new(::CLI::Commands).call
+  ::Dry::CLI.new(::Dry::CLI::Commands).call
 end
 
 # rubocop:enable Layout/LineLength
