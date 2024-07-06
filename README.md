@@ -1,5 +1,5 @@
 <!--suppress CheckImageSize -->
-<img src="media/logo/ic_lib.png" height="100px" alt="Project's logo">
+<img src="media/logo/ic_lib.jpg" height="100px" alt="Project's logo">
 
 # flutter_rb
 
