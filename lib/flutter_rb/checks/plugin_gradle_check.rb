@@ -4,63 +4,78 @@ require_relative './check'
 require_relative '../report/check_report'
 
 module FlutterRb
-  # Check 'android; import not exists in Gradle project config (build.gradle file)
+  # This class represents a check for validating that the 'android' package
+  # does not exist in the Gradle project configuration.
   class PluginGradleAndroidPackageCheck < Check
-    # @return {String}
+    # Returns the name of the check.
+    #
+    # @return [String] The name of the check.
     def name
       'PluginGradleAndroidPackageCheck'
     end
 
-    # @return {String}
-    def summary
-      'Validate that \android\ package not exists in build.gradle config'
-    end
-
-    # @return {String}
+    # Returns the description of the check.
+    #
+    # @return [String] The description of the check.
     def description
       'Validate that \android\ package not exists in Gradle project config (build.gradle file)'
     end
 
-    # @param {Project} project
-    # @return {CheckReport}
+    # Performs the check on the given project.
+    #
+    # @param project [Project] The project to perform the check on.
+    # @return [CheckReport] The report of the check result.
     def check(project)
+      # Get the Gradle configuration file.
       gradle = project.android_folder.gradle
+
+      # Check if the 'package android' line exists in the build.gradle file.
       import_exist = File.readlines("#{gradle.path}/build.gradle").grep(/package android/).size.positive?
+
+      # Create a check report based on the result.
       CheckReport.new(
         name,
-        import_exist ? CheckReportStatus::ERROR : CheckReportStatus::NORMAL,
+        import_exist ? ::CheckReportStatus::ERROR : ::CheckReportStatus::NORMAL,
         description,
         gradle.path
       )
     end
   end
 
-  # Check Flutter plugin version in Gradle project config (build.gradle file)
+  # This class represents a check for validating the version of the plugin in the Gradle project configuration.
   class PluginGradleVersionCheck < Check
-    # @return {String}
+    # Returns the name of the check.
+    #
+    # @return [String] The name of the check.
     def name
       'PluginGradleVersionCheck'
     end
 
-    # @return {String}
-    def summary
-      'Validate Flutter plugin\s version in build.gradle file'
-    end
-
-    # @return {String}
+    # Returns the description of the check.
+    #
+    # @return [String] The description of the check.
     def description
       'Check plugin version in Gradle project config (build.gradle file)'
     end
 
-    # @param {Project} project
-    # @return {CheckReport}
+    # Performs the check on the given project.
+    #
+    # @param project [Project] The project to perform the check on.
+    # @return [CheckReport] The report of the check result.
     def check(project)
+      # Get the version of the plugin from the pubspec file.
       version_in_pubspec = project.pubspec.pubspec_info.version
+
+      # Get the Gradle configuration file.
       gradle = project.android_folder.gradle
+
+      # Get the version of the plugin from the Gradle build file.
       version_in_gradle = gradle.version
+
+      # Create a check report based on the result.
       CheckReport.new(
         name,
-        version_in_pubspec == version_in_gradle ? CheckReportStatus::NORMAL : CheckReportStatus::WARNING,
+        version_in_pubspec == version_in_gradle ? ::CheckReportStatus::NORMAL : ::CheckReportStatus::WARNING,
         description,
         gradle.path
       )

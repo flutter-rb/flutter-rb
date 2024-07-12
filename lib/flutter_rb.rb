@@ -12,11 +12,17 @@ require_relative './checkstyle_report/checkstyle_report'
 module FlutterRb
   # FlutterRb entry
   class FlutterRb
+    # This class is the entry point for FlutterRb checks.
+    # It provides methods to start the checks, handle project parsing,
+    # explore project directories, create reports, and handle exit codes.
+
     # Start FlutterRb checks
-    # @param {String} path
-    # @param {Boolean} with_report
+    #
+    # @param path [String] The path to the Flutter project directory
+    # @param with_report [Boolean] Whether to generate a report or not
     def start(path, with_report)
       project = ProjectParser.new(path).project
+
       if project.nil?
         exit_with_no_project
       else
@@ -28,15 +34,21 @@ module FlutterRb
       end
     end
 
-    # @return {Void}
+    # Exit the program with a message indicating no project found
+    #
+    # @return [Void]
     def exit_with_no_project
       puts 'No project'
+
       exit(-1)
     end
 
-    # @param {Project} project
-    # @param {String} path
-    # @param {Bool} with_report
+    # Check the Flutter project
+    #
+    # @param project [Project] The parsed Flutter project
+    # @param path [String] The path to the Flutter project directory
+    # @param with_report [Boolean] Whether to generate a report or not
+    # @return [Void]
     def check_project(project, path, with_report)
       config_initializer = FlutterRbConfigInitializer.new
       config_path = "#{path}/.flutter_rb.yaml"
@@ -47,39 +59,36 @@ module FlutterRb
         config.android_checks,
         config.ios_checks
       )
+
       checks.each { |check| puts check.print }
-      errors = checks.reject do |check|
-        check.check_report_status == CheckReportStatus::NORMAL
-      end
+      errors = checks.reject { |check| check.check_report_status == CheckReportStatus::NORMAL }
+
       create_report(path, checks) if with_report
+
       exit(errors.empty? ? 0 : -1)
     end
 
-    # @param {Project} project
-    # @param {Check[]} flutter_checks
-    # @param {Check[]} android_checks
-    # @param {Check[]} ios_checks
+    # Explore the Flutter project directories and perform checks
+    #
+    # @param project [Project] The parsed Flutter project
+    # @param flutter_checks [Check[]] The checks to perform on the Flutter project
+    # @param android_checks [Check[]] The checks to perform on the Android project
+    # @param ios_checks [Check[]] The checks to perform on the iOS project
+    # @return [Check[]] The results of the performed checks
     def explore_project(project, flutter_checks, android_checks, ios_checks)
       result = []
-      result += flutter_checks.map do |check|
-        check.check(project)
-      end
-      unless project.android_folder.nil?
-        result += android_checks.map do |check|
-          check.check(project)
-        end
-      end
-      unless project.ios_folder.nil?
-        result += ios_checks.map do |check|
-          check.check(project)
-        end
-      end
+      result += flutter_checks.map { |check| check.check(project) }
+      result += android_checks.map { |check| check.check(project) } unless project.android_folder.nil?
+      result += ios_checks.map { |check| check.check(project) } unless project.ios_folder.nil?
+
       result
     end
 
-    # @param {String} path
-    # @param {Check[]} checks
-    # @return {CheckstyleReport}
+    # Create a report based on the performed checks
+    #
+    # @param path [String] The path to the Flutter project directory
+    # @param checks [Check[]] The results of the performed checks
+    # @return [CheckstyleReport] The created report
     def create_report(path, checks)
       errors = checks.map do |check|
         CheckstyleReport::CheckstyleError.new(
@@ -98,7 +107,10 @@ module FlutterRb
       ).create_report
     end
 
-    # @return {CheckstyleReport}
+    # Determine the severity level for a check report status
+    #
+    # @param check_report_status [CheckReportStatus] The status of the check report
+    # @return [String] The severity level for the report
     def level_for_report(check_report_status)
       case check_report_status
       when CheckReportStatus::NORMAL

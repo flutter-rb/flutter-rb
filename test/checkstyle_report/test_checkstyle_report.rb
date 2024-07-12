@@ -14,16 +14,16 @@ class CheckstyleReportTest < Minitest::Test
         'error',
         'Test message',
         'pubspec.yaml',
-        '1',
-        '1',
+        1,
+        1,
         'PubspecTestError'
       ),
       CheckstyleReport::CheckstyleError.new(
         'warning',
         'Test message',
         'pubspec.yaml',
-        '1',
-        '1',
+        1,
+        1,
         'PubspecTestWarning'
       ),
     ]

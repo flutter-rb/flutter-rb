@@ -1,5 +1,5 @@
 <!--suppress CheckImageSize -->
-<img src="media/logo/ic_lib.png" height="100px" alt="Project's logo">
+<img src="media/logo/ic_lib.jpg" height="100px" alt="Project's logo">
 
 # flutter_rb
 
@@ -84,7 +84,7 @@ $ gem i flutter_rb
 Then run from a Flutter plugin's project folder:
 
 ```shell
-$ frb
+$ frb inspect --path=./project_folder
 ```
 
 ### As local executable
@@ -93,15 +93,39 @@ Add `project_folder/bin` (where `project_folder` is path to project on your mach
 environment. Then updated environment and run from a Flutter plugin's project folder:
 
 ```shell
-$ local_frb
+$ local_frb inspect --path=./project_folder
 ```
 
-### Arguments
+### Commands
 
-| Argument              | Description                          |
-|-----------------------|--------------------------------------|
-| `--help`              | Print help info                      |
-| `--checkstyle-report` | Generate report in Checkstyle format |
+#### Inspect
+
+Starts the flutter-rb.
+
+```shell
+$ frb inspect --path=./project_folder --report
+```
+
+| Argument   | Description                                                                                        |
+|------------|----------------------------------------------------------------------------------------------------|
+| `--path`   | Path to Dart/Flutter project. flutter-rb will be use current directory if this parameter are empty |
+| `--report` | Generate report in Checkstyle format                                                               |
+
+#### Version
+
+Puts using version of flutter-rb.
+
+```shell
+$ frb version
+```
+
+#### Author
+
+Puts author and our contacts.
+
+```shell
+$ frb author
+```
 
 ### Configuration
 
@@ -128,6 +152,16 @@ Tool can make report in Checkstyle format. To enable this feature, pass `--check
 report file name is `frb-checkstyle-report.xml`.
 
 ## How to contribute
+
+### Documentation
+
+Just run:
+
+```shell
+$ rdoc
+```
+
+### Contribution
 
 Read [Commit Convention](./COMMIT_CONVENTION.md). Make sure your build is green before you contribute your pull request.
 Then:

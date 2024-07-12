@@ -15,6 +15,7 @@ class PluginPubspecCheckStructureTest < Minitest::Test
     assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       pubspec_check.pubspec_parameter
     end
+
     assert_raises FlutterRb::Check::UNIMPLEMENTED_ERROR do
       pubspec_check.summary
     end

@@ -1,15 +1,25 @@
 # frozen_string_literal: true
 
 module FlutterRb
-  # Dev dependency, contains name and version
+  # Represents a development dependency in a Flutter project.
   class DevDependency
-    # @param {String} name
-    # @param {String} version
+    # Initializes a new instance of DevDependency.
+    #
+    # @param name [String] The name of the development dependency.
+    # @param version [String] The version of the development dependency.
     def initialize(name, version)
       @name = name
       @version = version
     end
 
-    attr_reader :name, :version
+    # Returns the name of the development dependency.
+    #
+    # @return [String] The name of the development dependency.
+    attr_reader :name
+
+    # Returns the version of the development dependency.
+    #
+    # @return [String] The version of the development dependency.
+    attr_reader :version
   end
 end

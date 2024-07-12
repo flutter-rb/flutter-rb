@@ -1,29 +1,32 @@
 # frozen_string_literal: true
 
 module FlutterRb
-  # Base class for all checks
-  # Class provides default methods structure
-  # All methods using for create reports
+  # A class representing a check to be performed on a project.
   class Check
+    # Error message to be raised when a method is not implemented.
     UNIMPLEMENTED_ERROR = 'Error: missing method'
 
-    # @return {String}
+    # Returns the name of the check.
+    #
+    # @return [String] the name of the check
+    # @raise [RuntimeError] if the method is not implemented
     def name
       raise UNIMPLEMENTED_ERROR
     end
 
-    # @return {String}
-    def summary
+    # Returns a description of the check.
+    #
+    # @return [String] a description of the check
+    # @raise [RuntimeError] if the method is not implemented
+    def description
       raise UNIMPLEMENTED_ERROR
     end
 
-    # @return {String}
-    def description
-      'No provided'
-    end
-
-    # @param {Project} project
-    # @return {CheckReport}
+    # Performs the check on the given project and returns a report.
+    #
+    # @param project [Project, nil] the project to be checked
+    # @return [CheckReport] the report of the check
+    # @raise [RuntimeError] if the method is not implemented
     def check(project)
       raise UNIMPLEMENTED_ERROR
     end

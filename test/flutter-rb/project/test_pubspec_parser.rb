@@ -29,12 +29,12 @@ class PubspecParserTest < Minitest::Test
     assert_equal(2, dev_dependencies.length)
 
     dev_dependency = dev_dependencies.first
-    assert_equal('lints', dev_dependency.name)
-    assert_equal('^2.1.1', dev_dependency.version)
+    assert_equal('lints', dev_dependency&.name)
+    assert_equal('^2.1.1', dev_dependency&.version)
 
     dev_dependency = dev_dependencies.last
-    assert_equal('dart_enum_to_string_check', dev_dependency.name)
-    assert_equal('^0.6.2', dev_dependency.version)
+    assert_equal('dart_enum_to_string_check', dev_dependency&.name)
+    assert_equal('^0.6.2', dev_dependency&.version)
 
     assert_nil(pubspec.platform_plugins)
   end
@@ -63,12 +63,12 @@ class PubspecParserTest < Minitest::Test
     assert_equal(2, dev_dependencies.length)
 
     dev_dependency = dev_dependencies.first
-    assert_equal('flutter_lints', dev_dependency.name)
-    assert_equal('^2.0.2', dev_dependency.version)
+    assert_equal('flutter_lints', dev_dependency&.name)
+    assert_equal('^2.0.2', dev_dependency&.version)
 
     dev_dependency = dev_dependencies.last
-    assert_equal('dart_enum_to_string_check', dev_dependency.name)
-    assert_equal('^0.6.2', dev_dependency.version)
+    assert_equal('dart_enum_to_string_check', dev_dependency&.name)
+    assert_equal('^0.6.2', dev_dependency&.version)
 
     assert(!pubspec.platform_plugins.nil?)
   end

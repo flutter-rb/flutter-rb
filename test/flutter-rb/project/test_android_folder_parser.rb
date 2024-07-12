@@ -14,5 +14,12 @@ class AndroidFolderParserTest < Minitest::Test
     assert !gradle_config.nil?
     assert_equal('1.0.0', gradle_config.version)
   end
+
+  def test_invalid_folder_parser
+    assert_raises RuntimeError do
+      android_folder_path = "#{Dir.pwd}/test_assets/valid_flutter_project/android_2"
+      FlutterRb::AndroidFolder.new(android_folder_path)
+    end
+  end
 end
 

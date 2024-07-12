@@ -4,11 +4,14 @@ require 'colorize'
 
 module FlutterRb
   # Check report
+  # Represents a report for a specific check.
   class CheckReport
-    # @param {String} check_name
-    # @param {CheckReportStatus} check_report_status
-    # @param {String} message
-    # @param {String} path
+    # Initializes a new instance of CheckReport.
+    #
+    # @param check_name [String] The name of the check.
+    # @param check_report_status [String] The status of the check report.
+    # @param message [String] The message associated with the check report.
+    # @param path [String] The path associated with the check report.
     def initialize(check_name, check_report_status, message, path)
       @check_name = check_name
       @check_report_status = check_report_status
@@ -16,8 +19,10 @@ module FlutterRb
       @path = path
     end
 
-    # @param {Bool} colorize
-    # @return {String}
+    # Prints the check report.
+    #
+    # @param colorize [Bool] Whether to colorize the output or not. Default is true.
+    # @return [String] The formatted check report.
     def print(colorize: true)
       if colorize
         status_color = color_for_report_status(@check_report_status)
@@ -27,8 +32,10 @@ module FlutterRb
       end
     end
 
-    # @param {CheckReportStatus} check_report_status
-    # @return {Presenter}
+    # Determines the color for the check report status.
+    #
+    # @param check_report_status [CheckReportStatus] The status of the check report.
+    # @return [Symbol] The color associated with the check report status.
     def color_for_report_status(check_report_status)
       case check_report_status
       when CheckReportStatus::NORMAL
@@ -42,13 +49,28 @@ module FlutterRb
       end
     end
 
-    attr_reader :check_name, :check_report_status, :message, :path
+    # Reader for check_name attribute.
+    attr_reader :check_name
+
+    # Reader for check_report_status attribute.
+    attr_reader :check_report_status
+
+    # Reader for message attribute.
+    attr_reader :message
+
+    # Reader for path attribute.
+    attr_reader :path
   end
 
-  # Check report status
+  # Represents the status of a check report.
   class CheckReportStatus
+    # Constant representing a normal status.
     NORMAL = 'normal'
+
+    # Constant representing a warning status.
     WARNING = 'warning'
+
+    # Constant representing an error status.
     ERROR = 'error'
   end
 end

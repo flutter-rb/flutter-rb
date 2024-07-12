@@ -2,6 +2,7 @@ AllCops:
   DisplayCopNames: true
   TargetRubyVersion: 3.0
   SuggestExtensions: false
+  NewCops: disable
   Exclude:
     - 'test/**/test_*.rb'
 

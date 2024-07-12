@@ -6,8 +6,9 @@ require_relative '../checks/plugin_directories_check'
 require 'yaml'
 
 module FlutterRb
-  # Class that initialize configuration
+  # This class is responsible for initializing a FlutterRbConfig object.
   class FlutterRbConfigInitializer
+    # An array of Flutter checks to be performed.
     FLUTTER_CHECKS = [
       PluginDirectoriesCheck.new,
       PluginPubspecNameCheck.new,
@@ -19,11 +20,13 @@ module FlutterRb
       PluginPubspecFlutterLintsCheck.new
     ].freeze
 
+    # An array of Android checks to be performed.
     ANDROID_CHECKS = [
       PluginGradleAndroidPackageCheck.new,
       PluginGradleVersionCheck.new
     ].freeze
 
+    # An array of iOS checks to be performed.
     IOS_CHECKS = [
       PluginPodspecNameCheck.new,
       PluginPodspecVersionCheck.new,
@@ -31,8 +34,10 @@ module FlutterRb
       PluginPodspecSourceCheck.new
     ].freeze
 
-    # @param {String} path
-    # @return {FlutterRbConfig}
+    # Parses a YAML configuration file and initializes a FlutterRbConfig object.
+    #
+    # @param path [String] The path to the YAML configuration file.
+    # @return [FlutterRbConfig] A FlutterRbConfig object initialized with the parsed configuration.
     def parse(path)
       config = YAML.load_file(path)
 
@@ -63,7 +68,9 @@ module FlutterRb
       )
     end
 
-    # @return {FlutterRbConfig}
+    # Initializes a FlutterRbConfig object with the default checks.
+    #
+    # @return [FlutterRbConfig] A FlutterRbConfig object initialized with the default checks.
     def default
       FlutterRbConfig.new(
         FLUTTER_CHECKS,
