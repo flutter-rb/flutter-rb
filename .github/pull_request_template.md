@@ -7,15 +7,15 @@
 
 ### Logic
 
-- [ ] I am tested basic app functionality.
+- [ ] I am tested basic app functionality
 
 ### Changes
 
 Describe all changes here:
 
-- First;
-- Second;
-- Third;
+- First
+- Second
+- Third
 - ...
 
 ## Comments
