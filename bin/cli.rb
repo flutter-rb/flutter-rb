@@ -2,6 +2,7 @@
 
 require 'dry/cli'
 require 'rubygems'
+require 'yaml'
 
 module CLI
   # Module for all CLI commands.
@@ -118,7 +119,7 @@ if ::ARGV.empty?
 
   flutter_rb.start(::Dir.pwd, true)
 else
-  ::Dry::CLI.new(::Dry::CLI::Commands).call
+  ::Dry::CLI.new(::CLI::Commands).call
 end
 
 # rubocop:enable Layout/LineLength
