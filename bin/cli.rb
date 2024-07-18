@@ -99,12 +99,24 @@ module CLI
       end
     end
 
+    # This class represents the config command for the CLI.
+    # It inherits from Dry::CLI::Command and provides functionality to create a configuration file.
     class Config < ::Dry::CLI::Command
+      # Description of the command.
+      # This will be displayed when the user runs `flutter-rb help config`.
       desc 'Creates a config file'
 
+      # The main method of the command.
+      # This method is called when the user runs `flutter-rb config`.
+      #
+      # Returns:
+      #   nil: This method does not return any value. It only creates a configuration file.
       def call
+        # Write an empty string to a file named '.flutter-rb.yaml' in the current directory.
+        # This will create a new configuration file.
         File.write('.flutter-rb.yaml', '')
 
+        # Print a success message to the console.
         puts 'Config file created!'
       end
     end
