@@ -99,9 +99,20 @@ module CLI
       end
     end
 
+    class Config < ::Dry::CLI::Command
+      desc 'Creates a config file'
+
+      def call
+        File.write('.flutter-rb.yaml', '')
+
+        puts 'Config file created!'
+      end
+    end
+
     register 'inspect', Inspect.new, aliases: ['i']
     register 'version', Version.new, aliases: ['v']
     register 'author', Author.new, aliases: ['a']
+    register 'config', Config.new, aliases: ['c']
   end
 end
 
