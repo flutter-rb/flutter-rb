@@ -2,7 +2,7 @@
 
 # flutter_rb
 
-[![GitHubActions](https://github.com/flutter-rb/flutter-rb/workflows/Build/badge.svg)](https://github.com/flutter-rb/flutter-rb/actions?branch=master)
+[![GitHubActions](https://github.com/flutter-rb/flutter-rb/workflows/Checks/badge.svg)](https://github.com/flutter-rb/flutter-rb/actions?branch=master)
 [![Codebeat](https://codebeat.co/badges/9bb32e28-ca86-4cdc-ba66-bda7f989979a)](https://codebeat.co/projects/github-com-flutter-rb-flutter-rb-master)
 [![Gem Version](https://badge.fury.io/rb/flutter_rb.svg)](https://badge.fury.io/rb/flutter_rb)
 [![Gem Downloads](https://img.shields.io/gem/dt/flutter_rb)](https://badge.fury.io/rb/flutter_rb)
