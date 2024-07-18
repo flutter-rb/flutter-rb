@@ -133,15 +133,15 @@ Add `.flutter_rb.yaml` to root of a project for select checks that you are want 
 ```yaml
 exclude:
   flutter:
-    - check1
-    - check2
-    - check3
+    - PluginDirectoriesCheck
+    - PluginPubspecNameCheck
+    - PluginPubspecDescriptionCheck
   android:
-    - check1
-    - check2
+    - PluginGradleAndroidPackageCheck
   ios:
-    - check1
-    - check2
+    - PluginPodspecNameCheck
+    - PluginPodspecVersionCheck
+    - PluginPodspecAuthorsCheck
 
 ```
 
