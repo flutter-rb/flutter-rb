@@ -35,8 +35,12 @@ jobs:
         with:
           distribution: 'liberica'
           java-version: '8'
-      - name: Install Gradle
-        run: wget https://services.gradle.org/distributions/gradle-7.0-bin.zip -O /opt/gradle.zip && unzip /opt/gradle.zip && export PATH=$PATH:/opt/gradle/gradle-7.0/bin
+      - name: Download Gradle
+        run: wget https://services.gradle.org/distributions/gradle-7.0-bin.zip -O /opt/gradle.zip
+      - name: Unzip Gradle
+        run: unzip /opt/gradle.zip && export PATH=$PATH:/opt/gradle/gradle-7.0/bin
+      - name: Add Gradle to PATH
+        run: PATH=$PATH:/opt/gradle/gradle-7.0/bin
       - name: Install dependencies
         run: bundle install
       - name: Run tests
